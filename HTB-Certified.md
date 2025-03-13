@@ -11,8 +11,8 @@
 
 - Familiarize myself with enumerating AD networks using Bloodhound
 - Abuse Active Directory DACLs 
-- Successfully execute a shadow credential attack
-- Enumerate vulnerable certificate templates and exploit a ESC9 template misconfiguration
+- Successfully execute a shadow credential attack via Pywhisker
+- Enumerate vulnerable certificate templates and exploit a ESC9 template misconfiguration using Certipy
 
 
 ## **Disclaimer: Potential spoilers below**
