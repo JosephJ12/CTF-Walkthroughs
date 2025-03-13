@@ -10,10 +10,9 @@
 ## Key Learnings
 
 - Familiarize myself with enumerating AD networks using Bloodhound
-- Abuse GenericAll and ForceChangePassword privileges to change user passwords using *net rpc*
-- Exploit GenericWrite privileges by running a targeted kerberoasting attack on vulnerable account
-- Abuse DCSync privs to dump SAM and LSA hashes and compromise the Domain Controller by passing the hash
-- Use Hashcat to crack .psafe3 file
+- Abuse Active Directory DACLs 
+- Successfully execute a shadow credential attack
+- Enumerate vulnerable certificate templates and exploit a ESC9 template misconfiguration
 
 
 ## **Disclaimer: Potential spoilers below**
