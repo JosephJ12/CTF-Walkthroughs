@@ -8,7 +8,7 @@
 
 
 ## Table of Contents
-- [Key Learnings](key-learnings)
+- [Key Learnings](#key-learnings)
 
 
 ## Key Learnings
