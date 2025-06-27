@@ -9,6 +9,8 @@
 
 ## Table of Contents
 - [Key Learnings](#key-learnings)
+- [Walkthrough](#walkthrough)
+- [Remediation Summary](#remediation-summary)
 
 
 ## Key Learnings
@@ -97,3 +99,7 @@
 ![image](https://github.com/user-attachments/assets/27ddb48f-62ec-49d8-9ba0-a104cd4df325)
 
 18. gives us admin shell and rooted!
+
+
+## Remediation Summary
+- 
