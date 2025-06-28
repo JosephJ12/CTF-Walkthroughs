@@ -38,6 +38,9 @@
 
 4. We crack the hash using hashcat and we get Alfred's password: basketball
 `hashcat -m 13100 hash.txt /usr/share/wordlist/rockyou.txt`
+![image](https://github.com/user-attachments/assets/60b15e59-d3fe-4e3a-b44e-e668b79b5e84)
+
+5. 
 
 
 
