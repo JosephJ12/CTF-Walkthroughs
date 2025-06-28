@@ -63,4 +63,7 @@
 11. John can PSRemote into the machine, so with evil-winrm we gain access to the box and get the user flag!
 
 12. From here, John has GenericAll privileges on the Certificate Services, ADCS, so give John FullControl of ADCS.
+![image](https://github.com/user-attachments/assets/b35acffb-19d6-4dcc-9fc6-a9ca3e13c40b)
+
+
 
