@@ -77,5 +77,12 @@
 13. Using Powershell, we look for all users in the ADCS group, but returns none.
 `Get-ADUser -Filter * -SearchBase "OU=ADCS,DC=TOMBWATCHER,DC=HTB"`
 
+![image](https://github.com/user-attachments/assets/8eff94bc-94ec-48aa-8b0a-1fe221ba5ae6)
 
+14. After considering the title of the box, TombWatcher, we look for deleted objects.
+`Get-ADObject -Filter 'ObjectClass -eq "user" -and IsDeleted -eq $True' -IncludeDeletedObjects`
+
+![image](https://github.com/user-attachments/assets/83112f89-da07-42af-ac6f-1d9b82f5faf5)
+
+15. 
 
