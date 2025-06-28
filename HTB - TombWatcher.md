@@ -134,6 +134,7 @@
 ![image](https://github.com/user-attachments/assets/3688c466-0203-457f-841d-c225bc93a605)
 
 22. Get root flag and pwned!
+
 ![image](https://github.com/user-attachments/assets/a0bf96da-888e-4e30-a317-ba3ddc7eb813)
 
 
