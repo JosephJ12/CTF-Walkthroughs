@@ -74,5 +74,8 @@
 
 ![image](https://github.com/user-attachments/assets/b35acffb-19d6-4dcc-9fc6-a9ca3e13c40b)
 
-13. 
+13. Using Powershell, we look for all users in the ADCS group, but returns none.
+`Get-ADUser -Filter * -SearchBase "OU=ADCS,DC=TOMBWATCHER,DC=HTB"`
+
+
 
