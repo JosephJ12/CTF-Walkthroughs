@@ -84,5 +84,12 @@
 
 ![image](https://github.com/user-attachments/assets/83112f89-da07-42af-ac6f-1d9b82f5faf5)
 
-15. 
+15. Shows the cert_admin user has been deleted. Let's try to restore the account and enable it again using PowerShell
+`Restore-ADObject -Identity 'f80369c8-96a2-4a7f-a56c-9c15edd7d1e3'`
+
+16. Check cert_admin account is restored
+`Get-ADUser -Filter * -SearchBase "OU=ADCS,DC=TOMBWATCHER,DC=HTB"`
+
+
+
 
