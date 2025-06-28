@@ -90,6 +90,8 @@
 16. Check cert_admin account is restored
 `Get-ADUser -Filter * -SearchBase "OU=ADCS,DC=TOMBWATCHER,DC=HTB"`
 
+![image](https://github.com/user-attachments/assets/6a82727a-bf1b-4bcc-9990-d8539361fcef)
 
+17. 
 
 
