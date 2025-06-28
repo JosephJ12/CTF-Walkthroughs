@@ -98,6 +98,8 @@
 18. With cert_admin's account, we naturally enumerate for vulnerable certificate templates with certipy. Certipy returns a WebServer template that's vulnerable to ESC15
 `certipy find -u cert_admin -p Summer2025 -dc-ip 10.129.47.78 -enabled -vulnerable`
 
+![image](https://github.com/user-attachments/assets/e0ae6706-66dc-4b5b-96af-89790ca715c9)
 
+19. 
 
 
