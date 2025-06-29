@@ -29,3 +29,7 @@
 
 1. Run nmap scan
 
+![image](https://github.com/user-attachments/assets/483ca663-e7d2-4944-b26e-5564e6d92d2d)
+
+2. Run bloodhound using given credentials `rr.parker:8#t5HE8L!W3A`
+
