@@ -140,6 +140,8 @@
 
 
 ## Remediation Summary
-- 
+- Follow principle of Least Privilege. Do not give any users more privileges than necessary.
+- Do not use default V1 certificate templates, as they are often misconfigured and vulnerable to privilege escalation attacks.
+- If default templates must be used, the next best step would be to edit the Enrollment Rights for vulnerable templates to only allow privileged groups, which will significantly decrease the number of accounts that can exploit this vulnerability.
 
 
