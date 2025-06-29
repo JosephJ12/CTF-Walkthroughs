@@ -16,10 +16,11 @@
 ## Key Learnings
 
 - Familiarize myself with enumerating AD networks using Bloodhound
-- Abuse GenericAll and ForceChangePassword privileges to change user passwords using *net rpc*
-- Exploit GenericWrite privileges by running a targeted kerberoasting attack on vulnerable account
-- Abuse DCSync privs to dump SAM and LSA hashes and compromise the Domain Controller by passing the hash
-- Use Hashcat to crack .psafe3 file
+- Learn to abuse WriteOwner privilege using Impacket's owneredit.py script
+- Give an account FullControl using Impacket's dacledit.py tool
+- Enumerate and restore deleted user accounts on PowerShell
+- Exploit ESC15 vulnerable template
+- Add user to Domain Admin group with an LDAP shell
 
 
 ## **Disclaimer: Potential spoilers below**
