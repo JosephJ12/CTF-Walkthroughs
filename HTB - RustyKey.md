@@ -33,3 +33,10 @@
 
 2. Run bloodhound using given credentials `rr.parker:8#t5HE8L!W3A`
 
+![image](https://github.com/user-attachments/assets/3874dc11-7171-4dd9-9f61-b3472efb00f8)
+
+3. We get an error with LDAP saying it can't find dc.rustykey.htb so add that to `/etc/hosts` file and try again.
+
+`sudo bloodhound-python -d rustykey.htb -u rr.parker -p "8#t5HE8L\!W3A" -ns 10.129.63.201 -c all`
+
+4. 
