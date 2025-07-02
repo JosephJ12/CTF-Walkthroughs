@@ -59,4 +59,29 @@
 
 8. Crack offline with hashcat
 
+`hashcat -m 13100 hash.txt /usr/share/wordlists/rockyou.txt`
+
+9. Hash doesn't crack, so we try kerberoasting with a different method. First, enumerate all usernames with ldapsearch
+
+``
+
+![image](https://github.com/user-attachments/assets/2f6787e2-1765-4f50-b0d9-c30819116bb2)
+
+10. Then try kerberoasting using impacket's GetUserSPNs.py script using the `-usersfile` flag
+
+``
+
+![image](https://github.com/user-attachments/assets/dd7e5e13-5d06-4055-b210-bd046e3d64da)
+
+11. Kerberoasting is a success and we get back 17 hashes. Try cracking them offline once more using hashcat
+
+`hashcat -m 13100 kerberoast.txt /usr/share/wordlists/rockyou.txt`
+
+![image](https://github.com/user-attachments/assets/f791b6a7-ae86-412b-a5ed-ea7dbfe78616)
+
+12. Got the password for machine account IT-Computer3$.
+
+
+
+
 
