@@ -49,8 +49,14 @@
 
 ![image](https://github.com/user-attachments/assets/f06dbd5b-a301-42a9-9034-1a996a147349)
 
-6. Running it again with the debug flag this time, we see that by default, nxc searches only for computers. We change the filter to look for users instead and we get the krbtgt hash!
+6. Running it again with the debug flag this time, we see that by default, nxc searches only for computers. We change the filter to look for users instead and try again.
 
 ![image](https://github.com/user-attachments/assets/1bca6dc5-6fa5-4fc6-aa8b-afbfba610c98)
+
+7. Kerberoasting successful! We got a hash
+
+![image](https://github.com/user-attachments/assets/e4d8528d-03cd-468e-bbde-3ae0a0f6c1df)
+
+8. Crack offline with hashcat
 
 
