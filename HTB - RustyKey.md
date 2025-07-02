@@ -79,7 +79,13 @@
 
 ![image](https://github.com/user-attachments/assets/f791b6a7-ae86-412b-a5ed-ea7dbfe78616)
 
-12. Got the password for machine account IT-Computer3$.
+12. Got the password for machine account IT-Computer3$. Now, check bloodhound and see if there's a path to the machine with this account
+
+![image](https://github.com/user-attachments/assets/61ed86ed-c04a-4ecc-8e1d-e017673e08d4)
+
+13. Yes, there is! So our game plan now will be to add the IT-Computer3$ account to the Helpdesk group, which can change BB.Morgan's password. This will give us access to the DC.Rustykey.htb machine!
+
+14. 
 
 
 
