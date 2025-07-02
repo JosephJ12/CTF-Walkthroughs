@@ -49,5 +49,8 @@
 
 ![image](https://github.com/user-attachments/assets/f06dbd5b-a301-42a9-9034-1a996a147349)
 
-6. 
+6. Running it again with the debug flag this time, we see that by default, nxc searches only for computers. We change the filter to look for users instead and we get the krbtgt hash!
+
+![image](https://github.com/user-attachments/assets/1bca6dc5-6fa5-4fc6-aa8b-afbfba610c98)
+
 
