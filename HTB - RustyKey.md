@@ -39,4 +39,15 @@
 
 `sudo bloodhound-python -d rustykey.htb -u rr.parker -p "8#t5HE8L\!W3A" -ns 10.129.63.201 -c all`
 
-4. 
+4. With bloodhound, we find the path to user is through nn.marcos user
+
+![image](https://github.com/user-attachments/assets/22162d58-fed1-421d-a1e1-36a639eef6ba)
+
+5. However, with rr.parker, there is no way to nn.marcos. After much enumeration and dead ends, we try kerberoasting to gain initial access. But we get no results for it
+
+``
+
+![image](https://github.com/user-attachments/assets/f06dbd5b-a301-42a9-9034-1a996a147349)
+
+6. 
+
