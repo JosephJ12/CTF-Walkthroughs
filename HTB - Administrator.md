@@ -102,4 +102,5 @@
 
 
 ## Remediation Summary
-- 
+- Follow Principle of Least Privilege. Users should only have the required permissions to do their job only.
+- Enforce a strong password policy. This helps prevent common Active Directory attacks such as password spraying and kerberoasting.
