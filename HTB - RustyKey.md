@@ -115,3 +115,7 @@
 ![image](https://github.com/user-attachments/assets/0ed173f0-11b7-4263-8835-ce7e7280b36c)
 
 
+## Remediation Summary
+- Follow Principle of Least Privilege! Users (even machine accounts) should not have more permissions than necessary
+- Use strong, hard to guess passwords. For machine accounts, it's best to use the default AD configuration and have it set a strong password upon creation. If machine accounts must be manually created, make sure to adhere to strong password policy.
+
