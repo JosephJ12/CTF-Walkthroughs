@@ -7,6 +7,12 @@
 **Diffculty: Medium**
 
 
+## Table of Contents
+- [Key Learnings](#key-learnings)
+- [Walkthrough](#walkthrough)
+- [Remediation Summary](#remediation-summary)
+
+
 ## Key Learnings
 
 - Familiarize myself with enumerating AD networks using Bloodhound
@@ -116,7 +122,8 @@ Success!
 ![image](https://github.com/user-attachments/assets/c4549cc0-4fe6-427a-a6a7-cc077521e35d)
 
 
-
+## Remediation Summary
+- 
 
 
 
