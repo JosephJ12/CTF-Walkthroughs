@@ -91,10 +91,24 @@
 
 ![image](https://github.com/user-attachments/assets/bc7eb631-1379-4863-89ff-9d9dc105ffdf)
 
-15. Tried changing bb.morgan's password and log in but can't because bb.morgan is part of the Protected Objects group. After looking at Bloodhound again, Helpdesk group has AddMember rights on Protected Objects so remove bb.morgan from the group and try again.
+15. Tried changing bb.morgan's password and log in but can't because bb.morgan is part of the Protected Objects group. After looking at Bloodhound again, Helpdesk group has AddMember rights on Protected Objects so remove IT group from the protected group first.
 
-![image](https://github.com/user-attachments/assets/de662109-fb0e-423b-9af9-2274fdbb545b)
+![image](https://github.com/user-attachments/assets/75bb0296-adce-4b05-bcb0-ee58d7393b6f)
 
-16. 
+16. Now change bb.morgan's password using IT-Computer3$'s creds
+
+``
+
+17. Changed! Now we can request a Ticket Granting Ticket with bb.morgan's credentials using impacket's getTGT.py script
+
+``
+
+18. Finally, add the path to the ticket to the KRB5CCNAME environment variable and log into the machine using evil-winrm with kerberos authentication
+
+``
+
+19. Got the user flag!!!
+
+![image](https://github.com/user-attachments/assets/0ed173f0-11b7-4263-8835-ce7e7280b36c)
 
 
