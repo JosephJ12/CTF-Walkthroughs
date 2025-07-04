@@ -107,7 +107,7 @@
 
 18. Finally, add the path to the ticket to the KRB5CCNAME environment variable and log into the machine using evil-winrm with kerberos authentication
 
-`evil-winrm -i dc.rustykey.htb -u bb.morgan -p Password123 -r rustykey.htb`
+`evil-winrm -i dc.rustykey.htb -r rustykey.htb`
 
 19. Got the user flag!!!
 
