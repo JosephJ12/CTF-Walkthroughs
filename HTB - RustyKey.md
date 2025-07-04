@@ -20,6 +20,7 @@
 - Learned that Netexec by default filters out machine accounts when kerberoasting because machine accounts normally have very strong passwords set by default. However, this is not always the case like here, and is kerberoastable/crackable.
 - Found what security implementations the Protected Users group has by default (Stronger AES encryption on TGTs, disabling NTLM hash and caching credentials, TGTs expire in 4 hours, etc.)
 - Learned that having AddMember privileges can also mean having RemoveMember rights. Also learned that one can remove not only users from groups, but groups from groups using bloodyAD
+- Became familiar with using tools that don't rely on SMB and use Kerberos authentication
 
 
 ## **Disclaimer: Potential spoilers below**
