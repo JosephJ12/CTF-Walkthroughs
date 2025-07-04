@@ -16,10 +16,10 @@
 ## Key Learnings
 
 - Familiarize myself with enumerating AD networks using Bloodhound
-- Abuse GenericAll and ForceChangePassword privileges to change user passwords using *net rpc*
-- Exploit GenericWrite privileges by running a targeted kerberoasting attack on vulnerable account
-- Abuse DCSync privs to dump SAM and LSA hashes and compromise the Domain Controller by passing the hash
-- Use Hashcat to crack .psafe3 file
+- Use ldapsearch for AD enumeration
+- Learned that Netexec by default filters out machine accounts when kerberoasting because machine accounts normally have very strong passwords set by default. However, this is not always the case like here, and is kerberoastable/crackable.
+- Found what security implementations the Protected Users group has by default (Stronger AES encryption on TGTs, disabling NTLM hash and caching credentials, TGTs expire in 4 hours, etc.)
+- Learned that having AddMember privileges can also mean having RemoveMember rights. Also learned that one can remove not only users from groups, but groups from groups using bloodyAD
 
 
 ## **Disclaimer: Potential spoilers below**
@@ -39,7 +39,7 @@
 
 `sudo bloodhound-python -d rustykey.htb -u rr.parker -p "8#t5HE8L\!W3A" -ns 10.129.63.201 -c all`
 
-4. With bloodhound, we find the path to user is through nn.marcos user
+4. With bloodhound, we find an initial path to user via nn.marcos
 
 ![image](https://github.com/user-attachments/assets/22162d58-fed1-421d-a1e1-36a639eef6ba)
 
