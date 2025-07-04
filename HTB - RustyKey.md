@@ -91,9 +91,9 @@
 
 ![image](https://github.com/user-attachments/assets/bc7eb631-1379-4863-89ff-9d9dc105ffdf)
 
-15. Using IT-Computer3$, change bb.morgan's password.
+15. Tried changing bb.morgan's password and log in but can't because bb.morgan is part of the Protected Objects group. After looking at Bloodhound again, Helpdesk group has AddMember rights on Protected Objects so remove bb.morgan from the group and try again.
 
-`sudo python3 /opt/bloodyAD/bloodyAD.py -k --host dc.rustykey.htb -d rustykey.htb -u 'IT-Computer3$' -p 'Rusty88!' set password bb.morgan Password123`
+![image](https://github.com/user-attachments/assets/de662109-fb0e-423b-9af9-2274fdbb545b)
 
 16. 
 
