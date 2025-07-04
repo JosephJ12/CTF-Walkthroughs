@@ -28,4 +28,9 @@
 
 ![image](https://github.com/user-attachments/assets/2952513a-46b4-48ed-8945-d01ba04d0e8e)
 
-3. 
+3. There's a dockerfile and file upload functionality that accepts .h5 tensorflow model files. After googling for some exploits, found a this (POC)[https://github.com/Splinter0/tensorflow-rce/tree/main]. Using docker, generate a h5 file that has an RCE payload embedded in it.
+
+`sudo docker build -t artificial .`
+`sudo docker run --rm -v "$PWD:/code" -w/code --entrypoint python3 artificial exploit.py`
+
+
