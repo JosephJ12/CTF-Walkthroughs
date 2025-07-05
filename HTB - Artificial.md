@@ -11,6 +11,7 @@
 
 - Become exposed to Tensorflow and exploiting h5 files
 - Use Docker to run python script
+- Doing local port forwarding to gain access to internal ports and services
 - Become more familiar with enumerating a Linux machine
 - Using Backrest commands to read sensitive files
 - The hacker mindset of exploiting a backup feature to read the root flag
@@ -91,7 +92,8 @@
 15. Got the root flag! Pwned machine
 
 ## Remediation Summary
-- 
+- Do not use vulnerable versions of Python modules/libraries
+- Implement strong password policy to mitigate offline password cracking attacks and securely store sensitive information using good encryption
 
 
 
