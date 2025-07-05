@@ -9,10 +9,11 @@
 
 ## Key Learnings
 
-- Familiarize myself with enumerating AD networks using Bloodhound
-- Abuse Active Directory DACLs 
-- Successfully execute a shadow credential attack via Pywhisker
-- Enumerate vulnerable certificate templates and exploit a ESC9 template misconfiguration using Certipy
+- Become exposed to Tensorflow and exploiting h5 files
+- Use Docker to run python script
+- Become more familiar with enumerating a Linux machine
+- Using Backrest commands to read sensitive files
+- The hacker mindset of exploiting a backup feature to read the root flag
 
 
 ## **Disclaimer: Potential spoilers below**
