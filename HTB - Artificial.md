@@ -69,7 +69,28 @@
 
 11. The password hash is encoded with Base64 format. After decoding, crack the bcrypt hash using hashcat and we get backrest_root's password to log into the internal service.
 
-12. 
+![image](https://github.com/user-attachments/assets/9a49d679-00ab-4fe6-b0f7-904e5427a565)
+
+12. Creating a repo allows us to run commands on the machine. Type help to get a list of commands
+
+![image](https://github.com/user-attachments/assets/8e78c458-b992-4390-af17-959b8700be56)
+
+13. My focus is on the backup command. Will attempt to run this command to create a backup of the /root directory and read its contents
+
+`backup /root/root.txt`
+
+![image](https://github.com/user-attachments/assets/3dc4b52a-6a02-4cb6-9892-671e0e9bdc0e)
+
+14. Now use the dump command to get contents of root.txt file
+
+`dump d623c61c /root/root.txt`
+
+![image](https://github.com/user-attachments/assets/a16b8778-e2f7-484c-9511-16e350edcb67)
+
+15. Got the root flag! Pwned machine
+
+## Remediation Summary
+- 
 
 
 
