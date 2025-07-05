@@ -59,7 +59,17 @@
 
 ![image](https://github.com/user-attachments/assets/97e1e201-49cc-4645-8f79-dc577437b673)
 
-9. 
+9. After some enumeration, find a backrest backup zip file in /var folder. Use scp to download to local machine
+
+`scp -r gael@artificial.htb:/var/backups/backrest_backup.tar.gz ./`
+
+10. After unzipping the file, find a config.json file containing a Bcrypt password for backrest_root user
+
+![image](https://github.com/user-attachments/assets/9761c14e-a2a9-436f-9350-ebee97f73d13)
+
+11. The password hash is encoded with Base64 format. After decoding, crack the bcrypt hash using hashcat and we get backrest_root's password to log into the internal service.
+
+12. 
 
 
 
