@@ -49,7 +49,17 @@
 
 ![image](https://github.com/user-attachments/assets/bd212cde-9674-47af-bbbb-80d52265bab7)
 
-7. 
+7. Doing basic enumeration on the machine shows an open internal port 9898. Using SSH, do local port forwarding
+
+`ssh -L 1234:localhost:9898 gael@artificial.htb`
+
+![image](https://github.com/user-attachments/assets/2ba63829-f10b-481e-8332-00100ee62f98)
+
+8. Checking out the internal port 9898 reveals a Backrest web app
+
+![image](https://github.com/user-attachments/assets/97e1e201-49cc-4645-8f79-dc577437b673)
+
+9. 
 
 
 
