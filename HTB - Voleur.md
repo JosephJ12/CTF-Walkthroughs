@@ -34,8 +34,10 @@
 
 2. Bloodhound doesn't give us a path from credentials given ryan.naylor. After enumerating using netexec smb, found an interesting IT share so download files with the spider_plus module
 
-``
+`nxc smb dc.voleur.htb -u ryan.naylor -p 'HollowOct31Nyt' -k -M spider_plus -o DOWNLOAD_FLAG=True`
 
 ![image](https://github.com/user-attachments/assets/ac3f931f-437f-47de-a391-d6399fff89d4)
 
-3. 
+3. Trying to open the .xlsx file shows that it's password protected, so use the office2john script and crack password offline.
+
+
