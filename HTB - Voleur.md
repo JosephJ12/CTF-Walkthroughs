@@ -82,6 +82,6 @@
 
 12. Enumerate deleted users using PowerShell commands
 
-`Get-ADObject -ldapFilter:"(msDS-LastKnownRDN=*)" -IncludeDeletedObjects`
+`Get-ADObject -ldapFilter:"(msDS-LastKnownRDN=*)" – IncludeDeletedObjects`
 
 13. 
