@@ -76,7 +76,7 @@
 
 `getTGT.py -k -dc-ip dc.voleur.htb voleur.htb/svc_winrm:'[PASSWORD]'`
 
-11. Set the KRB5CCNAME env variable to the svc_winrm ccache file and now successfully compromised user flag!
+11. Set the KRB5CCNAME env variable to the svc_winrm ccache file and evil-winrm into the machine. Compromised user flag!
 
 ![image](https://github.com/user-attachments/assets/f0804929-bd52-43f2-b9b3-a7128bff4132)
 
