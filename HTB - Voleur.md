@@ -92,4 +92,8 @@
 
 <img width="852" height="76" alt="image" src="https://github.com/user-attachments/assets/dfc5cc81-0a1b-4568-8766-2f2cfe19a164" />
 
-14. 
+14. Get TGT for todd.wolfe to authenticate as user. Todd wolfe's password is in the Access excel file
+
+<img width="659" height="71" alt="image" src="https://github.com/user-attachments/assets/2c3cb778-85c6-4675-ad58-024470cc24cf" />
+
+15. 
