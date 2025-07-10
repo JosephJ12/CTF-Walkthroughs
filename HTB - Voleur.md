@@ -80,8 +80,8 @@
 
 ![image](https://github.com/user-attachments/assets/f0804929-bd52-43f2-b9b3-a7128bff4132)
 
-12. Enumerate deleted users using PowerShell commands
+12. Looking at BloodHound, svc_ldap user is part of the RESTORE_USERS group. Use svc_ldap to get TGT and enumerate deleted objects via bloodyAD
 
-`Get-ADObject -ldapFilter:"(msDS-LastKnownRDN=*)" –IncludeDeletedObjects`
+`sudo python3 /opt/bloodyAD/bloodyAD.py -k --dc-ip dc.voleur.htb get search -c 1.2.840.113556.1.4.2064 --resolve-sd --attr ntsecuritydescriptor --base 'CN=Deleted Objects,DC=bloody,DC=corp' --filter "(objectClass=container)"`
 
 13. 
