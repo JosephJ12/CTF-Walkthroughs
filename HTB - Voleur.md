@@ -82,6 +82,6 @@
 
 12. Looking at BloodHound, svc_ldap user is part of the RESTORE_USERS group. Use svc_ldap to get TGT and enumerate deleted objects via bloodyAD
 
-`sudo python3 /opt/bloodyAD/bloodyAD.py -k --dc-ip dc.voleur.htb get search -c 1.2.840.113556.1.4.2064 --resolve-sd --attr ntsecuritydescriptor --base 'CN=Deleted Objects,DC=bloody,DC=corp' --filter "(objectClass=container)"`
+`bloodyAD -u svc_ldap -d voleur.htb -p '[PASSWORD]' --host dc.voleur.htb --dc-ip 10.129.16.120 -k get search -c 1.2.840.113556.1.4.2064 --resolve-sd --base 'CN=Deleted Objects,DC=voleur,DC=htb' --filter "(objectClass=*)" --attr sAMAccountName`
 
 13. 
