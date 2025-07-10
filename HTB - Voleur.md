@@ -86,4 +86,10 @@
 
 <img width="858" height="277" alt="image" src="https://github.com/user-attachments/assets/7b3ee745-6e3a-4a59-9560-97e12ab52aab" />
 
-13. 
+13. Restore todd.wolfe user using bloodyAD
+
+``
+
+<img width="852" height="76" alt="image" src="https://github.com/user-attachments/assets/dfc5cc81-0a1b-4568-8766-2f2cfe19a164" />
+
+14. 
