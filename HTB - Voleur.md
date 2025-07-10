@@ -84,4 +84,6 @@
 
 `bloodyAD -u svc_ldap -d voleur.htb -p '[PASSWORD]' --host dc.voleur.htb --dc-ip 10.129.16.120 -k get search -c 1.2.840.113556.1.4.2064 --resolve-sd --base 'CN=Deleted Objects,DC=voleur,DC=htb' --filter "(objectClass=*)" --attr sAMAccountName`
 
+<img width="858" height="277" alt="image" src="https://github.com/user-attachments/assets/7b3ee745-6e3a-4a59-9560-97e12ab52aab" />
+
 13. 
