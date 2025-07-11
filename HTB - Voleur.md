@@ -106,4 +106,10 @@
 
 <img width="851" height="287" alt="image" src="https://github.com/user-attachments/assets/8c18726d-7dad-46e6-bea2-fbe32cf69629" />
 
-17. 
+17. Use the decrypted masterkey to decrypt a credential file
+
+``
+
+<img width="854" height="234" alt="image" src="https://github.com/user-attachments/assets/7c1a1021-8d22-4799-9244-b046efcff9fa" />
+
+18. And we got jeremy.combs' password!
