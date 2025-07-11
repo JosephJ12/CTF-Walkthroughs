@@ -112,4 +112,12 @@
 
 <img width="854" height="234" alt="image" src="https://github.com/user-attachments/assets/7c1a1021-8d22-4799-9244-b046efcff9fa" />
 
-18. And we got jeremy.combs' password!
+18. And we got jeremy.combs' password! Use jeremy's credentials to download files from IT share once again
+
+``
+
+<img width="847" height="687" alt="image" src="https://github.com/user-attachments/assets/95d24049-da38-4b47-b978-e730f3744b24" />
+
+
+19. 
+
