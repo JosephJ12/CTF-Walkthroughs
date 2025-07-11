@@ -102,7 +102,7 @@
 
 16. This downloads Todd's files from smb. We find DPAPI encrypted files. We first attempt to decrypt the masterkey with dpapi.py
 
-`dpapi.py masterkey -file 08949382-134f-4c63-b93c-ce52efc0aa88 -sid 'S-1-5-21-3927696377-1337352550-2781715495-1110' -password 'NightT1meP1dg3on14'`
+`dpapi.py masterkey -file 08949382-134f-4c63-b93c-ce52efc0aa88 -sid 'S-1-5-21-3927696377-1337352550-2781715495-1110' -password '[PASSWORD]'`
 
 <img width="851" height="287" alt="image" src="https://github.com/user-attachments/assets/8c18726d-7dad-46e6-bea2-fbe32cf69629" />
 
