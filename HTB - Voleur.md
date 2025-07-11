@@ -126,5 +126,17 @@
 <img width="564" height="438" alt="image" src="https://github.com/user-attachments/assets/8ff3d6dd-c124-4463-af64-472becb1b831" />
 
 
-20. 
+20. After much enumeration, we find a backup folder in the /mnt/c folder. In there, we find the NTDS.dit and SYSTEM registry hive, which we download onto our local attacker machine using ssh
 
+``
+
+<img width="698" height="86" alt="image" src="https://github.com/user-attachments/assets/1eeb5424-62ac-4aaf-8a31-10d4604a4290" />
+
+
+21. With these 2 files, we can secretsdump to get the Admin hash and root the machine!
+
+``
+
+<img width="850" height="1020" alt="image" src="https://github.com/user-attachments/assets/6476c17f-bc3b-4fcc-a95c-c809d52f4638" />
+
+22. 
