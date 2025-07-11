@@ -100,6 +100,10 @@
 
 `nxc smb dc.voleur.htb -k -u svc_ldap -p 'M1XyC9pW7qT5Vn' -d voleur.htb -M spider_plus -o DOWNLOAD_FLAG=True`
 
-16. This downloads Todd's files from smb and we find a DPAPI encrypted credential file
+16. This downloads Todd's files from smb. We find DPAPI encrypted files. We first attempt to decrypt the masterkey with dpapi.py
+
+``
+
+<img width="851" height="287" alt="image" src="https://github.com/user-attachments/assets/8c18726d-7dad-46e6-bea2-fbe32cf69629" />
 
 17. 
