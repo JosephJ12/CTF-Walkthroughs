@@ -119,5 +119,12 @@
 <img width="847" height="687" alt="image" src="https://github.com/user-attachments/assets/95d24049-da38-4b47-b978-e730f3744b24" />
 
 
-19. 
+19. We find a SSH id_rsa file. Looking back at the nmap scan, there is a SSH port open on 2222. Also, remembering the users listed on the Access_Review excel file, there was the user svc_backup. We use it to ssh into the machine as the svc_backup user
+
+`ssh svc_backup@10.129.16.120 -p 2222 -i id_rsa`
+
+<img width="564" height="438" alt="image" src="https://github.com/user-attachments/assets/8ff3d6dd-c124-4463-af64-472becb1b831" />
+
+
+20. 
 
