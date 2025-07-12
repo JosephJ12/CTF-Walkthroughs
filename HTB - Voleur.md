@@ -14,13 +14,12 @@
 
 
 ## Key Learnings
-
-- Familiarize myself with enumerating AD networks using Bloodhound
-- Learn to abuse WriteOwner privilege using Impacket's owneredit.py script
-- Give an account FullControl using Impacket's dacledit.py tool
-- Enumerate and restore deleted user accounts on PowerShell
-- Exploit ESC15 vulnerable template
-- Add user to Domain Admin group with an LDAP shell
+- Familiarize using tools without NTLM authentication. Use tools with only Kerberos authentication
+- Learn more about Kerberos authentication on Active Directory
+- Learn about Active Directory Recycle bin and the deleting object process with it enabled
+- Enumerate and restore deleted user with bloodyAD
+- Decrypt DPAPI keys with Impacket's Dpapi.py
+- Exfiltrate NTDS.dit and the SYSTEM registry hive and obtain domain hashes with secretsdump
 
 
 ## **Disclaimer: Potential spoilers below**
@@ -156,4 +155,7 @@
 
 
 ## Remediation Summary
-- 
+- Implement a strong password policy. Also, sensitive information such as user credentials should not be stored insecurely with a weak password
+- Follow Principal of Least Privilege
+- Apply strict guidelines when deleting user accounts, especially in the case of an employee leaving the organization
+- Review backup files and make sure no sensitive information can be easily obtained from them
