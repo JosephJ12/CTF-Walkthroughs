@@ -42,5 +42,11 @@
 
 <img width="463" height="404" alt="image" src="https://github.com/user-attachments/assets/c35646fa-5f2e-44ae-87d3-78f3330a4e40" />
 
-4. Googling for Roundcube exploits, we find a PHP Authenticated Remote Code Execution script.
+4. Googling for Roundcube exploits, we find a PHP Authenticated Remote Code Execution script. Running the script, we confirm we have RCE on the target machine
+
+<img width="849" height="155" alt="image" src="https://github.com/user-attachments/assets/f8cfbd2e-02b1-4ad4-ac84-b3c289ecee64" />
+
+<img width="587" height="30" alt="image" src="https://github.com/user-attachments/assets/18a87b90-903f-4c18-8951-a29be063befe" />
+
+5. 
 
