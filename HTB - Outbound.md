@@ -50,5 +50,13 @@
 
 <img width="637" height="169" alt="image" src="https://github.com/user-attachments/assets/822e624f-cc42-4d67-8415-33b84a40c459" />
 
-5. 
+5. We find a config file that has a mysql connection string, so we use those credentials to log into mysql
+
+
+
+6. In the database, we find a users table which contains password hashes for users jacob, mel, and tyler
+
+<img width="851" height="139" alt="image" src="https://github.com/user-attachments/assets/36264fa2-c49c-4125-814f-ca65c555d405" />
+
+7. 
 
