@@ -29,4 +29,7 @@
 
 1. Run nmap scan
 
+<img width="719" height="1009" alt="image" src="https://github.com/user-attachments/assets/6fff85b0-bd86-4e80-a1eb-a5faa5a6ea4f" />
+
+2. 
 
