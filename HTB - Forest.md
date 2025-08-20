@@ -41,4 +41,17 @@
 
 `hashcat -m 18200 asreproastables.txt /usr/share/wordlists/rockyou.txt`
 
-4. 
+4. With svc-alfresco's credentials, run Bloodhound
+
+``
+
+5. Bloodhound shows svc-alfresco user has WriteDacl permissions on the domain.
+
+<img width="1157" height="375" alt="image" src="https://github.com/user-attachments/assets/418e40ba-cea6-4c3a-8c4f-d11b55b1f959" />
+
+6. Give svc-alfresco user DCSync rights using Impacket's dacledit.py script
+
+``
+
+7. 
+
