@@ -31,5 +31,10 @@
 
 <img width="719" height="1009" alt="image" src="https://github.com/user-attachments/assets/6fff85b0-bd86-4e80-a1eb-a5faa5a6ea4f" />
 
-2. 
+2. Nmap reveals we're dealing with a Domain Controller. Since we are not given initial credentials, attempt to get hashes via ASREProasting attack using Impacket's GetNPUsers.py script
+
+``
+
+<img width="716" height="135" alt="image" src="https://github.com/user-attachments/assets/9fd9a708-21f9-4930-9193-b8579aa8a195" />
+
 
