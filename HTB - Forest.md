@@ -49,9 +49,11 @@
 
 <img width="1157" height="375" alt="image" src="https://github.com/user-attachments/assets/418e40ba-cea6-4c3a-8c4f-d11b55b1f959" />
 
-6. Give svc-alfresco user DCSync rights using Impacket's dacledit.py script
+6. To exploit WriteDacl permission, first add svc-alfresco user to WINDOWS EXCHANGE PERMISSIONS group using net rpc
+
+`net rpc group addmem "EXCHANGE WINDOWS PERMISSIONS" 'svc-alfresco' -U "htb.local"/'svc-alfresco' -S dc01.htb.local`
+
+7. Then give svc-alfresco user DCSync rights using Impacket's dacledit.py script
 
 ``
-
-7. 
 
