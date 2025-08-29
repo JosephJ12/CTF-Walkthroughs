@@ -91,6 +91,17 @@
 
 <img width="755" height="463" alt="image" src="https://github.com/user-attachments/assets/a295ce20-60ba-4d1e-ba88-4aa7c657fec6" />
 
-13. 
+13. On Responder, we get c.bum's hash after upload! 
+
+<img width="908" height="159" alt="image" src="https://github.com/user-attachments/assets/dc0ae8d6-c79a-4396-8b7c-2513feda9a9a" />
+
+14. We will crack this hash offline and then check c.bum's permissions on SMB with Netexec
+
+``
+
+``
+
+<img width="912" height="136" alt="image" src="https://github.com/user-attachments/assets/1fa4fc69-ebd8-45ad-908e-4009f2940692" />
+
 
 
