@@ -97,9 +97,9 @@
 
 14. We will crack this hash offline and then check c.bum's permissions on SMB with Netexec
 
-``
+`hashcat -m 5600 c.bum.hash /usr/share/wordlists/rockyou.txt`
 
-``
+`nxc smb flight.htb -u c.bum -p $(cat c.bum.pass) --shares`
 
 <img width="912" height="136" alt="image" src="https://github.com/user-attachments/assets/1fa4fc69-ebd8-45ad-908e-4009f2940692" />
 
