@@ -37,7 +37,9 @@
 
 3. As with all websites, we do subdomain enumeration to try to increase our attack surface using `ffuf`
 
-`ffuf -u http://flight.htb -H "Host: FUZZ.flight.htb" -w /usr/share/wordlist/seclists`
+`ffuf -u http://flight.htb -H "Host: FUZZ.flight.htb" -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-5000.txt -fs 7069`
+
+
 
 
 
