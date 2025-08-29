@@ -87,7 +87,7 @@
 
 12. Log into Shared SMB share using smbclient and upload ntlm_theft.py files
 
-``
+`smbclient //flight.htb/Shared -U S.Moon`
 
 <img width="755" height="463" alt="image" src="https://github.com/user-attachments/assets/a295ce20-60ba-4d1e-ba88-4aa7c657fec6" />
 
