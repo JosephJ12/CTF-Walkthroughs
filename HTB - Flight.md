@@ -134,7 +134,13 @@
 
 <img width="634" height="856" alt="image" src="https://github.com/user-attachments/assets/a6985174-3dda-457e-a24a-90afe2453838" />
 
-21. 
+21. Start chisel server on local attacker machine and set up chisel client on the victim machine
+
+On local:
+`chisel server --socks5 --reverse`
+
+On victim:
+``
 
 
 
