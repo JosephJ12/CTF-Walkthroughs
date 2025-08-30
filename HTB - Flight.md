@@ -146,8 +146,9 @@ On victim:
 
 22. We found another website and if we look at the inetpub folder on the victim host, we find a development folder that corresponds to the internal website. Since we know we have access to the web root, we upload an aspx webshell using certutil and we got a shell!
 
+<img width="1529" height="695" alt="image" src="https://github.com/user-attachments/assets/6c65ca8f-8995-4276-a8b8-9b8d3c3f86f5" />
 
-
+23. 
 
 
 
