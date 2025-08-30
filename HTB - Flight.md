@@ -130,7 +130,13 @@
 
 <img width="523" height="446" alt="image" src="https://github.com/user-attachments/assets/c4ef4a15-cb0f-4beb-9ed0-3cb30128fe04" />
 
-20. 
+20. Do some basic enumeration reveals an internal port that was not accessible from outside, TCP port 8000. We will transfer over chisel to pivot into the internal network and see whats inside
+
+<img width="634" height="856" alt="image" src="https://github.com/user-attachments/assets/a6985174-3dda-457e-a24a-90afe2453838" />
+
+21. 
+
+
 
 
 
