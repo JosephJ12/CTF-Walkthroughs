@@ -142,7 +142,9 @@ On local:
 On victim:
 `chisel.exe client --fingerprint iZ3iUKs5hO1F7FamcuKBpmgQ0iZZDOTBhfmH2jVkjJQ= 10.10.14.226:8080 R:8001:127.0.0.1:8000`
 
+<img width="1959" height="1057" alt="image" src="https://github.com/user-attachments/assets/6a98f2fe-4c72-4fc3-a345-77cc1ee2b459" />
 
+22. 
 
 
 
