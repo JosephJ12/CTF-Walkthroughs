@@ -28,3 +28,7 @@
 ## Walkthrough
 
 1. Run nmap scan
+
+<img width="912" height="443" alt="image" src="https://github.com/user-attachments/assets/d44570cb-edcc-41f3-a6af-2078cdb5ab70" />
+
+2. SMB allows anonymous logon. We find a profiles$ share that has a list of users so create a user list from it. Then, 
