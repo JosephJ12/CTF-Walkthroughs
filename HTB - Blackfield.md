@@ -57,3 +57,6 @@
 
 `bloodyAD --host 10.129.229.17 -d blackfield.local -u support -p $(cat ../recon/support.pass) set password Audit2020 Password1`
 
+<img width="907" height="319" alt="image" src="https://github.com/user-attachments/assets/688e3680-1ff9-4010-9be4-11f626c62e5b" />
+
+8. The Audit2020 user has READ permissions on the forensics share. 
