@@ -51,4 +51,7 @@
 
 6. Load files onto Bloodhound and find a path from support user to machine
 
+<img width="708" height="96" alt="image" src="https://github.com/user-attachments/assets/26b38ef7-a133-462a-8ee1-ac1240140707" />
+
+7. Since the user support can change Audit2020's password, we will change password and enumerate further with Audit2020's credentials.
 
