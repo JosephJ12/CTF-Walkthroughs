@@ -57,5 +57,8 @@ Connect to our SMB server using xp_dirtree
 
 <img width="911" height="330" alt="image" src="https://github.com/user-attachments/assets/5885e520-85e1-4d3d-8441-3ec04d40ccc3" />
 
-6. Crack hash offline using hashcat
+6. Crack hash offline using hashcat and we get sql_svc's plaintext password!
 
+`hashcat -m 5600 sql_svc.hash /usr/share/wordlists/rockyou.txt`
+
+7. 
