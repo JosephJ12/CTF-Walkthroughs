@@ -44,3 +44,7 @@
 4. Login as PublicUser to the SQL Server
 
 ``
+
+<img width="659" height="203" alt="image" src="https://github.com/user-attachments/assets/9bbc5213-0302-46b6-88a5-64fa603598cd" />
+
+5. 
