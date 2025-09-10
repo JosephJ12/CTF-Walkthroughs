@@ -67,5 +67,10 @@ Connect to our SMB server using xp_dirtree
 
 <img width="909" height="84" alt="image" src="https://github.com/user-attachments/assets/dc6baf01-6dd2-4cdd-85a2-21be1177a183" />
 
+8. After enumerating the machine, we find a SQLServer log file that contains a failed login attempt for the user Ryan.Cooper
+
+<img width="910" height="312" alt="image" src="https://github.com/user-attachments/assets/663b6228-bc0a-4d62-8fcb-c40290dbfcc8" />
+
+9. 
 
 
