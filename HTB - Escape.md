@@ -67,10 +67,14 @@ Connect to our SMB server using xp_dirtree
 
 <img width="909" height="84" alt="image" src="https://github.com/user-attachments/assets/dc6baf01-6dd2-4cdd-85a2-21be1177a183" />
 
-8. After enumerating the machine, we find a SQLServer log file that contains a failed login attempt for the user Ryan.Cooper
+8. After enumerating the machine, we find a SQLServer log file that contains a failed login attempt for the user Ryan.Cooper, which shows the user's password in the next line.
 
 <img width="910" height="312" alt="image" src="https://github.com/user-attachments/assets/663b6228-bc0a-4d62-8fcb-c40290dbfcc8" />
 
-9. 
+9. We log into the machine again via evil-winrm with ryan.cooper's credentials and we get the user flag!
 
+`evil-winrm -i sequel.htb -u ryan.cooper -p $(cat ryan.cooper.pass)`
 
+<img width="494" height="214" alt="image" src="https://github.com/user-attachments/assets/42626ecb-9042-4fa0-9328-eb050482678b" />
+
+10. 
