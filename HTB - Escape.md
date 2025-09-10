@@ -77,4 +77,18 @@ Connect to our SMB server using xp_dirtree
 
 <img width="494" height="214" alt="image" src="https://github.com/user-attachments/assets/42626ecb-9042-4fa0-9328-eb050482678b" />
 
-10. 
+10. We do basic enumeration on the user and we find that ryan.cooper has membership in the Certificate Service DCOM Access group. Getting the description to this group shows that this user is allowed to connect to the Certificate Authority.
+
+`whoami /groups`
+
+`net localgroup "Certificate Service DCOM Access`
+
+<img width="912" height="586" alt="image" src="https://github.com/user-attachments/assets/0e83bdb1-a788-4740-9d43-261b095f68ee" />
+
+11. Using certipy, we look for vulnerable certificate templates user ryan.cooper can exploit
+
+``
+
+<img width="898" height="736" alt="image" src="https://github.com/user-attachments/assets/99856e15-392a-415b-8e4c-f52c84673ed0" />
+
+12. 
