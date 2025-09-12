@@ -38,4 +38,4 @@
 
 <img width="1982" height="547" alt="image" src="https://github.com/user-attachments/assets/f0a6be78-93f9-4af4-ab37-b2928d47083a" />
 
-4. 
+4. On the admin page, we notice that Tiny File Manager version is 2.4.3. We google for known CVEs and we find a public POC exploit for CVE-2021-45010! 
