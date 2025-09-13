@@ -54,4 +54,10 @@
 
 <img width="1058" height="386" alt="image" src="https://github.com/user-attachments/assets/f69d7833-0e07-4410-bf43-a0d16deed17e" />
 
-7. 
+7. The ticket check feature is vulnerable to SQL injection. 
+
+<img width="552" height="337" alt="image" src="https://github.com/user-attachments/assets/0b7a4379-d9f2-41bd-a18d-e2cf3c0ec36b" />
+
+<img width="568" height="339" alt="image" src="https://github.com/user-attachments/assets/57224d0e-ab2c-456e-8cc4-2d28c784853b" />
+
+8. 
