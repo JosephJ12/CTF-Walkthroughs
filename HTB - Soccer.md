@@ -66,5 +66,8 @@
 
 <img width="913" height="1194" alt="image" src="https://github.com/user-attachments/assets/9e73d8dd-36ba-4d11-b737-3fde8af06413" />
 
-9. 
+9. Now SSH into the machine as player and get the user flag!
 
+<img width="272" height="68" alt="image" src="https://github.com/user-attachments/assets/00503a7e-2e25-470d-90a6-6444a8a46b0e" />
+
+10. 
