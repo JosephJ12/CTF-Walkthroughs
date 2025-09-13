@@ -60,4 +60,6 @@
 
 <img width="568" height="339" alt="image" src="https://github.com/user-attachments/assets/57224d0e-ab2c-456e-8cc4-2d28c784853b" />
 
-8. 
+8. Since this is a blind SQLi vulnerability, we won't exploit this manually but use SqlMap. However, SqlMap isn't compatible with WebSockets, so we will set up a fake server that will proxy and translate the WebSocket data to one that is compatible with SqlMap. Wscat is the proxy server we will send our traffic through.
+
+
