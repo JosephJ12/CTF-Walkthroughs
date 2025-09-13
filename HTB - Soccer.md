@@ -38,4 +38,20 @@
 
 <img width="1982" height="547" alt="image" src="https://github.com/user-attachments/assets/f0a6be78-93f9-4af4-ab37-b2928d47083a" />
 
-4. On the admin page, we notice that Tiny File Manager version is 2.4.3. We google for known CVEs and we find a public POC exploit for CVE-2021-45010! 
+4. We check out the site and find that we can upload files to the /tiny/uploads/ directory! We upload a PHP reverse shell one liner and get a reverse shell back!
+
+<img width="632" height="157" alt="image" src="https://github.com/user-attachments/assets/ee9cd616-cc80-4d2b-b492-1e2d89ac9a77" />
+
+5. Looking at the /home directory, we find only 1 folder for /player. So assuming the next user we need is player, we look for all files that have "player" in it and we come across the soc-player subdomain
+
+`grep -rnw "player" / 2>/dev/null`
+
+<img width="926" height="204" alt="image" src="https://github.com/user-attachments/assets/49be6c01-e9ab-4106-987e-b31c4072ba57" />
+
+6. Add the subdomain to our /etc/hosts file and go to the site. We sign up for the site and notice there's a call to port 9091 that we enumerated before with Nmap
+
+<img width="1105" height="840" alt="image" src="https://github.com/user-attachments/assets/d9b6b8fd-9529-4412-af9c-3d63e9988731" />
+
+<img width="1058" height="386" alt="image" src="https://github.com/user-attachments/assets/f69d7833-0e07-4410-bf43-a0d16deed17e" />
+
+7. 
