@@ -82,4 +82,17 @@
 
 <img width="557" height="184" alt="image" src="https://github.com/user-attachments/assets/186963ce-1431-4f04-bc62-e2e22fce5433" />
 
-12. 
+12. We find that the doas command lets us run the dstat command as root. There is a privesc path on GTFOBins for dstat.
+
+<img width="831" height="208" alt="image" src="https://github.com/user-attachments/assets/94f6a726-e2d2-4bcc-a481-02db9bc2a030" />
+
+13. So following the steps on GTFOBins, we write a python shell file to the `/usr/local/share/dstat` folder. 
+
+``
+
+14. Then, with doas, we call the dstat command and we get a root shell and the root flag!
+
+``
+
+<img width="541" height="232" alt="image" src="https://github.com/user-attachments/assets/1ffe9a26-e522-40ca-bdad-4026517f1e5a" />
+
