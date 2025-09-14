@@ -70,4 +70,16 @@
 
 <img width="272" height="68" alt="image" src="https://github.com/user-attachments/assets/00503a7e-2e25-470d-90a6-6444a8a46b0e" />
 
-10. 
+10. After doing basic enumeration, we look for SUID files to privesc to root.
+
+`find / -perm -4000 2>/dev/null`
+
+<img width="558" height="506" alt="image" src="https://github.com/user-attachments/assets/3f6ff0de-148a-47e7-9fec-f18d6a6ac4d0" />
+
+11. Most of these don't really stand out, except for the doas file. The doas command is one that allows us to run scripts as another user. We look for any files related to it using the find command once again
+
+`find / 2>/dev/null | grep doas`
+
+<img width="557" height="184" alt="image" src="https://github.com/user-attachments/assets/186963ce-1431-4f04-bc62-e2e22fce5433" />
+
+12. 
