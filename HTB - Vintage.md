@@ -138,4 +138,10 @@
 
 <img width="912" height="205" alt="image" src="https://github.com/user-attachments/assets/4137eae6-7959-4228-887c-dab9b97d84b4" />
 
-21. 
+21. The user C.Neri can PSRemote into the machine, so we get shell access via evil-winrm (after making sure to add the realm to /etc/krb5.conf) and retrieve the user flag!
+
+`evil-winrm -i dc01.vintage.htb -r vintage.htb`
+
+<img width="569" height="149" alt="image" src="https://github.com/user-attachments/assets/4df27086-92a9-4347-b752-66390b8c5026" />
+
+22. 
