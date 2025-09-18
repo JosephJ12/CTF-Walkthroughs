@@ -94,4 +94,16 @@
 
 <img width="1027" height="417" alt="image" src="https://github.com/user-attachments/assets/c18a9651-1a85-42f2-811a-8e7c82630f25" />
 
-13. 
+13. First, we need to get a Ticket Granting Ticket as the GMSA01$ user using impacket's getTGT.py script and set the ticket as the KRB5CCNAME environment variable.
+
+``
+
+<img width="741" height="205" alt="image" src="https://github.com/user-attachments/assets/f78e3e78-5f58-4fd4-a461-e860b9029907" />
+
+14. Now add our account to the Service Managers group using BloodyAD
+
+``
+
+<img width="911" height="57" alt="image" src="https://github.com/user-attachments/assets/d21b1df3-cabb-471b-83ca-5947aa03dd86" />
+
+15. 
