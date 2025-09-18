@@ -130,7 +130,7 @@
 
 19. Cracking the hashes with hashcat gives us the plaintext password for the svc_sql user
 
-'hashcat -m 13100 targetedKerberoast.txt /usr/share/wordlists/rockyou.txt'
+`hashcat -m 13100 targetedKerberoast.txt /usr/share/wordlists/rockyou.txt`
 
 <img width="912" height="332" alt="image" src="https://github.com/user-attachments/assets/091b1141-1cdf-4488-935e-9ae80c408ec9" />
 
