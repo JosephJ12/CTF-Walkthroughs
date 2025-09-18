@@ -108,10 +108,30 @@
 
 <img width="911" height="57" alt="image" src="https://github.com/user-attachments/assets/d21b1df3-cabb-471b-83ca-5947aa03dd86" />
 
-15. We now conduct the targetedKerberoast attack 
+15. We now conduct the Targeted Kerberoast attack 
 
 `targetedKerberoast.py -d vintage.htb -u 'GMSA01$' -k --dc-host dc01.vintage.htb`
 
+<img width="914" height="729" alt="image" src="https://github.com/user-attachments/assets/4ff87033-1158-4646-b11d-5b012fdb47e8" />
 
+16. However, we only get back 2 hashes, not 3. Checking Bloodhound again, it turns out the svc_sql account is disabled.
 
-16. 
+<img width="630" height="585" alt="image" src="https://github.com/user-attachments/assets/faadf77b-533b-4042-a24e-be4edf1d53c9" />
+
+17. Enable the svc_sql account using bloodyAD
+
+``
+
+<img width="914" height="63" alt="image" src="https://github.com/user-attachments/assets/9c1363f6-642a-4f4b-913c-b6a7f7dec63a" />
+
+18. Do the Targeted Kerberoast attack again and we get back 3 hashes this time
+
+<img width="909" height="1060" alt="image" src="https://github.com/user-attachments/assets/ffb00fe5-33f4-4ee0-9345-253be65a6737" />
+
+19. Cracking the hashes with hashcat gives us the plaintext password for the svc_sql user
+
+'hashcat -m 13100 targetedKerberoast.txt /usr/share/wordlists/rockyou.txt'
+
+<img width="912" height="332" alt="image" src="https://github.com/user-attachments/assets/091b1141-1cdf-4488-935e-9ae80c408ec9" />
+
+20. 
