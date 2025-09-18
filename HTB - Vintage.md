@@ -86,6 +86,12 @@
 
 `bloodyAD -k --dc-ip 10.129.231.205 --host dc01.vintage.htb -u 'FS01$' -p 'fs01' -d vintage.htb get object 'gMSA01$' --attr msDS-ManagedPassword`
 
+<img width="911" height="155" alt="image" src="https://github.com/user-attachments/assets/d3d0cbbb-3ce2-477e-9b3e-aa38795520da" />
 
+12. With Bloodhound, we find our next attack path: GMSA01$ has AddSelf and GenericWrite rights on the SERVICEMANAGERS group, which also has GenericAll privileges on 3 service accounts. We will add our GMSA01$ user to the group and do a Targeted Kerberoast attack on the 3 accounts.
 
+<img width="865" height="280" alt="image" src="https://github.com/user-attachments/assets/bc21ca18-c300-4bb8-bd0b-dfed3648bad2" />
 
+<img width="1027" height="417" alt="image" src="https://github.com/user-attachments/assets/c18a9651-1a85-42f2-811a-8e7c82630f25" />
+
+13. 
