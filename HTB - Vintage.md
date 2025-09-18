@@ -72,7 +72,17 @@
 
 `hashcat -m 19700 krbtgt_kerberoast.hash /usr/share/wordlists/rockyou.txt`
 
+9. However, the hash doesn't crack again and after much headache, we discover on Bloodhound that the FS01$ account is a member of the PRE-WINDOWS 2000 COMPATIBLE ACCESS group. According to this article, Pre-Windows 2000 computers have its password set based on it name. https://www.thehacker.recipes/ad/movement/builtins/pre-windows-2000-computers
+
+<img width="586" height="390" alt="image" src="https://github.com/user-attachments/assets/10020a8e-0d0e-426b-b25e-5609b40a2199" />
+
+10. We check FS01's password with netexec and success!
+
+`nxc ldap dc01.vintage.htb -u 'FS01$' -p 'fs01' -k`
+
+<img width="767" height="61" alt="image" src="https://github.com/user-attachments/assets/cf22abc6-bb1d-4b30-a638-d8f80ebf6d88" />
+
+11. FS01$ is part of the Domain Computers group, which has ReadGMSAPassword permission on account GMSA01$. We retrieve the GMSA password using bloodyAD
 
 
-9. 
 
