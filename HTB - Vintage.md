@@ -134,4 +134,8 @@
 
 <img width="912" height="332" alt="image" src="https://github.com/user-attachments/assets/091b1141-1cdf-4488-935e-9ae80c408ec9" />
 
-20. 
+20. With svc_sql's password, we do a password spray attack to see if there's any password reuse and find the user C.Neri has the same password as svc_sql
+
+<img width="912" height="205" alt="image" src="https://github.com/user-attachments/assets/4137eae6-7959-4228-887c-dab9b97d84b4" />
+
+21. 
