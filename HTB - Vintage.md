@@ -15,12 +15,11 @@
 
 ## Key Learnings
 
-- Familiarize myself with enumerating AD networks using Bloodhound
-- Use ldapsearch for AD enumeration
-- Learned that Netexec by default filters out machine accounts when kerberoasting because machine accounts normally have very strong passwords set by default. However, this is not always the case like here, and is kerberoastable/crackable.
-- Found what security implementations the Protected Users group has by default (Stronger AES encryption on TGTs, disabling NTLM hash and caching credentials, TGTs expire in 4 hours, etc.)
-- Learned that having AddMember privileges can also mean having RemoveMember rights. Also learned that one can remove not only users from groups, but groups from groups using bloodyAD
-- Became familiar with using tools that don't rely on SMB and use Kerberos authentication (ldapsearch and bloodyAD -k vs net rpc)
+- Become more familiar hacking AD environments that have NTLM authentication disabled and only accepts Kerberos authentication.
+- Added enumerating for user credentials that are encrypted with DPAPI to my pillaging methodology. Previously, I would mostly look for privilege escalation paths via internal network services or abusing user privileges.
+- Learned that members of the Pre-Windows 2000 Compatible Access group have their passwords set to the account's machine name by default.
+- Enable accounts that are disabled using BloodyAD.
+- Transfer files from compromised machines via base64 encoding on PowerShell.
 
 
 ## **Disclaimer: Potential spoilers below**
