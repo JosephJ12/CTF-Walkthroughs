@@ -144,4 +144,24 @@
 
 <img width="569" height="149" alt="image" src="https://github.com/user-attachments/assets/4df27086-92a9-4347-b752-66390b8c5026" />
 
-22. 
+22. Now that we're in the machine, we do some basic enumeration and pillaging. We come across a hidden credentials file that's encrypted with DPAPI.
+
+<img width="679" height="163" alt="image" src="https://github.com/user-attachments/assets/495bbddf-5a86-4b22-b0e4-7c1b0907cd32" />
+
+23. Evil-winrm doesn't allow us to just download the file for some reason, so we encode the file contents with base64 and transfer it over to our local machine.
+
+``
+
+<img width="912" height="134" alt="image" src="https://github.com/user-attachments/assets/ae94b9d0-f2ab-4737-aa80-553da7280f02" />
+
+24. We do the same for the DPAPI keys
+
+``
+
+<img width="914" height="202" alt="image" src="https://github.com/user-attachments/assets/3bd5eda6-ea55-42cf-b7e0-c495bebc4a81" />
+
+``
+
+<img width="913" height="206" alt="image" src="https://github.com/user-attachments/assets/113b47d8-7566-4989-ab20-a7c210e35fee" />
+
+25. Decode the base64 files
