@@ -206,7 +206,7 @@
 
 32. With the admin hash, we get a TGT as administrator and attempt to log on to the machine with psexec and evil-winrm. However, both fail. We try the same process as l.bianchi_adm, who is part of the Domain Admins group and this time, it works! We have a root shell on the machine via evil-winrm and retrieve the root flag
 
-``
+`evil-winrm -i dc01.vintage.htb -r vintage.htb`
 
 <img width="509" height="177" alt="image" src="https://github.com/user-attachments/assets/63a186d7-6caf-4fcb-ae2d-4fa6da32d540" />
 
