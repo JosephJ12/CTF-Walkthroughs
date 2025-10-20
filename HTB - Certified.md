@@ -126,7 +126,6 @@ Success!
 - Always follow Principle of Least Privilege! Users should not have more rights than absolutely necessary.
 - Use strong passwords, especially for service accounts like management_svc.
 - Enforce objectSid validation on all certificates. This prevents users from requesting for certificates to impersonate other users.
-- Manage enrollments rights for all certificates. Where applicable, do not allow low privileged groups (such as Domain Users) to enroll for certificate templates. 
 
 
 
