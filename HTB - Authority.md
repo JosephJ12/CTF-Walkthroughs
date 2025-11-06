@@ -149,3 +149,6 @@ Host script results:
 
 2. The open ports signals a classic Domain Controller. We first try anonymous authentication to SMB and LDAP without any luck. We notice there is an open HTTPS port on 8443 and we find a PWM login page in configuration mode! This means we can edit the configuration without a proper login.
 
+<img width="853" height="585" alt="image" src="https://github.com/user-attachments/assets/423108da-20ff-4b39-b1fe-2596c29437de" />
+
+3. 
