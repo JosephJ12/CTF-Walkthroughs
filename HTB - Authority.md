@@ -146,3 +146,6 @@ Host script results:
 |_clock-skew: mean: 4h00m00s, deviation: 0s, median: 4h00m00s
 |_smb2-security-mode: SMB: Couldn't find a NetBIOS name that works for the server. Sorry!
 ```
+
+2. The open ports signals a classic Domain Controller. We first try anonymous authentication to SMB and LDAP without any luck. We notice there is an open HTTPS port on 8443 and we find a PWM login page in configuration mode! This means we can edit the configuration without a proper login.
+
