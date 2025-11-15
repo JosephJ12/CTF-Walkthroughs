@@ -147,8 +147,14 @@ Host script results:
 |_smb2-security-mode: SMB: Couldn't find a NetBIOS name that works for the server. Sorry!
 ```
 
-2. The open ports signals a classic Domain Controller. We first try anonymous authentication to SMB and LDAP without any luck. We notice there is an open HTTPS port on 8443 and we find a PWM login page in configuration mode! This means we can edit the configuration without a proper login.
+2. The open ports signals a classic Domain Controller. We first try anonymous authentication to SMB and LDAP without any luck. We notice there is an open HTTPS port on 8443 and we find a PWM login page. We try logging in with common passwords but all fails. So we shift our focus to the open SMB port.
 
 <img width="853" height="585" alt="image" src="https://github.com/user-attachments/assets/423108da-20ff-4b39-b1fe-2596c29437de" />
 
-3. 
+3. We find that we're able to log into SMB anonymously.
+
+`smbclient -L //authority.htb/ -N`
+
+<img width="726" height="364" alt="image" src="https://github.com/user-attachments/assets/82ca7e99-5cd9-49fb-b41e-676056ff2f9e" />
+
+4. 
