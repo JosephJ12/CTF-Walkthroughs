@@ -157,4 +157,10 @@ Host script results:
 
 <img width="726" height="364" alt="image" src="https://github.com/user-attachments/assets/82ca7e99-5cd9-49fb-b41e-676056ff2f9e" />
 
-4. 
+4. Enumerating the share, we find a file encrypted by Ansible Vault. We download the file to our local machine for offline cracking.
+
+<img width="748" height="568" alt="image" src="https://github.com/user-attachments/assets/f6d5bc2f-282a-422d-979c-1fc1713f4bf5" />
+
+5. Before cracking these, we turn these hashes into a crackeable friendly format using the `ansible2john` script
+
+``
