@@ -169,6 +169,8 @@ Host script results:
 
 6. Crack using hashcat module 16900
 
-``
+`hashcat -m 16900 ldap_admin_password.ansible2john /usr/share/wordlists/rockyou.txt`
+
+
 
 
