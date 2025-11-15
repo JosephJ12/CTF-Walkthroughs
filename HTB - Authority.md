@@ -183,4 +183,12 @@ Host script results:
 
 <img width="889" height="241" alt="image" src="https://github.com/user-attachments/assets/0328cd65-073a-4d1e-853b-c081dc1b55a9" />
 
-9. 
+9. Under the LDAP tab, we notice a Connection option in the drop down menu. Clicking on it shows us a LDAP URLs that is pointing to `authority.authority.htb:636'. We modify the value to point to our IP, start up a netcat listener, and click on `Test LDAP Profile`.
+
+`nc -lvnp 389`
+
+<img width="902" height="961" alt="image" src="https://github.com/user-attachments/assets/053438d8-b03d-4fae-b7fc-0945c9dcd52a" />
+
+10. We successfully receive a LDAP connection, which gives us the LDAP credentials `svc_ldap:
+
+<img width="705" height="80" alt="image" src="https://github.com/user-attachments/assets/35ece593-082b-4fdc-8614-ae3906efe0f5" />
