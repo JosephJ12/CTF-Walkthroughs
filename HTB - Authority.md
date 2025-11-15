@@ -163,4 +163,6 @@ Host script results:
 
 5. Before cracking these, we turn these hashes into a crackeable friendly format using the `ansible2john` script
 
-``
+`ansible2john ldap_admin_password.hash > ldap_admin_password.ansible2john`
+
+
