@@ -171,6 +171,7 @@ Host script results:
 
 `hashcat -m 16900 ldap_admin_password.ansible2john /usr/share/wordlists/rockyou.txt`
 
+<img width="1266" height="356" alt="image" src="https://github.com/user-attachments/assets/aa758bad-7443-4650-96fb-9178fc126828" />
 
-
+7. 
 
