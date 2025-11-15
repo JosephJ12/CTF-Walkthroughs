@@ -191,4 +191,12 @@ Host script results:
 
 10. We successfully receive a LDAP connection, which gives us the LDAP credentials `svc_ldap:lDaP_1n_th3_cle4r!`
 
-<img width="705" height="80" alt="image" src="https://github.com/user-attachments/assets/35ece593-082b-4fdc-8614-ae3906efe0f5" />
+<img width="699" height="81" alt="image" src="https://github.com/user-attachments/assets/40a4649f-13d4-40bd-8e9f-93abcf1d6e0c" />
+
+11. We confirm if the credentials are valid via NetExec
+
+`nxc ldap authority.htb -u svc_ldap -p 'lDaP_1n_th3_cle4r!'`
+
+<img width="1074" height="67" alt="image" src="https://github.com/user-attachments/assets/24b2714a-831a-465b-89ab-ddc26d134d2f" />
+
+12. 
