@@ -189,6 +189,6 @@ Host script results:
 
 <img width="902" height="961" alt="image" src="https://github.com/user-attachments/assets/053438d8-b03d-4fae-b7fc-0945c9dcd52a" />
 
-10. We successfully receive a LDAP connection, which gives us the LDAP credentials `svc_ldap:
+10. We successfully receive a LDAP connection, which gives us the LDAP credentials `svc_ldap:lDaP_1n_th3_cle4r!0P`
 
 <img width="705" height="80" alt="image" src="https://github.com/user-attachments/assets/35ece593-082b-4fdc-8614-ae3906efe0f5" />
