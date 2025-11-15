@@ -173,5 +173,12 @@ Host script results:
 
 <img width="1266" height="356" alt="image" src="https://github.com/user-attachments/assets/aa758bad-7443-4650-96fb-9178fc126828" />
 
-7. 
+7. Turns out, all 3 ansible hashes are !@#$%^&*. We use this password to decrypt all 3  ansible vault hashes
 
+`cat pwm_admin_login.hash | ansible-vault decrypt`
+
+<img width="472" height="268" alt="image" src="https://github.com/user-attachments/assets/7628984f-84fc-456d-9613-3491fcba6715" />
+
+8. This gives us the pwm admin creds: `svc_pwm:pWm_@dm!N_!23`
+
+9. 
