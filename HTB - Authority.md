@@ -165,4 +165,10 @@ Host script results:
 
 `ansible2john ldap_admin_password.hash > ldap_admin_password.ansible2john`
 
+<img width="1264" height="220" alt="image" src="https://github.com/user-attachments/assets/55cade06-ec75-4b30-9bee-d441e8c7797c" />
+
+6. Crack using hashcat module 16900
+
+``
+
 
