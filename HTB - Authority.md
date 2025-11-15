@@ -179,7 +179,8 @@ Host script results:
 
 <img width="472" height="268" alt="image" src="https://github.com/user-attachments/assets/7628984f-84fc-456d-9613-3491fcba6715" />
 
-8. This gives us the pwm admin creds: `svc_pwm:pWm_@dm!N_!23`. We use this password to log into the Configuration Manager of PWM.
+8. This gives us the pwm admin creds: `svc_pwm:pWm_@dm!N_!23`. We use this password to log into the Configuration Editor of PWM.
 
-<img width="649" height="971" alt="image" src="https://github.com/user-attachments/assets/1dbe268d-00c6-47b2-bc02-05f2ecfae102" />
+<img width="889" height="241" alt="image" src="https://github.com/user-attachments/assets/0328cd65-073a-4d1e-853b-c081dc1b55a9" />
 
+9. 
