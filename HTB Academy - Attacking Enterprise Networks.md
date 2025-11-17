@@ -16,6 +16,8 @@ External Testing	                          Internal Testing
                                             
                                             INLANEFREIGHT.LOCAL (Active Directory domain)
 
+<img width="1504" height="660" alt="image" src="https://github.com/user-attachments/assets/fb7f6597-3abf-4495-8074-4e4f73d8cae8" />
+
 ## Walkthrough
 
 1. Run nmap scan
