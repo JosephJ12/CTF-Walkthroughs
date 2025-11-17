@@ -77,12 +77,8 @@ cat alive_ips_formatted.txt
 
 3. Do a full port scan of all alive hosts
 
-`nmap -sV -Pn -p- -T5 --min-rate 3000 -oN initial_scan -iL alive_ips_formatted.txt`
-
-4. Web Server to keep in mind: 10.129.234.170. Add inlanefreight.local to /etc/hosts file and do subdomain enumeration on this host using ffuf
-
 ```
-ffuf -u http://10.129.234.170 -H 'Host: FUZZ.inlanefreight.local' -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt  -fs 4864
+nmap -sV -Pn -p- -T5 --min-rate 3000 -oN initial_scan -iL alive_ips_formatted.txt
 
 Nmap scan report for 10.129.0.1
 Host is up.
@@ -382,3 +378,9 @@ Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 # Nmap done at Sun Nov 16 22:46:13 2025 -- 19 IP addresses (19 hosts up) scanned in 640.32 seconds
 ```
+
+5. Install EyeWitness and run it against alive IP addresses to get screenshots of Website
+
+`python3 Python/EyeWitness.py --only-ports 80,8080 -f ../alive_ips_formatted.txt`
+
+
