@@ -423,4 +423,4 @@ monitoring              [Status: 200, Size: 56, Words: 3, Lines: 4, Duration: 74
 ffuf -w subdomains.txt:URL -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt:FUZZ -u http://URL/FUZZ
 ```
 
-8. 
+8. Anonymous FTP login detected: 10.129.42.254
