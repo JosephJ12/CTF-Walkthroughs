@@ -20,4 +20,36 @@ External Testing	                          Internal Testing
 
 ## Walkthrough
 
-1. Run nmap scan
+1. Do a ping sweep of external IP range with Nmap
+
+`nmap -sn 10.129.0.0/16 -oN alive_ips.txt --min-rate 3000 -T5`
+
+2. Format all alive hosts to only get the IP address from output
+
+`cat alive_ips.txt | grep Nmap | cut -d ' ' -f5 > alive_ips_formatted.txt`
+
+```
+10.129.0.1
+10.129.2.141
+10.129.2.219
+10.129.15.95
+10.129.35.28
+10.129.42.254
+10.129.43.4
+10.129.48.182
+10.129.59.248
+10.129.120.171
+10.129.124.236
+10.129.126.149
+10.129.127.86
+10.129.173.143
+10.129.191.157
+10.129.203.22
+10.129.204.23
+10.129.234.170
+10.129.252.88
+```
+
+3. Do a full port scan of all alive hosts
+
+`nmap -sV -Pn -p- -T5 --min-rate 3000 -oN initial_scan -iL alive_ips_formatted.txt`
