@@ -383,4 +383,41 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 `python3 Python/EyeWitness.py --only-ports 80,8080 -f ../alive_ips_formatted.txt`
 
+6. IP address to note: 10.129.127.86. Add inlanefreight.local to /etc/hosts file and do subdomain enumeration using ffuf
 
+```
+ffuf -u http://10.129.127.86/ -H 'Host: FUZZ.inlanefreight.local' -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt  -fs 15157
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v2.1.0-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://10.129.127.86/
+ :: Wordlist         : FUZZ: /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt
+ :: Header           : Host: FUZZ.inlanefreight.local
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200-299,301,302,307,401,403,405,500
+ :: Filter           : Response size: 15157
+________________________________________________
+
+careers                 [Status: 200, Size: 51806, Words: 22041, Lines: 732, Duration: 70ms]
+blog                    [Status: 200, Size: 8708, Words: 1509, Lines: 232, Duration: 2270ms]
+status                  [Status: 200, Size: 878, Words: 105, Lines: 43, Duration: 84ms]
+support                 [Status: 200, Size: 26635, Words: 11730, Lines: 523, Duration: 4142ms]
+dev                     [Status: 200, Size: 2048, Words: 643, Lines: 74, Duration: 79ms]
+tracking                [Status: 200, Size: 35211, Words: 10413, Lines: 791, Duration: 77ms]
+vpn                     [Status: 200, Size: 1578, Words: 414, Lines: 35, Duration: 75ms]
+ir                      [Status: 200, Size: 28548, Words: 2885, Lines: 210, Duration: 1301ms]
+monitoring              [Status: 200, Size: 56, Words: 3, Lines: 4, Duration: 74ms]
+:: Progress: [87664/87664] :: Job [1/1] :: 591 req/sec :: Duration: [0:02:49] :: Errors: 0 ::
+```
