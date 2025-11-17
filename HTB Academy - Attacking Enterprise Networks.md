@@ -82,5 +82,5 @@ cat alive_ips_formatted.txt
 4. Web Server to keep in mind: 10.129.234.170. Add inlanefreight.local to /etc/hosts file and do subdomain enumeration on this host using ffuf
 
 ```
-ffuf -u http://10.129.234.170 -H 'Host: http://FUZZ.10.129.234.170' -w /usr/share
+ffuf -u http://10.129.234.170 -H 'Host: FUZZ.inlanefreight.local' -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt  -fs 4864
 ```
