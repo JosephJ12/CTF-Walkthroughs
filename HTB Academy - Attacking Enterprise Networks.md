@@ -77,7 +77,6 @@ cat alive_ips_formatted.txt
 
 3. Do a full port scan of all alive hosts
 
-```
-nmap -sV -Pn -p- -T5 --min-rate 3000 -oN initial_scan -iL alive_ips_formatted.txt
+`nmap -sV -Pn -p- -T5 --min-rate 3000 -oN initial_scan -iL alive_ips_formatted.txt`
 
-```
+4. Web Server to keep in mind: 10.129.234.170
