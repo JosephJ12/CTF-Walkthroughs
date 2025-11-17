@@ -421,3 +421,13 @@ ir                      [Status: 200, Size: 28548, Words: 2885, Lines: 210, Dura
 monitoring              [Status: 200, Size: 56, Words: 3, Lines: 4, Duration: 74ms]
 :: Progress: [87664/87664] :: Job [1/1] :: 591 req/sec :: Duration: [0:02:49] :: Errors: 0 ::
 ```
+
+7. Add all the subdomains to /etc/host file and do directory busting on them using ffuf
+
+`inlanefreight.local blog.inlanefreight.local dev.inlanefreight.local careers.inlanefreight.local ir.inlanefreight.local monitoring.inlanefreight.local status.inlanefreight.local support.inlanefreight.local tracking.inlanefreight.local vpn..inlanefreight.local`
+
+```
+ffuf -w subdomains.txt:URL -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt:FUZZ -u http://URL/FUZZ
+```
+
+8. 
