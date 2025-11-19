@@ -199,4 +199,10 @@ Host script results:
 
 <img width="1074" height="67" alt="image" src="https://github.com/user-attachments/assets/24b2714a-831a-465b-89ab-ddc26d134d2f" />
 
-12. 
+12. We get a successful authentication! Now we evil-winrm into the machine and get the user flag.
+
+`evil-winrm -i authority.htb -u svc_ldap -p $(cat svc_ldap.pass)`
+
+<img width="1208" height="518" alt="image" src="https://github.com/user-attachments/assets/33c80605-6e51-4b9a-b47b-1b26fdde4499" />
+
+13. 
