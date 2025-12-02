@@ -311,4 +311,20 @@ Certificate Templates
 
 <img width="1265" height="237" alt="image" src="https://github.com/user-attachments/assets/98b0845d-d489-4321-a179-e1e02c976303" />
 
-16. 
+16. The normal way would be to get a TGT as the Adminsitrator. However, we get an error stating that the KDC does not support PKINIT authentiation.
+
+<img width="1217" height="414" alt="image" src="https://github.com/user-attachments/assets/14941daa-5bbd-4754-a433-262c52002594" />
+
+17. In this case, we have a work around: getting an LDAP shell and then adding a user we control into the Domain Admins group to get root access
+
+``
+
+<img width="1128" height="430" alt="image" src="https://github.com/user-attachments/assets/4d0c25f1-9126-43c2-8b34-3d8cd6526213" />
+
+<img width="1264" height="83" alt="image" src="https://github.com/user-attachments/assets/90a33ae7-90ae-4de1-96e7-c9fdd4bada5c" />
+
+18. We evil-winrm into the DC as svc_ldap and we get the root flag!
+
+``
+
+<img width="1049" height="408" alt="image" src="https://github.com/user-attachments/assets/6261e4b4-0170-4a88-bd09-174ab98a799b" />
