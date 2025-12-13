@@ -255,3 +255,52 @@ Interesting Finding(s):
 [+] Elapsed time: 00:00:05
 ```
 
+8. Simultaneously, do directory busting on the `/wordpress` folder.
+
+```
+$ ffuf -u http://10.10.110.100:65000/wordpress/FUZZ -e .php,.swp,.xml,.json,.config -fc 403 -w /usr/share/wordlists/dirb/common.txt 
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v2.1.0-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://10.10.110.100:65000/wordpress/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/wordlists/dirb/common.txt
+ :: Extensions       : .php .swp .xml .json .config 
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200-299,301,302,307,401,403,405,500
+________________________________________________
+
+                        [Status: 200, Size: 41962, Words: 1658, Lines: 389, Duration: 122ms]
+index.php               [Status: 301, Size: 0, Words: 1, Lines: 1, Duration: 87ms]
+index.php               [Status: 301, Size: 0, Words: 1, Lines: 1, Duration: 89ms]
+robots.txt              [Status: 200, Size: 34, Words: 4, Lines: 3, Duration: 67ms]
+wp-admin                [Status: 301, Size: 336, Words: 20, Lines: 10, Duration: 67ms]
+wp-blog-header.php      [Status: 200, Size: 0, Words: 1, Lines: 1, Duration: 91ms]
+wp-content              [Status: 301, Size: 338, Words: 20, Lines: 10, Duration: 67ms]
+wp-config.php           [Status: 200, Size: 0, Words: 1, Lines: 1, Duration: 76ms]
+wp-cron.php             [Status: 200, Size: 0, Words: 1, Lines: 1, Duration: 81ms]
+wp-includes             [Status: 301, Size: 339, Words: 20, Lines: 10, Duration: 67ms]
+wp-load.php             [Status: 200, Size: 0, Words: 1, Lines: 1, Duration: 81ms]
+wp-login.php            [Status: 200, Size: 5090, Words: 214, Lines: 86, Duration: 85ms]
+wp-links-opml.php       [Status: 200, Size: 224, Words: 13, Lines: 12, Duration: 97ms]
+wp-mail.php             [Status: 403, Size: 2709, Words: 213, Lines: 121, Duration: 88ms]
+wp-settings.php         [Status: 500, Size: 0, Words: 1, Lines: 1, Duration: 69ms]
+wp-signup.php           [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 96ms]
+wp-trackback.php        [Status: 200, Size: 135, Words: 11, Lines: 5, Duration: 104ms]
+xmlrpc.php              [Status: 405, Size: 42, Words: 6, Lines: 1, Duration: 83ms]
+xmlrpc.php              [Status: 405, Size: 42, Words: 6, Lines: 1, Duration: 82ms]
+:: Progress: [27684/27684] :: Job [1/1] :: 595 req/sec :: Duration: [0:00:49] :: Errors: 0 ::
+```
+
+9. 
