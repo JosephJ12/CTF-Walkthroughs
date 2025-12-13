@@ -148,4 +148,110 @@ $ cat todo.txt
 
 6. We browse to the URL `http://10.10.110.100:65000/wordpress` and confirm our findings.
 
-<img width="1400" height="1188" alt="image" src="https://github.com/user-attachments/assets/d9e30d08-39a8-4b7b-9fc4-4b7efdd41f87" />
+<img width="1400" height="1188" alt="image" src="https://github.com/user-attachments/assets/e40b9e96-063f-41cd-ab63-5ee4eae61cc7" />
+
+7. Since we are dealing with a Wordpress website, we run a wpscan on it
+
+`wpscan --url http://10.10.110.100:65000/wordpress -e ap`
+
+This command gives us the following output:
+
+```
+$ wpscan --url http://10.10.110.100:65000/wordpress -e ap 
+_______________________________________________________________
+         __          _______   _____
+         \ \        / /  __ \ / ____|
+          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
+           \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
+            \  /\  /  | |     ____) | (__| (_| | | | |
+             \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+         WordPress Security Scanner by the WPScan Team
+                         Version 3.8.27
+       Sponsored by Automattic - https://automattic.com/
+       @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
+_______________________________________________________________
+
+[+] URL: http://10.10.110.100:65000/wordpress/ [10.10.110.100]
+[+] Started: Sat Dec 13 16:48:34 2025
+
+Interesting Finding(s):
+
+[+] Headers
+ | Interesting Entry: Server: Apache/2.4.41 (Ubuntu)
+ | Found By: Headers (Passive Detection)
+ | Confidence: 100%
+
+[+] robots.txt found: http://10.10.110.100:65000/wordpress/robots.txt
+ | Found By: Robots Txt (Aggressive Detection)
+ | Confidence: 100%
+
+[+] XML-RPC seems to be enabled: http://10.10.110.100:65000/wordpress/xmlrpc.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+ | References:
+ |  - http://codex.wordpress.org/XML-RPC_Pingback_API
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner/
+ |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access/
+
+[+] WordPress readme found: http://10.10.110.100:65000/wordpress/readme.html
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] Debug Log found: http://10.10.110.100:65000/wordpress/wp-content/debug.log
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+ | Reference: https://codex.wordpress.org/Debugging_in_WordPress
+
+[+] Upload directory has listing enabled: http://10.10.110.100:65000/wordpress/wp-content/uploads/
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] The external WP-Cron seems to be enabled: http://10.10.110.100:65000/wordpress/wp-cron.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 60%
+ | References:
+ |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://github.com/wpscanteam/wpscan/issues/1299
+
+[+] WordPress version 5.4.1 identified (Insecure, released on 2020-04-29).
+ | Found By: Rss Generator (Passive Detection)
+ |  - http://10.10.110.100:65000/wordpress/index.php/feed/, <generator>https://wordpress.org/?v=5.4.1</generator>
+ |  - http://10.10.110.100:65000/wordpress/index.php/comments/feed/, <generator>https://wordpress.org/?v=5.4.1</generator>
+
+[+] WordPress theme in use: twentytwenty
+ | Location: http://10.10.110.100:65000/wordpress/wp-content/themes/twentytwenty/
+ | Last Updated: 2025-12-03T00:00:00.000Z
+ | Readme: http://10.10.110.100:65000/wordpress/wp-content/themes/twentytwenty/readme.txt
+ | [!] The version is out of date, the latest version is 3.0
+ | Style URL: http://10.10.110.100:65000/wordpress/wp-content/themes/twentytwenty/style.css?ver=1.2
+ | Style Name: Twenty Twenty
+ | Style URI: https://wordpress.org/themes/twentytwenty/
+ | Description: Our default theme for 2020 is designed to take full advantage of the flexibility of the block editor...
+ | Author: the WordPress team
+ | Author URI: https://wordpress.org/
+ |
+ | Found By: Css Style In Homepage (Passive Detection)
+ |
+ | Version: 1.2 (80% confidence)
+ | Found By: Style (Passive Detection)
+ |  - http://10.10.110.100:65000/wordpress/wp-content/themes/twentytwenty/style.css?ver=1.2, Match: 'Version: 1.2'
+
+[+] Enumerating All Plugins (via Passive Methods)
+
+[i] No plugins Found.
+
+[!] No WPScan API Token given, as a result vulnerability data has not been output.
+[!] You can get a free API token with 25 daily requests by registering at https://wpscan.com/register
+
+[+] Finished: Sat Dec 13 16:48:40 2025
+[+] Requests Done: 33
+[+] Cached Requests: 6
+[+] Data Sent: 8.986 KB
+[+] Data Received: 342.526 KB
+[+] Memory used: 274.148 MB
+[+] Elapsed time: 00:00:05
+```
+
