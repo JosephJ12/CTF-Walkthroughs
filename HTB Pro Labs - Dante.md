@@ -152,7 +152,7 @@ $ cat todo.txt
 
 7. Since we are dealing with a Wordpress website, we run a wpscan on it and enumerate all plugins and users
 
-`wpscan --url http://10.10.110.100:65000/wordpress -e ap`
+`wpscan --url http://10.10.110.100:65000/wordpress -e ap,u`
 
 This command gives us the following output:
 
@@ -242,6 +242,24 @@ Interesting Finding(s):
 [+] Enumerating All Plugins (via Passive Methods)
 
 [i] No plugins Found.
+
+[+] Enumerating Users (via Passive and Aggressive Methods)
+ Brute Forcing Author IDs - Time: 00:00:00 <================================================================> (10 / 10) 100.00% Time: 00:00:00
+
+[i] User(s) Identified:
+
+[+] admin
+ | Found By: Author Posts - Author Pattern (Passive Detection)
+ | Confirmed By:
+ |  Rss Generator (Passive Detection)
+ |  Wp Json Api (Aggressive Detection)
+ |   - http://10.10.110.100:65000/wordpress/index.php/wp-json/wp/v2/users/?per_page=100&page=1
+ |  Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ |  Login Error Messages (Aggressive Detection)
+
+[+] james
+ | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ | Confirmed By: Login Error Messages (Aggressive Detection)
 
 [!] No WPScan API Token given, as a result vulnerability data has not been output.
 [!] You can get a free API token with 25 daily requests by registering at https://wpscan.com/register
