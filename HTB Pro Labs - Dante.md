@@ -616,4 +616,12 @@ We login as james successfully and even get a flag!
 
 <img width="824" height="351" alt="image" src="https://github.com/user-attachments/assets/48dfe571-71c0-419b-ad17-e27371c2028c" />
 
-19. 
+19. In the output, we discover the `find` command has the SUID bit set and find a way to privesc to root on [GTFOBins](https://gtfobins.github.io/gtfobins/find/)
+
+<img width="840" height="284" alt="image" src="https://github.com/user-attachments/assets/9850b19d-de31-4fb0-aa8d-15435be9d7e5" />
+
+20. We got a root shell and the root flag on WEB-NIX01
+
+<img width="554" height="153" alt="image" src="https://github.com/user-attachments/assets/e34d821c-bc7b-41e2-8084-c229688fd01e" />
+
+21. 
