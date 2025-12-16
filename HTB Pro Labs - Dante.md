@@ -671,3 +671,22 @@ $ sudo ip tuntap add user [USERNAME] mode tun ligolo1
 
 <img width="1265" height="376" alt="image" src="https://github.com/user-attachments/assets/e4079181-e6be-422d-910f-344b0a9fc57e" />
 
+23. Now, we will enumerate which hosts are on the internal network by doing a ping sweep from the WEB-NIX01 root shell
+
+```
+root@DANTE-WEB-NIX01:~# for i in $(seq 254); do ping 172.16.1.$i -c1 -W1 & done | grep from
+64 bytes from 172.16.1.5: icmp_seq=1 ttl=128 time=3.13 ms
+64 bytes from 172.16.1.13: icmp_seq=1 ttl=128 time=2.39 ms
+64 bytes from 172.16.1.12: icmp_seq=1 ttl=64 time=1.60 ms
+64 bytes from 172.16.1.20: icmp_seq=1 ttl=128 time=0.604 ms
+64 bytes from 172.16.1.10: icmp_seq=1 ttl=64 time=0.442 ms
+64 bytes from 172.16.1.17: icmp_seq=1 ttl=64 time=0.515 ms
+64 bytes from 172.16.1.19: icmp_seq=1 ttl=64 time=1.68 ms
+64 bytes from 172.16.1.102: icmp_seq=1 ttl=128 time=0.633 ms
+64 bytes from 172.16.1.100: icmp_seq=1 ttl=64 time=0.016 ms
+64 bytes from 172.16.1.101: icmp_seq=1 ttl=128 time=0.990 ms
+```
+
+We get back 9 additional hosts (excluding WEB-NIX01, 172.16.1.100)
+
+24. 
