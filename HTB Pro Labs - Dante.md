@@ -414,4 +414,10 @@ Trying james / Toyota Time: 00:16:19 <==============================            
 
 10. Login using credentials `james:Toyota` and we find we can use the `Theme Editor` feature.
 
+<img width="983" height="873" alt="image" src="https://github.com/user-attachments/assets/2ebf0021-1a04-45a4-b3a2-31f4356a9a31" />
 
+11. On the top right corner, we select the theme `Twenty Seventeen`, click `Select` and edit the `404 Template`. The contents will be modified to the following:
+
+```
+
+```
