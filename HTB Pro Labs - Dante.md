@@ -689,4 +689,6 @@ root@DANTE-WEB-NIX01:~# for i in $(seq 254); do ping 172.16.1.$i -c1 -W1 & done 
 
 We get back 9 additional hosts (excluding WEB-NIX01, 172.16.1.100)
 
-24. 
+24. We'll do a full service scan of all the hosts in the internal network
+
+`nmap -sC -sV -T5 --min-rate=1200 -Pn -p- -oN internal_service_scan -iL 172.16.1.0_alive_hosts.txt`
