@@ -624,4 +624,14 @@ We login as james successfully and even get a flag!
 
 <img width="554" height="153" alt="image" src="https://github.com/user-attachments/assets/e34d821c-bc7b-41e2-8084-c229688fd01e" />
 
-21. 
+21. Doing some network enumeration, we discover the 172.16.1.0/24 internal network
+
+`ip a`
+
+<img width="765" height="217" alt="image" src="https://github.com/user-attachments/assets/020fbeb0-4c79-43b0-b8ae-a031dfc5e80c" />
+
+22. Let's pivot into this internal network using ligolo-ng
+
+```
+
+```
