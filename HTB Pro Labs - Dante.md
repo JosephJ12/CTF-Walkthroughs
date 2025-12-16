@@ -150,7 +150,7 @@ $ cat todo.txt
 
 <img width="1400" height="1188" alt="image" src="https://github.com/user-attachments/assets/e40b9e96-063f-41cd-ab63-5ee4eae61cc7" />
 
-7. Since we are dealing with a Wordpress website, we run a wpscan on it
+7. Since we are dealing with a Wordpress website, we run a wpscan on it and enumerate all plugins and users
 
 `wpscan --url http://10.10.110.100:65000/wordpress -e ap`
 
