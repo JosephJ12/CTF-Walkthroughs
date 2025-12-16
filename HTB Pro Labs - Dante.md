@@ -576,3 +576,6 @@ function printit ($string) {
 
 And we get the reverse shell!
 
+<img width="938" height="199" alt="image" src="https://github.com/user-attachments/assets/5fe44af7-0c8a-48a5-acf2-d99daa059ab9" />
+
+14. 
