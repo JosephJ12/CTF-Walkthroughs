@@ -1329,5 +1329,19 @@ Nmap done: 10 IP addresses (10 hosts up) scanned in 946.96 seconds
 
 30. Reading the contents of the `wp-config.php` file gives us margaret's password `Welcome1!2@3#`
 
+<img width="591" height="317" alt="image" src="https://github.com/user-attachments/assets/ce47382c-b405-41ae-a132-04b14bc510f8" />
 
+31. We SSH into 172.16.1.10 with margaret's credentials and we land on a restricted shell
 
+<img width="970" height="598" alt="image" src="https://github.com/user-attachments/assets/e419a8a7-b179-4868-a4f7-cb8a37ce3db8" />
+
+32. We try some basic escape restriction techniques that fail until we try this one using vim
+- Type vim: `vim`
+- Set :shell command to `/bin/sh`: `:set shell=/bin/sh`
+- Run shell command in vim: `:shell`
+
+33. We get an escaped `/bin/sh` shell!
+
+<img width="739" height="136" alt="image" src="https://github.com/user-attachments/assets/c97175df-057d-4333-888e-5a9496f9e9e3" />
+
+34. 
