@@ -692,3 +692,623 @@ We get back 9 additional hosts (excluding WEB-NIX01, 172.16.1.100)
 24. We'll do a full service scan of all the hosts in the internal network
 
 `nmap -sC -sV -T5 --min-rate=1200 -Pn -p- -oN internal_service_scan -iL 172.16.1.0_alive_hosts.txt`
+
+```
+Nmap scan report for 172.16.1.5
+Host is up (0.088s latency).
+Not shown: 65518 closed tcp ports (reset)
+PORT      STATE SERVICE      VERSION
+21/tcp    open  ftp          FileZilla ftpd
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_-r--r--r-- 1 ftp ftp             44 Jan 08  2021 flag.txt
+| ftp-syst: 
+|_  SYST: UNIX emulated by FileZilla
+111/tcp   open  rpcbind      2-4 (RPC #100000)
+| rpcinfo: 
+|   program version    port/proto  service
+|   100000  2,3,4        111/tcp   rpcbind
+|   100000  2,3,4        111/tcp6  rpcbind
+|   100000  2,3,4        111/udp   rpcbind
+|   100000  2,3,4        111/udp6  rpcbind
+|   100003  2,3         2049/udp   nfs
+|   100003  2,3         2049/udp6  nfs
+|   100003  2,3,4       2049/tcp   nfs
+|   100003  2,3,4       2049/tcp6  nfs
+|   100005  1,2,3       2049/tcp   mountd
+|   100005  1,2,3       2049/tcp6  mountd
+|   100005  1,2,3       2049/udp   mountd
+|   100005  1,2,3       2049/udp6  mountd
+|   100021  1,2,3,4     2049/tcp   nlockmgr
+|   100021  1,2,3,4     2049/tcp6  nlockmgr
+|   100021  1,2,3,4     2049/udp   nlockmgr
+|   100021  1,2,3,4     2049/udp6  nlockmgr
+|   100024  1           2049/tcp   status
+|   100024  1           2049/tcp6  status
+|   100024  1           2049/udp   status
+|_  100024  1           2049/udp6  status
+135/tcp   open  msrpc        Microsoft Windows RPC
+139/tcp   open  netbios-ssn  Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds Microsoft Windows Server 2008 R2 - 2012 microsoft-ds
+1433/tcp  open  ms-sql-s     Microsoft SQL Server 2019 15.00.2000.00; RTM
+| ms-sql-info: 
+|   172.16.1.5\SQLEXPRESS: 
+|     Instance name: SQLEXPRESS
+|     Version: 
+|       name: Microsoft SQL Server 2019 RTM
+|       number: 15.00.2000.00
+|       Product: Microsoft SQL Server 2019
+|       Service pack level: RTM
+|       Post-SP patches applied: false
+|     TCP port: 1433
+|_    Clustered: false
+|_ssl-date: 2025-12-17T19:09:01+00:00; -33s from scanner time.
+| ms-sql-ntlm-info: 
+|   172.16.1.5\SQLEXPRESS: 
+|     Target_Name: DANTE-SQL01
+|     NetBIOS_Domain_Name: DANTE-SQL01
+|     NetBIOS_Computer_Name: DANTE-SQL01
+|     DNS_Domain_Name: DANTE-SQL01
+|     DNS_Computer_Name: DANTE-SQL01
+|_    Product_Version: 10.0.14393
+| ssl-cert: Subject: commonName=SSL_Self_Signed_Fallback
+| Not valid before: 2025-12-17T09:08:30
+|_Not valid after:  2055-12-17T09:08:30
+2049/tcp  open  nlockmgr     1-4 (RPC #100021)
+5985/tcp  open  http         Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Not Found
+|_http-server-header: Microsoft-HTTPAPI/2.0
+47001/tcp open  http         Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Not Found
+|_http-server-header: Microsoft-HTTPAPI/2.0
+49664/tcp open  msrpc        Microsoft Windows RPC
+49665/tcp open  msrpc        Microsoft Windows RPC
+49666/tcp open  msrpc        Microsoft Windows RPC
+49667/tcp open  msrpc        Microsoft Windows RPC
+49673/tcp open  ms-sql-s     Microsoft SQL Server 2019 15.00.2000.00; RTM
+| ssl-cert: Subject: commonName=SSL_Self_Signed_Fallback
+| Not valid before: 2025-12-17T09:08:30
+|_Not valid after:  2055-12-17T09:08:30
+| ms-sql-info: 
+|   172.16.1.5:49673: 
+|     Version: 
+|       name: Microsoft SQL Server 2019 RTM
+|       number: 15.00.2000.00
+|       Product: Microsoft SQL Server 2019
+|       Service pack level: RTM
+|       Post-SP patches applied: false
+|_    TCP port: 49673
+| ms-sql-ntlm-info: 
+|   172.16.1.5:49673: 
+|     Target_Name: DANTE-SQL01
+|     NetBIOS_Domain_Name: DANTE-SQL01
+|     NetBIOS_Computer_Name: DANTE-SQL01
+|     DNS_Domain_Name: DANTE-SQL01
+|     DNS_Computer_Name: DANTE-SQL01
+|_    Product_Version: 10.0.14393
+|_ssl-date: 2025-12-17T19:09:02+00:00; -33s from scanner time.
+49678/tcp open  msrpc        Microsoft Windows RPC
+49679/tcp open  msrpc        Microsoft Windows RPC
+49680/tcp open  msrpc        Microsoft Windows RPC
+Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_nbstat: NetBIOS name: DANTE-SQL01, NetBIOS user: <unknown>, NetBIOS MAC: 00:50:56:b0:2d:b5 (VMware)
+| smb2-time: 
+|   date: 2025-12-17T19:08:15
+|_  start_date: 2025-12-17T09:08:23
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled but not required
+|_clock-skew: mean: -33s, deviation: 0s, median: -34s
+
+Nmap scan report for 172.16.1.10
+Host is up (0.069s latency).
+Not shown: 65531 closed tcp ports (reset)
+PORT    STATE SERVICE     VERSION
+22/tcp  open  ssh         OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 5a:9c:1b:a5:c1:7f:2d:4f:4b:e8:cc:7b:e4:47:bc:a9 (RSA)
+|   256 fd:d6:3a:3f:a8:04:56:4c:e2:76:db:85:91:0c:5e:42 (ECDSA)
+|_  256 e2:d5:17:7c:58:75:26:5b:e1:1b:98:39:3b:2c:6c:fc (ED25519)
+80/tcp  open  http        Apache httpd 2.4.41 ((Ubuntu))
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: Dante Hosting
+139/tcp open  netbios-ssn Samba smbd 4.6.2
+445/tcp open  netbios-ssn Samba smbd 4.6.2
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+| smb2-time: 
+|   date: 2025-12-17T19:08:59
+|_  start_date: N/A
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled but not required
+|_nbstat: NetBIOS name: DANTE-NIX02, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+
+Nmap scan report for 172.16.1.12
+Host is up (0.069s latency).
+Not shown: 65530 closed tcp ports (reset)
+PORT     STATE SERVICE  VERSION
+21/tcp   open  ftp      ProFTPD
+22/tcp   open  ssh      OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 22:cc:a3:e8:7d:d5:65:6d:9d:ea:17:d1:d9:1b:32:cb (RSA)
+|   256 04:fb:b6:1a:db:95:46:b7:22:13:61:24:76:80:1e:b8 (ECDSA)
+|_  256 ae:c4:55:67:6e:be:ba:65:54:a3:c3:fc:08:29:24:0e (ED25519)
+80/tcp   open  http     Apache httpd 2.4.43 ((Unix) OpenSSL/1.1.1g PHP/7.4.7 mod_perl/2.0.11 Perl/v5.30.3)
+|_http-server-header: Apache/2.4.43 (Unix) OpenSSL/1.1.1g PHP/7.4.7 mod_perl/2.0.11 Perl/v5.30.3
+| http-title: Welcome to XAMPP
+|_Requested resource was http://172.16.1.12/dashboard/
+443/tcp  open  ssl/http Apache httpd 2.4.43 ((Unix) OpenSSL/1.1.1g PHP/7.4.7 mod_perl/2.0.11 Perl/v5.30.3)
+| tls-alpn: 
+|_  http/1.1
+| ssl-cert: Subject: commonName=localhost/organizationName=Apache Friends/stateOrProvinceName=Berlin/countryName=DE
+| Not valid before: 2004-10-01T09:10:30
+|_Not valid after:  2010-09-30T09:10:30
+|_http-server-header: Apache/2.4.43 (Unix) OpenSSL/1.1.1g PHP/7.4.7 mod_perl/2.0.11 Perl/v5.30.3
+|_ssl-date: TLS randomness does not represent time
+| http-title: Welcome to XAMPP
+|_Requested resource was https://172.16.1.12/dashboard/
+3306/tcp open  mysql?
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, GenericLines, GetRequest, HTTPOptions, Help, Kerberos, NULL, RPCCheck, RTSPRequest, SMBProgNeg, SSLSessionReq, TLSSessionReq, TerminalServerCookie, X11Probe: 
+|_    Host '172.16.1.100' is not allowed to connect to this MariaDB server
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port3306-TCP:V=7.94SVN%I=7%D=12/17%Time=6942FF0A%P=x86_64-pc-linux-gnu%
+SF:r(NULL,4B,"G\0\0\x01\xffj\x04Host\x20'172\.16\.1\.100'\x20is\x20not\x20
+SF:allowed\x20to\x20connect\x20to\x20this\x20MariaDB\x20server")%r(Generic
+SF:Lines,4B,"G\0\0\x01\xffj\x04Host\x20'172\.16\.1\.100'\x20is\x20not\x20a
+SF:llowed\x20to\x20connect\x20to\x20this\x20MariaDB\x20server")%r(GetReque
+SF:st,4B,"G\0\0\x01\xffj\x04Host\x20'172\.16\.1\.100'\x20is\x20not\x20allo
+SF:wed\x20to\x20connect\x20to\x20this\x20MariaDB\x20server")%r(HTTPOptions
+SF:,4B,"G\0\0\x01\xffj\x04Host\x20'172\.16\.1\.100'\x20is\x20not\x20allowe
+SF:d\x20to\x20connect\x20to\x20this\x20MariaDB\x20server")%r(RTSPRequest,4
+SF:B,"G\0\0\x01\xffj\x04Host\x20'172\.16\.1\.100'\x20is\x20not\x20allowed\
+SF:x20to\x20connect\x20to\x20this\x20MariaDB\x20server")%r(RPCCheck,4B,"G\
+SF:0\0\x01\xffj\x04Host\x20'172\.16\.1\.100'\x20is\x20not\x20allowed\x20to
+SF:\x20connect\x20to\x20this\x20MariaDB\x20server")%r(DNSVersionBindReqTCP
+SF:,4B,"G\0\0\x01\xffj\x04Host\x20'172\.16\.1\.100'\x20is\x20not\x20allowe
+SF:d\x20to\x20connect\x20to\x20this\x20MariaDB\x20server")%r(DNSStatusRequ
+SF:estTCP,4B,"G\0\0\x01\xffj\x04Host\x20'172\.16\.1\.100'\x20is\x20not\x20
+SF:allowed\x20to\x20connect\x20to\x20this\x20MariaDB\x20server")%r(Help,4B
+SF:,"G\0\0\x01\xffj\x04Host\x20'172\.16\.1\.100'\x20is\x20not\x20allowed\x
+SF:20to\x20connect\x20to\x20this\x20MariaDB\x20server")%r(SSLSessionReq,4B
+SF:,"G\0\0\x01\xffj\x04Host\x20'172\.16\.1\.100'\x20is\x20not\x20allowed\x
+SF:20to\x20connect\x20to\x20this\x20MariaDB\x20server")%r(TerminalServerCo
+SF:okie,4B,"G\0\0\x01\xffj\x04Host\x20'172\.16\.1\.100'\x20is\x20not\x20al
+SF:lowed\x20to\x20connect\x20to\x20this\x20MariaDB\x20server")%r(TLSSessio
+SF:nReq,4B,"G\0\0\x01\xffj\x04Host\x20'172\.16\.1\.100'\x20is\x20not\x20al
+SF:lowed\x20to\x20connect\x20to\x20this\x20MariaDB\x20server")%r(Kerberos,
+SF:4B,"G\0\0\x01\xffj\x04Host\x20'172\.16\.1\.100'\x20is\x20not\x20allowed
+SF:\x20to\x20connect\x20to\x20this\x20MariaDB\x20server")%r(SMBProgNeg,4B,
+SF:"G\0\0\x01\xffj\x04Host\x20'172\.16\.1\.100'\x20is\x20not\x20allowed\x2
+SF:0to\x20connect\x20to\x20this\x20MariaDB\x20server")%r(X11Probe,4B,"G\0\
+SF:0\x01\xffj\x04Host\x20'172\.16\.1\.100'\x20is\x20not\x20allowed\x20to\x
+SF:20connect\x20to\x20this\x20MariaDB\x20server");
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 172.16.1.13
+Host is up.
+All 65535 scanned ports on 172.16.1.13 are in ignored states.
+Not shown: 65535 filtered tcp ports (no-response)
+
+Nmap scan report for 172.16.1.17
+Host is up (0.069s latency).
+Not shown: 65530 closed tcp ports (reset)
+PORT      STATE SERVICE     VERSION
+80/tcp    open  http        Apache httpd 2.4.41
+| http-ls: Volume /
+| SIZE  TIME              FILENAME
+| 37M   2020-06-25 13:00  webmin-1.900.zip
+| -     2020-07-13 02:21  webmin/
+|_
+|_http-title: Index of /
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+139/tcp   open  netbios-ssn Samba smbd 4.6.2
+445/tcp   open  netbios-ssn Samba smbd 4.6.2
+10000/tcp open  http        MiniServ 1.900 (Webmin httpd)
+|_http-title: Login to Webmin
+| http-robots.txt: 1 disallowed entry 
+|_/
+33060/tcp open  mysqlx?
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, LDAPSearchReq, NotesRPC, SSLSessionReq, TLSSessionReq, X11Probe, afp: 
+|     Invalid message"
+|_    HY000
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port33060-TCP:V=7.94SVN%I=7%D=12/17%Time=6942FF10%P=x86_64-pc-linux-gnu
+SF:%r(NULL,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(GenericLines,9,"\x05\0\0\0\
+SF:x0b\x08\x05\x1a\0")%r(GetRequest,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(HT
+SF:TPOptions,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(RTSPRequest,9,"\x05\0\0\0
+SF:\x0b\x08\x05\x1a\0")%r(RPCCheck,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(DNS
+SF:VersionBindReqTCP,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(DNSStatusRequestT
+SF:CP,2B,"\x05\0\0\0\x0b\x08\x05\x1a\0\x1e\0\0\0\x01\x08\x01\x10\x88'\x1a\
+SF:x0fInvalid\x20message\"\x05HY000")%r(Help,9,"\x05\0\0\0\x0b\x08\x05\x1a
+SF:\0")%r(SSLSessionReq,2B,"\x05\0\0\0\x0b\x08\x05\x1a\0\x1e\0\0\0\x01\x08
+SF:\x01\x10\x88'\x1a\x0fInvalid\x20message\"\x05HY000")%r(TerminalServerCo
+SF:okie,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(TLSSessionReq,2B,"\x05\0\0\0\x
+SF:0b\x08\x05\x1a\0\x1e\0\0\0\x01\x08\x01\x10\x88'\x1a\x0fInvalid\x20messa
+SF:ge\"\x05HY000")%r(Kerberos,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(SMBProgN
+SF:eg,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(X11Probe,2B,"\x05\0\0\0\x0b\x08\
+SF:x05\x1a\0\x1e\0\0\0\x01\x08\x01\x10\x88'\x1a\x0fInvalid\x20message\"\x0
+SF:5HY000")%r(FourOhFourRequest,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(LPDStr
+SF:ing,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(LDAPSearchReq,2B,"\x05\0\0\0\x0
+SF:b\x08\x05\x1a\0\x1e\0\0\0\x01\x08\x01\x10\x88'\x1a\x0fInvalid\x20messag
+SF:e\"\x05HY000")%r(LDAPBindReq,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(SIPOpt
+SF:ions,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(LANDesk-RC,9,"\x05\0\0\0\x0b\x
+SF:08\x05\x1a\0")%r(TerminalServer,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(NCP
+SF:,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(NotesRPC,2B,"\x05\0\0\0\x0b\x08\x0
+SF:5\x1a\0\x1e\0\0\0\x01\x08\x01\x10\x88'\x1a\x0fInvalid\x20message\"\x05H
+SF:Y000")%r(JavaRMI,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(WMSRequest,9,"\x05
+SF:\0\0\0\x0b\x08\x05\x1a\0")%r(oracle-tns,9,"\x05\0\0\0\x0b\x08\x05\x1a\0
+SF:")%r(ms-sql-s,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(afp,2B,"\x05\0\0\0\x0
+SF:b\x08\x05\x1a\0\x1e\0\0\0\x01\x08\x01\x10\x88'\x1a\x0fInvalid\x20messag
+SF:e\"\x05HY000")%r(giop,9,"\x05\0\0\0\x0b\x08\x05\x1a\0");
+Service Info: Host: 127.0.0.1
+
+Host script results:
+|_clock-skew: 2s
+| smb2-time: 
+|   date: 2025-12-17T19:09:04
+|_  start_date: N/A
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled but not required
+|_nbstat: NetBIOS name: DANTE-NIX03, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+
+Nmap scan report for 172.16.1.19
+Host is up (0.068s latency).
+Not shown: 65532 closed tcp ports (reset)
+PORT      STATE SERVICE VERSION
+80/tcp    open  http    Apache httpd 2.4.41
+|_http-title: Index of /
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+8080/tcp  open  http    Jetty 9.4.27.v20200227
+|_http-server-header: Jetty(9.4.27.v20200227)
+| http-robots.txt: 1 disallowed entry 
+|_/
+|_http-title: Site doesn't have a title (text/html;charset=utf-8).
+33060/tcp open  mysqlx?
+| fingerprint-strings: 
+|   NotesRPC, SSLSessionReq: 
+|     Invalid message"
+|_    HY000
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port33060-TCP:V=7.94SVN%I=7%D=12/17%Time=6942FF15%P=x86_64-pc-linux-gnu
+SF:%r(GenericLines,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(RPCCheck,9,"\x05\0\
+SF:0\0\x0b\x08\x05\x1a\0")%r(SSLSessionReq,2B,"\x05\0\0\0\x0b\x08\x05\x1a\
+SF:0\x1e\0\0\0\x01\x08\x01\x10\x88'\x1a\x0fInvalid\x20message\"\x05HY000")
+SF:%r(SMBProgNeg,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(SIPOptions,9,"\x05\0\
+SF:0\0\x0b\x08\x05\x1a\0")%r(NotesRPC,2B,"\x05\0\0\0\x0b\x08\x05\x1a\0\x1e
+SF:\0\0\0\x01\x08\x01\x10\x88'\x1a\x0fInvalid\x20message\"\x05HY000")%r(ms
+SF:-sql-s,9,"\x05\0\0\0\x0b\x08\x05\x1a\0");
+Service Info: Host: 127.0.0.1
+
+Nmap scan report for 172.16.1.20
+Host is up (0.067s latency).
+Not shown: 65502 closed tcp ports (reset)
+Bug in http-title: no string output.
+Bug in http-title: no string output.
+PORT      STATE SERVICE            VERSION
+22/tcp    open  ssh                OpenSSH for_Windows_8.1 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 15:19:e6:66:c3:4f:f7:80:7e:48:f7:b9:9a:f9:ee:08 (RSA)
+|_  256 42:ca:16:67:5a:e7:a2:01:b0:63:4b:f7:ed:55:db:90 (ED25519)
+53/tcp    open  domain             Simple DNS Plus
+80/tcp    open  http               Microsoft IIS httpd 8.5
+|_http-server-header: Microsoft-IIS/8.5
+| http-methods: 
+|_  Potentially risky methods: TRACE
+| http-robots.txt: 1 disallowed entry 
+|_/ 
+88/tcp    open  kerberos-sec       Microsoft Windows Kerberos (server time: 2025-12-17 19:05:47Z)
+135/tcp   open  msrpc              Microsoft Windows RPC
+139/tcp   open  netbios-ssn        Microsoft Windows netbios-ssn
+389/tcp   open  ldap               Microsoft Windows Active Directory LDAP (Domain: DANTE.local, Site: Default-First-Site-Name)
+443/tcp   open  ssl/http           Microsoft IIS httpd 8.5
+| http-robots.txt: 1 disallowed entry 
+|_/ 
+| http-methods: 
+|_  Potentially risky methods: TRACE
+| ssl-cert: Subject: commonName=DANTE-DC01
+| Subject Alternative Name: othername: UPN::S-1-5-21-2273245918-2602599687-2649756301-1003
+| Not valid before: 2020-08-07T09:32:48
+|_Not valid after:  2025-08-06T09:32:48
+|_ssl-date: 2025-12-17T19:09:30+00:00; -5s from scanner time.
+|_http-server-header: Microsoft-IIS/8.5
+445/tcp   open  microsoft-ds       Windows Server 2012 R2 Standard 9600 microsoft-ds (workgroup: DANTE)
+464/tcp   open  kpasswd5?
+593/tcp   open  ncacn_http         Microsoft Windows RPC over HTTP 1.0
+636/tcp   open  tcpwrapped
+3268/tcp  open  ldap               Microsoft Windows Active Directory LDAP (Domain: DANTE.local, Site: Default-First-Site-Name)
+3269/tcp  open  tcpwrapped
+3389/tcp  open  ssl/ms-wbt-server?
+|_ssl-date: 2025-12-17T19:09:29+00:00; -6s from scanner time.
+| ssl-cert: Subject: commonName=DANTE-DC01.DANTE.local
+| Not valid before: 2025-12-16T09:06:52
+|_Not valid after:  2026-06-17T09:06:52
+5985/tcp  open  http               Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Not Found
+|_http-server-header: Microsoft-HTTPAPI/2.0
+8912/tcp  open  wcbackup           Windows Client Backup service
+9389/tcp  open  mc-nmf             .NET Message Framing
+47001/tcp open  http               Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Not Found
+|_http-server-header: Microsoft-HTTPAPI/2.0
+49152/tcp open  msrpc              Microsoft Windows RPC
+49153/tcp open  msrpc              Microsoft Windows RPC
+49154/tcp open  msrpc              Microsoft Windows RPC
+49155/tcp open  msrpc              Microsoft Windows RPC
+49157/tcp open  ncacn_http         Microsoft Windows RPC over HTTP 1.0
+49158/tcp open  msrpc              Microsoft Windows RPC
+49159/tcp open  msrpc              Microsoft Windows RPC
+49171/tcp open  msrpc              Microsoft Windows RPC
+49181/tcp open  msrpc              Microsoft Windows RPC
+49182/tcp open  msrpc              Microsoft Windows RPC
+49184/tcp open  msrpc              Microsoft Windows RPC
+49237/tcp open  msrpc              Microsoft Windows RPC
+65500/tcp open  ssl/http           Microsoft IIS httpd 8.5
+| ssl-cert: Subject: commonName=DANTE-DC01
+| Subject Alternative Name: othername: UPN::S-1-5-21-2273245918-2602599687-2649756301-1003
+| Not valid before: 2020-08-07T09:32:48
+|_Not valid after:  2025-08-06T09:32:48
+|_http-title: 403 - Forbidden: Access is denied.
+|_http-server-header: Microsoft-IIS/8.5
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_ssl-date: 2025-12-17T19:09:29+00:00; -6s from scanner time.
+65520/tcp open  ssl/http           Microsoft IIS httpd 8.5
+|_http-title: 403 - Forbidden: Access is denied.
+|_http-server-header: Microsoft-IIS/8.5
+| ssl-cert: Subject: commonName=DANTE-DC01
+| Subject Alternative Name: othername: UPN::S-1-5-21-2273245918-2602599687-2649756301-1003
+| Not valid before: 2020-08-07T09:32:48
+|_Not valid after:  2025-08-06T09:32:48
+|_ssl-date: 2025-12-17T19:09:29+00:00; -6s from scanner time.
+Service Info: Host: DANTE-DC01; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb-os-discovery: 
+|   OS: Windows Server 2012 R2 Standard 9600 (Windows Server 2012 R2 Standard 6.3)
+|   OS CPE: cpe:/o:microsoft:windows_server_2012::-
+|   Computer name: DANTE-DC01
+|   NetBIOS computer name: DANTE-DC01\x00
+|   Domain name: DANTE.local
+|   Forest name: DANTE.local
+|   FQDN: DANTE-DC01.DANTE.local
+|_  System time: 2025-12-17T19:09:00+00:00
+| smb2-security-mode: 
+|   3:0:2: 
+|_    Message signing enabled and required
+| smb-security-mode: 
+|   account_used: <blank>
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: required
+|_nbstat: NetBIOS name: DANTE-DC01, NetBIOS user: <unknown>, NetBIOS MAC: 00:50:56:b0:29:ec (VMware)
+| smb2-time: 
+|   date: 2025-12-17T19:09:03
+|_  start_date: 2025-12-17T09:08:59
+|_clock-skew: mean: -3s, deviation: 6s, median: -6s
+
+Nmap scan report for 172.16.1.100
+Host is up (0.067s latency).
+Not shown: 65530 closed tcp ports (reset)
+PORT      STATE SERVICE VERSION
+21/tcp    open  ftp     vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_drwxr-xr-x    4 0        0            4096 Apr 14  2021 Transfer
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:172.16.1.100
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 1
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+22/tcp    open  ssh     OpenSSH 8.2p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 8f:a2:ff:cf:4e:3e:aa:2b:c2:6f:f4:5a:2a:d9:e9:da (RSA)
+|_  256 13:45:c5:ca:db:a6:b4:ae:9c:09:7d:21:cd:9d:74:f4 (ED25519)
+80/tcp    open  http    Apache httpd 2.4.41 ((Ubuntu))
+|_http-title: Apache2 Ubuntu Default Page: It works
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+| http-robots.txt: 2 disallowed entries 
+|_/wordpress DANTE{Y0u_Cant_G3t_at_m3_br0!}
+33060/tcp open  mysqlx?
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, LDAPSearchReq, NotesRPC, SSLSessionReq, TLSSessionReq, X11Probe, afp: 
+|     Invalid message"
+|_    HY000
+65000/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: Apache2 Ubuntu Default Page: It works
+| http-robots.txt: 2 disallowed entries 
+|_/wordpress DANTE{Y0u_Cant_G3t_at_m3_br0!}
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port33060-TCP:V=7.94SVN%I=7%D=12/17%Time=6942FF17%P=x86_64-pc-linux-gnu
+SF:%r(NULL,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(GenericLines,9,"\x05\0\0\0\
+SF:x0b\x08\x05\x1a\0")%r(GetRequest,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(HT
+SF:TPOptions,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(RTSPRequest,9,"\x05\0\0\0
+SF:\x0b\x08\x05\x1a\0")%r(RPCCheck,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(DNS
+SF:VersionBindReqTCP,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(DNSStatusRequestT
+SF:CP,2B,"\x05\0\0\0\x0b\x08\x05\x1a\0\x1e\0\0\0\x01\x08\x01\x10\x88'\x1a\
+SF:x0fInvalid\x20message\"\x05HY000")%r(Help,9,"\x05\0\0\0\x0b\x08\x05\x1a
+SF:\0")%r(SSLSessionReq,2B,"\x05\0\0\0\x0b\x08\x05\x1a\0\x1e\0\0\0\x01\x08
+SF:\x01\x10\x88'\x1a\x0fInvalid\x20message\"\x05HY000")%r(TerminalServerCo
+SF:okie,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(TLSSessionReq,2B,"\x05\0\0\0\x
+SF:0b\x08\x05\x1a\0\x1e\0\0\0\x01\x08\x01\x10\x88'\x1a\x0fInvalid\x20messa
+SF:ge\"\x05HY000")%r(Kerberos,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(SMBProgN
+SF:eg,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(X11Probe,2B,"\x05\0\0\0\x0b\x08\
+SF:x05\x1a\0\x1e\0\0\0\x01\x08\x01\x10\x88'\x1a\x0fInvalid\x20message\"\x0
+SF:5HY000")%r(FourOhFourRequest,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(LPDStr
+SF:ing,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(LDAPSearchReq,2B,"\x05\0\0\0\x0
+SF:b\x08\x05\x1a\0\x1e\0\0\0\x01\x08\x01\x10\x88'\x1a\x0fInvalid\x20messag
+SF:e\"\x05HY000")%r(LDAPBindReq,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(SIPOpt
+SF:ions,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(LANDesk-RC,9,"\x05\0\0\0\x0b\x
+SF:08\x05\x1a\0")%r(TerminalServer,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(NCP
+SF:,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(NotesRPC,2B,"\x05\0\0\0\x0b\x08\x0
+SF:5\x1a\0\x1e\0\0\0\x01\x08\x01\x10\x88'\x1a\x0fInvalid\x20message\"\x05H
+SF:Y000")%r(JavaRMI,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(WMSRequest,9,"\x05
+SF:\0\0\0\x0b\x08\x05\x1a\0")%r(oracle-tns,9,"\x05\0\0\0\x0b\x08\x05\x1a\0
+SF:")%r(ms-sql-s,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(afp,2B,"\x05\0\0\0\x0
+SF:b\x08\x05\x1a\0\x1e\0\0\0\x01\x08\x01\x10\x88'\x1a\x0fInvalid\x20messag
+SF:e\"\x05HY000")%r(giop,9,"\x05\0\0\0\x0b\x08\x05\x1a\0");
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 172.16.1.101
+Host is up (0.068s latency).
+Not shown: 65521 closed tcp ports (reset)
+PORT      STATE SERVICE       VERSION
+21/tcp    open  ftp           FileZilla ftpd
+| ftp-syst: 
+|_  SYST: UNIX emulated by FileZilla
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds?
+5040/tcp  open  unknown
+5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Not Found
+|_http-server-header: Microsoft-HTTPAPI/2.0
+47001/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Not Found
+|_http-server-header: Microsoft-HTTPAPI/2.0
+49664/tcp open  msrpc         Microsoft Windows RPC
+49665/tcp open  msrpc         Microsoft Windows RPC
+49666/tcp open  msrpc         Microsoft Windows RPC
+49667/tcp open  msrpc         Microsoft Windows RPC
+49668/tcp open  msrpc         Microsoft Windows RPC
+49669/tcp open  msrpc         Microsoft Windows RPC
+49670/tcp open  msrpc         Microsoft Windows RPC
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_nbstat: NetBIOS name: DANTE-WS02, NetBIOS user: <unknown>, NetBIOS MAC: 00:50:56:b0:92:b8 (VMware)
+| smb2-time: 
+|   date: 2025-12-17T20:09:06
+|_  start_date: N/A
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled but not required
+|_clock-skew: 59m59s
+
+Nmap scan report for 172.16.1.102
+Host is up (0.083s latency).
+Not shown: 65516 closed tcp ports (reset)
+PORT      STATE SERVICE       VERSION
+80/tcp    open  http          Apache httpd 2.4.54 ((Win64) OpenSSL/1.1.1p PHP/7.4.0)
+|_http-server-header: Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.0
+|_http-title: Dante Marriage Registration System :: Home Page
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+443/tcp   open  ssl/http      Apache httpd 2.4.54 ((Win64) OpenSSL/1.1.1p PHP/7.4.0)
+|_ssl-date: TLS randomness does not represent time
+|_http-title: Dante Marriage Registration System :: Home Page
+| tls-alpn: 
+|   h2
+|_  http/1.1
+| ssl-cert: Subject: commonName=localhost/organizationName=TESTING CERTIFICATE
+| Subject Alternative Name: DNS:localhost
+| Not valid before: 2022-06-24T01:07:25
+|_Not valid after:  2022-12-24T01:07:25
+|_http-server-header: Apache/2.4.54 (Win64) OpenSSL/1.1.1p PHP/7.4.0
+445/tcp   open  microsoft-ds?
+3306/tcp  open  mysql         MySQL (unauthorized)
+3389/tcp  open  ms-wbt-server Microsoft Terminal Services
+| ssl-cert: Subject: commonName=DANTE-WS03
+| Not valid before: 2025-12-16T09:06:08
+|_Not valid after:  2026-06-17T09:06:08
+| rdp-ntlm-info: 
+|   Target_Name: DANTE-WS03
+|   NetBIOS_Domain_Name: DANTE-WS03
+|   NetBIOS_Computer_Name: DANTE-WS03
+|   DNS_Domain_Name: DANTE-WS03
+|   DNS_Computer_Name: DANTE-WS03
+|   Product_Version: 10.0.19041
+|_  System_Time: 2025-12-17T19:09:08+00:00
+|_ssl-date: 2025-12-17T19:09:33+00:00; -1s from scanner time.
+5040/tcp  open  unknown
+5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+33060/tcp open  mysqlx?
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, LDAPSearchReq, NotesRPC, SSLSessionReq, TLSSessionReq, X11Probe, afp: 
+|     Invalid message"
+|     HY000
+|   LDAPBindReq: 
+|     *Parse error unserializing protobuf message"
+|     HY000
+|   oracle-tns: 
+|     Invalid message-frame."
+|_    HY000
+47001/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+49664/tcp open  msrpc         Microsoft Windows RPC
+49665/tcp open  msrpc         Microsoft Windows RPC
+49666/tcp open  msrpc         Microsoft Windows RPC
+49667/tcp open  msrpc         Microsoft Windows RPC
+49668/tcp open  msrpc         Microsoft Windows RPC
+49669/tcp open  msrpc         Microsoft Windows RPC
+49670/tcp open  msrpc         Microsoft Windows RPC
+49671/tcp open  msrpc         Microsoft Windows RPC
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port33060-TCP:V=7.94SVN%I=7%D=12/17%Time=6942FF29%P=x86_64-pc-linux-gnu
+SF:%r(NULL,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(GenericLines,9,"\x05\0\0\0\
+SF:x0b\x08\x05\x1a\0")%r(GetRequest,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(HT
+SF:TPOptions,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(RTSPRequest,9,"\x05\0\0\0
+SF:\x0b\x08\x05\x1a\0")%r(RPCCheck,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(DNS
+SF:VersionBindReqTCP,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(DNSStatusRequestT
+SF:CP,2B,"\x05\0\0\0\x0b\x08\x05\x1a\0\x1e\0\0\0\x01\x08\x01\x10\x88'\x1a\
+SF:x0fInvalid\x20message\"\x05HY000")%r(Help,9,"\x05\0\0\0\x0b\x08\x05\x1a
+SF:\0")%r(SSLSessionReq,2B,"\x05\0\0\0\x0b\x08\x05\x1a\0\x1e\0\0\0\x01\x08
+SF:\x01\x10\x88'\x1a\x0fInvalid\x20message\"\x05HY000")%r(TerminalServerCo
+SF:okie,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(TLSSessionReq,2B,"\x05\0\0\0\x
+SF:0b\x08\x05\x1a\0\x1e\0\0\0\x01\x08\x01\x10\x88'\x1a\x0fInvalid\x20messa
+SF:ge\"\x05HY000")%r(Kerberos,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(SMBProgN
+SF:eg,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(X11Probe,2B,"\x05\0\0\0\x0b\x08\
+SF:x05\x1a\0\x1e\0\0\0\x01\x08\x01\x10\x88'\x1a\x0fInvalid\x20message\"\x0
+SF:5HY000")%r(FourOhFourRequest,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(LPDStr
+SF:ing,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(LDAPSearchReq,2B,"\x05\0\0\0\x0
+SF:b\x08\x05\x1a\0\x1e\0\0\0\x01\x08\x01\x10\x88'\x1a\x0fInvalid\x20messag
+SF:e\"\x05HY000")%r(LDAPBindReq,46,"\x05\0\0\0\x0b\x08\x05\x1a\x009\0\0\0\
+SF:x01\x08\x01\x10\x88'\x1a\*Parse\x20error\x20unserializing\x20protobuf\x
+SF:20message\"\x05HY000")%r(SIPOptions,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r
+SF:(LANDesk-RC,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(TerminalServer,9,"\x05\
+SF:0\0\0\x0b\x08\x05\x1a\0")%r(NCP,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(Not
+SF:esRPC,2B,"\x05\0\0\0\x0b\x08\x05\x1a\0\x1e\0\0\0\x01\x08\x01\x10\x88'\x
+SF:1a\x0fInvalid\x20message\"\x05HY000")%r(JavaRMI,9,"\x05\0\0\0\x0b\x08\x
+SF:05\x1a\0")%r(WMSRequest,9,"\x05\0\0\0\x0b\x08\x05\x1a\0")%r(oracle-tns,
+SF:32,"\x05\0\0\0\x0b\x08\x05\x1a\0%\0\0\0\x01\x08\x01\x10\x88'\x1a\x16Inv
+SF:alid\x20message-frame\.\"\x05HY000")%r(ms-sql-s,9,"\x05\0\0\0\x0b\x08\x
+SF:05\x1a\0")%r(afp,2B,"\x05\0\0\0\x0b\x08\x05\x1a\0\x1e\0\0\0\x01\x08\x01
+SF:\x10\x88'\x1a\x0fInvalid\x20message\"\x05HY000");
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2025-12-17T19:09:05
+|_  start_date: N/A
+|_clock-skew: mean: -1s, deviation: 0s, median: -1s
+|_nbstat: NetBIOS name: DANTE-WS03, NetBIOS user: <unknown>, NetBIOS MAC: 00:50:56:b0:68:9f (VMware)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 10 IP addresses (10 hosts up) scanned in 946.96 seconds
+```
+
+25. 
