@@ -1311,4 +1311,20 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 10 IP addresses (10 hosts up) scanned in 946.96 seconds
 ```
 
-25. 
+25. Since we have SMB ports open, let's first check if our user `james:Toyota` can enuemrate shares on any of these hosts
+
+`nxc smb 172.16.1.0_alive_hosts.txt -u james -p Toyota --shares`
+
+<img width="1264" height="530" alt="image" src="https://github.com/user-attachments/assets/bd099b6b-7f1d-4172-ad66-a5d0df7b1af7" />
+
+26. We discover 2 shares, `SlackMigration` on NIX02 and `forensics` on NIX03. Let's see what's on `SlackMigration` first.
+
+<img width="871" height="334" alt="image" src="https://github.com/user-attachments/assets/e0b57a8a-4a7e-4977-965d-eb7bd4f9bb24" />
+
+27. The file `admintasks.txt` tells us about a wordpress install in the web root on 172.16.1.10. Combine this with the information about a LFI on another website from the `todo.txt` from the WEB-NIX01 FTP server, perhaps we can try exploiting the LFI on 172.16.1.10's web server to read sensitive files from Wordpress. 
+
+<img width="1333" height="356" alt="image" src="https://github.com/user-attachments/assets/d862484e-0b57-4d1b-a6c8-de27face0d71" />
+
+28. Indeed there is a LFI! However, since this is a PHP site, we won't be able to directly output the contents of any PHP Wordpress files. So we'll base64 encode it using PHP filters
+
+``
