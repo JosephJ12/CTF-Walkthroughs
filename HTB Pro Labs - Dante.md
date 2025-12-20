@@ -1354,4 +1354,5 @@ Nmap done: 10 IP addresses (10 hosts up) scanned in 946.96 seconds
 
 <img width="592" height="70" alt="image" src="https://github.com/user-attachments/assets/c40dbf9b-af55-4d41-8f2c-f060efe4296b" />
 
-36. 
+36. Python library hijacking using library path
+`ls -la /usr/local/lib/python3.8/dist-packages`
