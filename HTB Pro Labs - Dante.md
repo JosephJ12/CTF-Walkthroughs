@@ -1344,4 +1344,7 @@ Nmap done: 10 IP addresses (10 hosts up) scanned in 946.96 seconds
 
 <img width="739" height="136" alt="image" src="https://github.com/user-attachments/assets/c97175df-057d-4333-888e-5a9496f9e9e3" />
 
-34. 
+34. From here, looking at the `/home` directory, we know our next target to compromise is user frank. Remembering the task about reinstating Slack in the `admintasks.txt` file, we check for any senstive data in the `~/.config/Slack` folder. And behold, we find Frank's password in one of the Slack conversations with Margaret in `
+
+<img width="1271" height="550" alt="image" src="https://github.com/user-attachments/assets/e69609e3-7690-4d5d-b551-11efa1e61c48" />
+
