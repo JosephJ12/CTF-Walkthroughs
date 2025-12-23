@@ -1354,12 +1354,13 @@ Nmap done: 10 IP addresses (10 hosts up) scanned in 946.96 seconds
 
 <img width="592" height="70" alt="image" src="https://github.com/user-attachments/assets/c40dbf9b-af55-4d41-8f2c-f060efe4296b" />
 
-36. In frank's home folder, we see an interesting python file, so we check to see if we can do a Python Library Hijacking attack. In order to perform this attack, we need to fulfill 2 requirements:
-- the imported module must be in a low priority path
-- we must have write permissions over a path that is of higher priority
+36. In frank's home folder, we see an interesting python file, `apache_restart.py`. We'll try to get root by python library hijacking. So we transfer over pspy and run it to see if we can find where the script imports its libraries from.
 
-We check to see what modules are imported and how high the priority of the imported path is
+<img width="1258" height="501" alt="image" src="https://github.com/user-attachments/assets/3c4646e1-e9fc-42a6-ae28-5eabd7d778c7" />
 
-<img width="651" height="455" alt="image" src="https://github.com/user-attachments/assets/1d38efb8-c2cd-4378-b5ae-ff714ed1e2bc" />
+37. We find the path in the output
 
-37. 
+<img width="1262" height="103" alt="image" src="https://github.com/user-attachments/assets/55d55083-3b16-43af-8bcc-e0955721182b" />
+
+38. We'll create a malicious python file that gives us a reverse shell in the `/home/frank` directory
+
