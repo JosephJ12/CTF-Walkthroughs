@@ -13,7 +13,7 @@ An employee that has local administrator privileges on a Windows machine is susp
 
 #### 1. Check logs for zip file creation
 
-We first check the MDE logs for any file activity that contains the word .zip
+We first check the MDE logs for any file activity that contains the word .zip. Our main goal right now is to gain general information, things such as a relative time frame and which device (if any) has suspicious activity.
 
 ```
 DeviceFileEvents
@@ -21,6 +21,21 @@ DeviceFileEvents
 | order by Timestamp desc
 ```
 
-<img width="2503" height="761" alt="image" src="https://github.com/user-attachments/assets/19127193-3f70-4cba-8071-507057708064" />
+<img width="2503" height="761" alt="image" src="https://github.com/user-attachments/assets/c46e4a70-e7f5-4840-80e1-6362f5db938c" />
 
-#### 2. 
+#### 2. Deeper investigation of process events during this time frame
+
+Now that we have a general time frame and device name to go off of, we will further look into any processes and events that happened using the following KQL query:
+
+```
+let IncidentTime = datetime(2026-01-29T16:49:20.4813094Z);
+DeviceProcessEvents
+| where DeviceName == "stefano-test"
+| where Timestamp between ((IncidentTime - 2m) .. (IncidentTime + 2m))
+| order by Timestamp desc
+| project Timestamp, DeviceName, ActionType, FileName, FolderPath, ProcessVersionInfoOriginalFileName, ProcessCommandLine
+```
+
+<img width="2501" height="1060" alt="image" src="https://github.com/user-attachments/assets/dd027fd6-b007-4e67-a23e-4e6a39238418" />
+
+#### 3. 
