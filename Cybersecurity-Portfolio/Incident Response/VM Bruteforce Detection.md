@@ -1,6 +1,6 @@
 # Virtual Machine Bruteforce Detection
 
-## Scenario
+## Background
 
 We are tasked with setting up an alert to detect bruteforce logon attempts on our systems. These are the parameters that we will set to determine whether a sequence of login attempts are considered a brute force attack:
 - Timeframe of the logins are within the last 3 hours
