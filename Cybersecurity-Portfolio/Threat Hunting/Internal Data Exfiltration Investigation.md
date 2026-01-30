@@ -1,15 +1,15 @@
 # Internal Data Exfiltration
 
-### Skills and Technologies
+## Skills and Technologies
 - Microsoft Azure
 - Microsoft Defender for Endpoint (MDE)
 - Powershell
 - Kusto Query Language (KQL)
 
-### Scenario
+## Scenario
 An employee that has local administrator privileges on a Windows machine is suspected of compressing company data and exfiltrating it to an external computer. We are tasked with investigating this issue and gathering evidence via logs if this suspicious activity is discovered to be taking place. 
 
-### Threat Hunting Steps
+## Threat Hunting Steps
 
 #### 1. Check logs for zip file creation
 
@@ -54,4 +54,15 @@ DeviceNetworkEvents
 
 Fortunately, doesn't seem like we have any logs showing that a file was sent outside
 
-#### 4. 
+## Summary of Findings
+
+After investigating MDE logs, we found traces of a suspicious poweshell script, `exfiltratedata.ps1`, that downloads the popular archiving tool, `7zip`, and uses it to archive the employee data spreadsheet on the `stefano-test` machine. However, we were not able to gather any evidence for this file being exfiltrated on the network. 
+
+## MITRE ATT&CK TTP
+
+| ATT&CK Tactic               | Technique ID | Technique Name                                | Description (Aligned to Findings)                                                                                                 | Reference Link                                                                                   |
+| --------------------------- | ------------ | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Execution                   | T1059.001    | Command and Scripting Interpreter: PowerShell | PowerShell was used to execute a script (`exfiltratedata.ps1`) that downloaded tooling and performed file compression activities. | [https://attack.mitre.org/techniques/T1059/001/](https://attack.mitre.org/techniques/T1059/001/) |
+| Command and Control         | T1105        | Ingress Tool Transfer                         | The PowerShell script downloaded and installed the external archiving utility 7zip, which is not native to the Windows OS.        | [https://attack.mitre.org/techniques/T1105/](https://attack.mitre.org/techniques/T1105/)         |
+| Collection                  | T1560.001    | Archive Collected Data: Archive via Utility   | Sensitive employee data was compressed into a ZIP archive using 7zip, indicating preparation for potential exfiltration.          | [https://attack.mitre.org/techniques/T1560/001/](https://attack.mitre.org/techniques/T1560/001/) |
+| Collection                  | T1074.001    | Data Staged: Local Data Staging               | The compressed archive was staged locally on the endpoint without immediate outbound transfer.                                    | [https://attack.mitre.org/techniques/T1074/001/](https://attack.mitre.org/techniques/T1074/001/) |
