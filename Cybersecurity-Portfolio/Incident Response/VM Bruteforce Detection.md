@@ -1,5 +1,12 @@
 # Virtual Machine Bruteforce Detection
 
+## Skills and Technologies
+- Microsoft Sentinel
+- KQL
+- Microsoft Azure
+- Microsoft Defender for Endpoint
+- MITRE ATT&CK TTP
+
 ## Background
 
 We are tasked with setting up an alert to detect bruteforce logon attempts on our systems. These are the parameters that we will set to determine whether a sequence of login attempts are considered a brute force attack:
