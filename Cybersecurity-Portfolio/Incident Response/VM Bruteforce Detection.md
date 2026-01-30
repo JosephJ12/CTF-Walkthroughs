@@ -2,9 +2,9 @@
 
 ## Skills and Technologies
 - Microsoft Sentinel
-- KQL
+- Kusto Query Language (KQL)
 - Microsoft Azure
-- Microsoft Defender for Endpoint
+- Microsoft Defender for Endpoint (MDE)
 - MITRE ATT&CK TTP
 
 ## Background
