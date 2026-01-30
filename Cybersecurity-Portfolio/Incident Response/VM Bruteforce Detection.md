@@ -6,6 +6,7 @@
 - Microsoft Azure
 - Microsoft Defender for Endpoint (MDE)
 - MITRE ATT&CK TTP
+- NIST Framework
 
 ## Background
 
@@ -40,10 +41,10 @@ We create a new alert rule that will trigger every 3 hours and run the KQL query
 
 #### 3. Incident created for alert
 
-We discover an incident is created for our rule, so we will follow the NIST 800-161 Incident Response Lifecycle
+We discover an incident is created for our rule, so we will follow the NIST 800-61 Incident Response Lifecycle
 
 <img width="2245" height="713" alt="image" src="https://github.com/user-attachments/assets/a0c5eb8b-8ae2-4638-83b0-76cc4df4dafe" />
 
-## NIST 800-161: Incident Response Lifecycle Process
+## NIST 800-61: Incident Response Lifecycle Process
 
 #### 1. 
