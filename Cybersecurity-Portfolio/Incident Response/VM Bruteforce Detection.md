@@ -47,4 +47,12 @@ We discover an incident is created for our rule, so we will follow the NIST 800-
 
 ## NIST 800-61: Incident Response Lifecycle Process
 
-#### 1. 
+#### 1. Preparation
+
+This part of the process is mostly done by default, since we have Sentinel and alerts in place to dive deeper into this incident. We will assign the incident to ourselves and set the status to Active. Now, we'll go straight into phase 2.
+
+<img width="465" height="277" alt="image" src="https://github.com/user-attachments/assets/84d0cdcb-a74f-4b15-bd7c-6ae2627d7c12" />
+
+#### 2. Detection and Analysis
+
+
