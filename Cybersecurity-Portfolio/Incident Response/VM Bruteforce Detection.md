@@ -22,13 +22,12 @@ We will query the `DeviceLogonEvents` table on Microsoft Sentinel with the param
 
 ```
 DeviceLogonEvents
-| where DeviceName == "windows-target-"
 | where ActionType == "LogonFailed"
 | where TimeGenerated < ago(3h)
 | summarize LogonAttempts = count() by DeviceName, RemoteIP, bin(TimeGenerated, 1h)
 | where LogonAttempts >= 10
 | project TimeGenerated, DeviceName, RemoteIP, LogonAttempts
-| order by LogonAttempts desc
+| order by TimeGenerated, LogonAttempts desc
 ```
 
 <img width="1221" height="1073" alt="image" src="https://github.com/user-attachments/assets/4d1efb0a-1b49-4da5-afca-fda6767fa929" />
@@ -37,6 +36,6 @@ DeviceLogonEvents
 
 We create a new alert rule that will trigger every 3 hours and run the KQL query to look for any bruteforce attempts.
 
-<img width="736" height="1277" alt="image" src="https://github.com/user-attachments/assets/47b568d7-0e04-4c52-868c-648d99816573" />
+<img width="1172" height="1273" alt="image" src="https://github.com/user-attachments/assets/b92e8cd2-b023-47a6-a925-e0ea600476ed" />
 
 #### 3. 
