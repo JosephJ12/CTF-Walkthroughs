@@ -6,7 +6,7 @@
 - Powershell
 - Kusto Query Language (KQL)
 
-## Scenario
+## Background
 An employee that has local administrator privileges on a Windows machine is suspected of compressing company data and exfiltrating it to an external computer. We are tasked with investigating this issue and gathering evidence via logs if this suspicious activity is discovered to be taking place. 
 
 ## Threat Hunting Steps
