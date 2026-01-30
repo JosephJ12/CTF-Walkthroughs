@@ -38,4 +38,20 @@ DeviceProcessEvents
 
 <img width="2501" height="1060" alt="image" src="https://github.com/user-attachments/assets/dd027fd6-b007-4e67-a23e-4e6a39238418" />
 
-#### 3. 
+#### 3. Look for evidence of outbound connection sending data
+
+So far, we have evidence of a Powershell script that installs 7zip and compresses employee data into a zip file. Now, we will check the logs to see if this file was sent outside our network.
+
+```
+let IncidentTime = datetime(2026-01-29T16:49:20.4813094Z);
+DeviceNetworkEvents
+| where DeviceName == "stefano-test"
+| where Timestamp between ((IncidentTime - 2m) .. (IncidentTime + 2m))
+| where AdditionalFields contains "Out"
+| order by Timestamp desc
+```
+<img width="2504" height="1203" alt="image" src="https://github.com/user-attachments/assets/26b8c172-d52e-4cf8-a1af-0e5dbb10adb7" />
+
+Fortunately, doesn't seem like we have any logs showing that a file was sent outside
+
+#### 4. 
