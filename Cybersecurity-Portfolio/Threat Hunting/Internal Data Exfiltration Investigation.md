@@ -65,6 +65,30 @@ Fortunately, doesn't seem like we have any logs showing that a file was sent out
 | Collection                  | T1074.001    | Data Staged: Local Data Staging               | The compressed archive was staged locally on the endpoint without immediate outbound transfer.                                    | [https://attack.mitre.org/techniques/T1074/001/](https://attack.mitre.org/techniques/T1074/001/) |
 
 
+## Remediation and Mitigation
+
+To handle similar incidents better in the future, we will create a detection rule that will trigger an alert if there are any signs of a machine executing Powershell with the `-ExecutionPolicy Bypass` flag. This flag enables Powershell to run scripts without being blocked by the execution policy. The following KQL query will count up the number of execution attempts within the last 24 hours and give the timestamp of when the first and last attempts occured in the logs.
+
+```
+DeviceProcessEvents
+| where Timestamp >= ago(1d)
+| where FileName =~ "powershell.exe"
+| where ProcessCommandLine has_any (
+    "-ExecutionPolicy Bypass",
+    "-exec bypass",
+    "-ep bypass"
+)
+| summarize
+    ExecutionCount = count(),
+    FirstSeen = min(Timestamp),
+    LastSeen = max(Timestamp)
+    by DeviceName, AccountName
+| where ExecutionCount >= 1
+| order by ExecutionCount desc
+```
+
+<img width="2522" height="1154" alt="image" src="https://github.com/user-attachments/assets/ef40948a-e79f-42d5-b33b-d40781db4ee9" />
+
 ## Summary of Findings
 
 After investigating MDE logs, we found traces of a suspicious poweshell script, `exfiltratedata.ps1`, that downloads the popular archiving tool, `7zip`, and uses it to archive the employee data spreadsheet on the `stefano-test` machine. However, we were not able to gather any evidence for this file being exfiltrated on the network. 
