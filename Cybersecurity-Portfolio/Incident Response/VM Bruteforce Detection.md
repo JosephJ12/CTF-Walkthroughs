@@ -14,7 +14,7 @@ We are tasked with setting up an alert to detect bruteforce logon attempts on ou
 - Login attempts are from the same remote IP address
 - The count of failed logins is greater than 10
 
-## Incident Response Process
+## Detection and Incident Creation
 
 #### 1. Write a KQL query to detect bruteforce login attempts
 
@@ -38,4 +38,12 @@ We create a new alert rule that will trigger every 3 hours and run the KQL query
 
 <img width="1172" height="1273" alt="image" src="https://github.com/user-attachments/assets/b92e8cd2-b023-47a6-a925-e0ea600476ed" />
 
-#### 3. 
+#### 3. Incident created for alert
+
+We discover an incident is created for our rule, so we will follow the NIST 800-161 Incident Response Lifecycle
+
+<img width="2245" height="713" alt="image" src="https://github.com/user-attachments/assets/a0c5eb8b-8ae2-4638-83b0-76cc4df4dafe" />
+
+## NIST 800-161: Incident Response Lifecycle Process
+
+#### 1. 
