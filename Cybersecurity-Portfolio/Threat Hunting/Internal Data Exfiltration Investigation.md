@@ -5,6 +5,7 @@
 - Microsoft Defender for Endpoint (MDE)
 - Powershell
 - Kusto Query Language (KQL)
+- MITRE ATT&CK TTP
 
 ## Background
 An employee that has local administrator privileges on a Windows machine is suspected of compressing company data and exfiltrating it to an external computer. We are tasked with investigating this issue and gathering evidence via logs if this suspicious activity is discovered to be taking place. 
