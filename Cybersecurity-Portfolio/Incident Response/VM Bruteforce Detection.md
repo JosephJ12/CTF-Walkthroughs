@@ -18,8 +18,9 @@ DeviceLogonEvents
 | where DeviceName == "windows-target-"
 | where ActionType == "LogonFailed"
 | where TimeGenerated < ago(3h)
-| summarize LogonAttempts = count() by DeviceName, RemoteIP
-| where LogonAttempts > 10
+| summarize LogonAttempts = count() by DeviceName, RemoteIP, bin(TimeGenerated, 1h)
+| where LogonAttempts >= 10
+| project TimeGenerated, DeviceName, RemoteIP, LogonAttempts
 | order by LogonAttempts desc
 ```
 
