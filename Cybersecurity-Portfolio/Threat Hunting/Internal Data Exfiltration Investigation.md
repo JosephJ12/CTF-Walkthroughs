@@ -52,11 +52,8 @@ DeviceNetworkEvents
 ```
 <img width="2504" height="1203" alt="image" src="https://github.com/user-attachments/assets/26b8c172-d52e-4cf8-a1af-0e5dbb10adb7" />
 
+
 Fortunately, doesn't seem like we have any logs showing that a file was sent outside
-
-## Summary of Findings
-
-After investigating MDE logs, we found traces of a suspicious poweshell script, `exfiltratedata.ps1`, that downloads the popular archiving tool, `7zip`, and uses it to archive the employee data spreadsheet on the `stefano-test` machine. However, we were not able to gather any evidence for this file being exfiltrated on the network. 
 
 ## MITRE ATT&CK TTP
 
@@ -66,3 +63,8 @@ After investigating MDE logs, we found traces of a suspicious poweshell script, 
 | Command and Control         | T1105        | Ingress Tool Transfer                         | The PowerShell script downloaded and installed the external archiving utility 7zip, which is not native to the Windows OS.        | [https://attack.mitre.org/techniques/T1105/](https://attack.mitre.org/techniques/T1105/)         |
 | Collection                  | T1560.001    | Archive Collected Data: Archive via Utility   | Sensitive employee data was compressed into a ZIP archive using 7zip, indicating preparation for potential exfiltration.          | [https://attack.mitre.org/techniques/T1560/001/](https://attack.mitre.org/techniques/T1560/001/) |
 | Collection                  | T1074.001    | Data Staged: Local Data Staging               | The compressed archive was staged locally on the endpoint without immediate outbound transfer.                                    | [https://attack.mitre.org/techniques/T1074/001/](https://attack.mitre.org/techniques/T1074/001/) |
+
+
+## Summary of Findings
+
+After investigating MDE logs, we found traces of a suspicious poweshell script, `exfiltratedata.ps1`, that downloads the popular archiving tool, `7zip`, and uses it to archive the employee data spreadsheet on the `stefano-test` machine. However, we were not able to gather any evidence for this file being exfiltrated on the network. 
