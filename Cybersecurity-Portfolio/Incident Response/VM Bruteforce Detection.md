@@ -1,2 +1,28 @@
 # Virtual Machine Bruteforce Detection
 
+## Scenario
+
+We are tasked with setting up an alert to detect bruteforce logon attempts on our systems. These are the parameters that we will set to determine whether a sequence of login attempts are considered a brute force attack:
+- Timeframe of the logins are within the last 3 hours
+- Login attempts are from the same remote IP address
+- The count of failed logins is greater than 10
+
+## Incident Response Process
+
+#### 1. Write a KQL query to detect bruteforce login attempts
+
+We will query the `DeviceLogonEvents` table on Microsoft Sentinel with the parameters set above for determining bruteforce attacks:
+
+```
+DeviceLogonEvents
+| where DeviceName == "windows-target-"
+| where ActionType == "LogonFailed"
+| where TimeGenerated < ago(3h)
+| summarize LogonAttempts = count() by DeviceName, RemoteIP
+| where LogonAttempts > 10
+| order by LogonAttempts desc
+```
+
+<img width="1221" height="1073" alt="image" src="https://github.com/user-attachments/assets/4d1efb0a-1b49-4da5-afca-fda6767fa929" />
+
+#### 2. 
