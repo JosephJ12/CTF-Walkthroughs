@@ -26,4 +26,10 @@ DeviceLogonEvents
 
 <img width="1221" height="1073" alt="image" src="https://github.com/user-attachments/assets/4d1efb0a-1b49-4da5-afca-fda6767fa929" />
 
-#### 2. 
+#### 2. Create a scheduled alert rule on Sentinel
+
+We create a new alert rule that will trigger every 3 hours and run the KQL query to look for any bruteforce attempts.
+
+<img width="736" height="1277" alt="image" src="https://github.com/user-attachments/assets/47b568d7-0e04-4c52-868c-648d99816573" />
+
+#### 3. 
