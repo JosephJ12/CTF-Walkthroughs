@@ -55,7 +55,7 @@ DeviceNetworkEvents
 
 Fortunately, doesn't seem like we have any logs showing that a file was sent outside
 
-## MITRE ATT&CK TTP
+## Relevant MITRE ATT&CK TTP
 
 | ATT&CK Tactic               | Technique ID | Technique Name                                | Description (Aligned to Findings)                                                                                                 | Reference Link                                                                                   |
 | --------------------------- | ------------ | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
