@@ -83,4 +83,6 @@ Fortunately, there were no successful logins from these sources.
 
 #### 3. Containment, Eradication, and Recovery
 
+If the bruteforce login attempts were successful, we would isolate the compromised machine and trigger an antivirus scan on it. However, since this is not the case, we will look to prevent these attacks as much as possible in the future by updating our Network Security Group, or firewall, rules.
+
 
