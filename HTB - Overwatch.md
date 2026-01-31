@@ -93,3 +93,22 @@ Host script results:
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 181.35 seconds
 ```
+
+2. The open ports signals a classic Domain Controller. Since we are not provided credentials, our first mission is to get domain creds so that we can further enumerate the network. We'll start by trying anonymous login to the SMB service.
+
+```
+$ smbclient -N -L //10.129.3.55/
+
+	Sharename       Type      Comment
+	---------       ----      -------
+	ADMIN$          Disk      Remote Admin
+	C$              Disk      Default share
+	IPC$            IPC       Remote IPC
+	NETLOGON        Disk      Logon server share 
+	software$       Disk      
+	SYSVOL          Disk      Logon server share
+```
+
+3. The `software$` share sticks out, so we try accessing it anonymously
+
+   
