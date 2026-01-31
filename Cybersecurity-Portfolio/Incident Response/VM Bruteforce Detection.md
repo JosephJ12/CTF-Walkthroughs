@@ -63,4 +63,24 @@ From here, we notice 2 things:
 1. The hosts that were targets of multiple failed logins are `xj11-linux-scan` and `mde-test-cyn`
 2. The remote IP addresses that attempted to login are `72.167.225.241` and `134.199.197.179`
 
+With this information, our first task is to figure out the impact of these attacks- whether these bruteforce attempts resulted in a successful login or not. To investigate this, we'll run the following KQL query:
+
+```
+let ip1 = "72.167.225.241";
+let ip2 = "134.199.197.179";
+let device1 = "xj11-linux-scan";
+let device2 = "mde-test-cyn";
+DeviceLogonEvents
+| where ActionType == "LogonSuccess"
+| where DeviceName contains device1 or DeviceName == device2
+| where RemoteIP in (ip1, ip2)
+| where TimeGenerated < ago(3h)
+```
+
+<img width="826" height="614" alt="image" src="https://github.com/user-attachments/assets/86b4e271-586e-4461-82e8-ad8daa9e9271" />
+
+Fortunately, there were no successful logins from these sources.
+
+#### 3. Containment, Eradication, and Recovery
+
 
