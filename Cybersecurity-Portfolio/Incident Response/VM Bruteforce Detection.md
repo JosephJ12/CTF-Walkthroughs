@@ -57,10 +57,10 @@ This part of the process is mostly done by default, since we have Sentinel and a
 
 Clicking on Investigate brings us to this incident mapping
 
-<img width="2562" height="1116" alt="image" src="https://github.com/user-attachments/assets/7e5ba1f5-f639-437a-98fa-4eca1bcbf2ef" />
+<img width="2559" height="874" alt="image" src="https://github.com/user-attachments/assets/2d3d1d85-805a-4c18-ad7b-25c092d5d36e" />
 
 From here, we notice 2 things:
 1. The hosts that were targets of multiple failed logins are `xj11-linux-scan` and `mde-test-cyn`
-2. The remote IP address that attempted to login are `72.167.225.241` and `134.199.197.179`
+2. The remote IP addresses that attempted to login are `72.167.225.241` and `134.199.197.179`
 
 
