@@ -93,3 +93,10 @@ We create 2 new rules: one to allow only our local IP to connect via RDP and ano
 
 #### 4. Post-Incident Activities
 
+We write a clean, summarized version of our incident response report and upload it as a comment on the incident details page. 
+
+<img width="841" height="1231" alt="image" src="https://github.com/user-attachments/assets/2eec00b9-c9c1-473a-9dac-92f8b40887ba" />
+
+Afterwards, we note that this was a benign positive and close the ticket out and we're done!
+
+<img width="473" height="849" alt="image" src="https://github.com/user-attachments/assets/66e1e704-fb20-496c-9ecc-99aa4460c084" />
