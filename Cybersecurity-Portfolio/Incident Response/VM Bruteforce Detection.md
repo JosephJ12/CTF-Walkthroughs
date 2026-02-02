@@ -97,6 +97,7 @@ We write a clean, summarized version of our incident response report and upload 
 
 <img width="841" height="1231" alt="image" src="https://github.com/user-attachments/assets/2eec00b9-c9c1-473a-9dac-92f8b40887ba" />
 
-Afterwards, we note that this was a benign positive and close the ticket out and we're done!
+Afterwards, we note that this was a true positive and close the ticket out and we're done!
 
-<img width="473" height="849" alt="image" src="https://github.com/user-attachments/assets/66e1e704-fb20-496c-9ecc-99aa4460c084" />
+<img width="474" height="906" alt="image" src="https://github.com/user-attachments/assets/11bde8c6-e000-4564-a43b-ff548f31207a" />
+
