@@ -4,8 +4,6 @@
 - Microsoft Sentinel
 - Kusto Query Language (KQL)
 - Microsoft Azure
-- Microsoft Defender for Endpoint (MDE)
-- MITRE ATT&CK TTP
 - NIST 800-61 Framework
 
 ## Background
