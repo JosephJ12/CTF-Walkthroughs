@@ -85,9 +85,11 @@ Fortunately, there were no successful logins from these sources.
 
 If the bruteforce login attempts were successful, we would isolate the compromised machine and trigger an antivirus scan on it. However, since this is not the case, we will look to prevent these attacks as much as possible in the future by updating our Network Security Group, or firewall, rules.
 
-We create 2 new rules: one to allow only our local IP to connect via RDP and another to deny all other connection atttempts to our RDP port, 3389. 
+We create 2 new rules: one to allow only our local IP to connect via RDP and another to deny all other connection atttempts to our RDP port, 3389. One thing to make sure is that the rule to allow RDP connections from our local IP address has a higher (lower number) priority than the one to deny all RDP connection attempts since we still want to have access to our machine.
 
-## Add images here
+<img width="584" height="1220" alt="image" src="https://github.com/user-attachments/assets/9da6138d-fd80-4dd3-b99f-5dd4788e84ab" />
+
+<img width="580" height="1221" alt="image" src="https://github.com/user-attachments/assets/6d9e11c3-faeb-4b0c-9bb9-56653ed8d0ab" />
 
 #### 4. Post-Incident Activities
 
