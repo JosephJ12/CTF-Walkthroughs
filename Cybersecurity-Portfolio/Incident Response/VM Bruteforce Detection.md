@@ -6,7 +6,7 @@
 - Microsoft Azure
 - Microsoft Defender for Endpoint (MDE)
 - MITRE ATT&CK TTP
-- NIST Framework
+- NIST 800-61 Framework
 
 ## Background
 
