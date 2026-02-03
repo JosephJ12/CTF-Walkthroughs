@@ -36,18 +36,23 @@
 
 ---
 
-## Related Queries:
+## Queries Used:
 ```kql
 // Installer name == tor-browser-windows-x86_64-portable-(version).exe
 // Detect the installer being downloaded
 DeviceFileEvents
+| where DeviceName == "edr-icedamerica"
 | where FileName startswith "tor"
+| order by Timestamp desc
 
-// TOR Browser being silently installed
-// Take note of two spaces before the /S (I don't know why)
+// Above query gives us general start time of incident
+let IncidentStart = datetime(2026-02-02T22:36:56.0709422Z);
+let IncidentEnd = datetime(2026-02-02T23:22:05.6303706Z);
 DeviceProcessEvents
-| where ProcessCommandLine contains "tor-browser-windows-x86_64-portable-14.0.1.exe  /S"
-| project Timestamp, DeviceName, ActionType, FileName, ProcessCommandLine
+| where Timestamp between ((IncidentStart -1m) .. (IncidentEnd + 1m))
+| where DeviceName == "edr-icedamerica"
+| order by Timestamp desc
+| project Timestamp, ActionType, FileName, FolderPath, ProcessCommandLine
 
 // TOR Browser or service was successfully installed and is present on the disk
 DeviceFileEvents
@@ -61,7 +66,7 @@ DeviceProcessEvents
 
 // TOR Browser or service is being used and is actively creating network connections
 DeviceNetworkEvents
-| where InitiatingProcessFileName in~ ("tor.exe", "firefox.exe")
+| where DeviceName == "edr-icedamerica"
 | where RemotePort in (9001, 9030, 9040, 9050, 9051, 9150)
 | project Timestamp, DeviceName, InitiatingProcessAccountName, InitiatingProcessFileName, RemoteIP, RemotePort, RemoteUrl
 | order by Timestamp desc
