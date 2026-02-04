@@ -56,11 +56,6 @@ DeviceFileEvents
 
 <img width="2578" height="672" alt="image" src="https://github.com/user-attachments/assets/2543e115-d585-48f4-9440-0fa434288948" />
 
-The above query gives us the unique process ID, which we can use to see the entire process chain. We'll add the process ID to our KQL query and try again
-
-<img width="2592" height="980" alt="image" src="https://github.com/user-attachments/assets/6e4f7260-71f7-499d-b619-fac8e9be5e4e" />
-
-
 
 ```
 kql
