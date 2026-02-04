@@ -69,7 +69,12 @@ DeviceNetworkEvents
 
 <img width="2586" height="680" alt="image" src="https://github.com/user-attachments/assets/753a46c8-d728-4de9-bd12-faebcb467383" />
 
-Indeed, there was a connection made to example.com in the logs. So far in our investigation, we've found evidence of the user accessing sensitive data, creating a test zip file and testing a remote connection to a dummy URL. Since the test attempt was successful, we can suspect that the user attempted to repeat the process with real data. Therefore, we will look deeper into the incident to find out whether the attacker successfully exfiltrated real, sensitive data.
+Indeed, there was a connection made to example.com in the logs. So far in our investigation, we've found evidence of the user doing the following sequence in order:
+1. Accessing sensitive data
+2. Creating a test zip file
+3. Testing a remote connection to a dummy URL
+
+Since the test attempt was successful, we can suspect that the user attempted to repeat the process with real data. Therefore, we will look deeper into the incident to find out whether the attacker successfully exfiltrated real, sensitive data.
 
 #### 3. Sensitive Data Exfiltration Deep Dive
 
