@@ -78,8 +78,18 @@ Since the test attempt was successful, we can suspect that the user attempted to
 
 #### 3. Sensitive Data Exfiltration Deep Dive
 
+Since the suspicious user created a test `.zip` file, we can assume that they'll do the same for the actual attempt.
 
+```
+DeviceFileEvents
+| where DeviceName == "sys1-dept"
+| where InitiatingProcessAccountName == "5y51-d3p7"
+| where FileName endswith ".zip"
+| order by TimeGenerated desc
+| project TimeGenerated, ActionType,FileName, FolderPath, InitiatingProcessCommandLine, InitiatingProcessRemoteSessionDeviceName
+```
 
+## Queries Used
 
 ```
 DeviceFileEvents
