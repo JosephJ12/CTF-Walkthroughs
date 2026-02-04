@@ -43,7 +43,7 @@ Now that we have a general understanding of what the actor did upon entering, we
 
 <img width="2432" height="1326" alt="image" src="https://github.com/user-attachments/assets/ec2671a1-c090-4136-a4e8-41efc348ea0e" />
 
-Looking further at the results of the previous query, we find evidence of the suspicious user accessing the `BonusMatrix_Draft_v3.xlsx` Excel file. The next thing to look for is if there are traces of data being exfiltrated.
+Looking further at the results of the previous query, we find evidence of the suspicious user accessing the `BonusMatrix_Draft_v3.xlsx` Excel file. The next thing to look for is if there are traces of data being exfiltrated, such as a zip file or archive being made.
 
 ```
 DeviceFileEvents
