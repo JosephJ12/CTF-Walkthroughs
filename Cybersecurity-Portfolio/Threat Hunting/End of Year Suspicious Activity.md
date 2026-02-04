@@ -56,6 +56,25 @@ DeviceFileEvents
 
 <img width="2578" height="672" alt="image" src="https://github.com/user-attachments/assets/2543e115-d585-48f4-9440-0fa434288948" />
 
+We find traces of a zip file being made, along with a HTML file from example.com. This most likely corresponds to the `nslookup.exe example.com` command that the suspicious user ran. To confirm whether a connection to example.com was made, we look at the `DeviceNetworkEvents` logs:
+
+```
+DeviceNetworkEvents
+| where DeviceName == "sys1-dept"
+| where InitiatingProcessAccountName == "5y51-d3p7"
+| where InitiatingProcessRemoteSessionIP == "192.168.0.110"
+| order by TimeGenerated
+| project TimeGenerated, ActionType, InitiatingProcessCommandLine, InitiatingProcessFileName, RemoteIP, RemotePort, RemoteUrl, InitiatingProcessRemoteSessionDeviceName
+```
+
+<img width="2586" height="680" alt="image" src="https://github.com/user-attachments/assets/753a46c8-d728-4de9-bd12-faebcb467383" />
+
+Indeed, there was a connection made to example.com in the logs. So far in our investigation, we've found evidence of the user accessing sensitive data, creating a test zip file and testing a remote connection to a dummy URL. Since the test attempt was successful, we can suspect that the user attempted to repeat the process with real data. Therefore, we will look deeper into the incident to find out whether the attacker successfully exfiltrated real, sensitive data.
+
+#### 3. Sensitive Data Exfiltration Deep Dive
+
+
+
 
 ```
 kql
