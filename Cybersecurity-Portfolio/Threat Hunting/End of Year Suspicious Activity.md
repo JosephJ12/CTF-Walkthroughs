@@ -77,25 +77,30 @@ Indeed, there was a connection made to example.com in the logs. So far in our in
 
 
 ```
-kql
+DeviceFileEvents
+| where DeviceName == "sys1-dept"
+| where InitiatingProcessAccountName == "5y51-d3p7"
+| order by TimeGenerated desc
+| project TimeGenerated, ActionType,FileName, FolderPath, InitiatingProcessCommandLine, RequestSourceIP
+
+DeviceProcessEvents
+| where DeviceName == "sys1-dept"
+| where InitiatingProcessAccountName == "5y51-d3p7"
+| order by TimeGenerated desc
+//| project TimeGenerated, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine, InitiatingProcessRemoteSessionIP, InitiatingProcessRemoteSessionDeviceName
+
 DeviceFileEvents
 | where InitiatingProcessAccountName == "5y51-d3p7"
-//| where InitiatingProcessCommandLine != "\"powershell.exe\" -ExecutionPolicy Bypass -File C:\\Users\\5y51-D3p7\\Downloads\\PayrollSupportTool.ps1"
-| where InitiatingProcessRemoteSessionDeviceName == "YE-HELPDESKTECH"
+| where InitiatingProcessAccountDomain == "sys1-dept"
+| where InitiatingProcessRemoteSessionIP == "192.168.0.110"
+//| where InitiatingProcessUniqueId == "2533274790396713"
 | order by TimeGenerated
-//| project TimeGenerated, ActionType, FileName, FolderPath, InitiatingProcessCommandLine
+| project TimeGenerated, ActionType, FileName, FolderPath, InitiatingProcessRemoteSessionDeviceName, InitiatingProcessRemoteSessionIP, InitiatingProcessUniqueId
 
 DeviceNetworkEvents
 | where DeviceName == "sys1-dept"
 | where InitiatingProcessAccountName == "5y51-d3p7"
-| where InitiatingProcessRemoteSessionDeviceName == "YE-HELPDESKTECH"
-| order by TimeGenerated desc
-//| project TimeGenerated, ActionType, RemoteIP, RemotePort, RemoteUrl
-
-DeviceProcessEvents
-| where DeviceName == "sys1-dept"
-| where AccountName == "5y51-d3p7"
-//| where InitiatingProcessRemoteSessionDeviceName == "YE-HELPDESKTECH"
-| project TimeGenerated, FileName, FolderPath, ProcessCommandLine, ProcessRemoteSessionDeviceName
-| order by TimeGenerated desc
+| where InitiatingProcessRemoteSessionIP == "192.168.0.110"
+| order by TimeGenerated
+| project TimeGenerated, ActionType, InitiatingProcessCommandLine, InitiatingProcessFileName, RemoteIP, RemotePort, RemoteUrl, InitiatingProcessRemoteSessionDeviceName
 ```
