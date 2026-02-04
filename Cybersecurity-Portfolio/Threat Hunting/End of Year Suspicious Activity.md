@@ -1,9 +1,9 @@
-# Crosscheck
+# End of Year Suspicious Activity
 
 ### Technologies and Skills
 
 
-### Scenario
+### Background
 
 At the onset of December, routine monitoring detects irregular access patterns during year-end compensation and performance review activities. 
 
