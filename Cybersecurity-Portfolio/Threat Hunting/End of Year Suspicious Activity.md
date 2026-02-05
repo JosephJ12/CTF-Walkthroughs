@@ -215,4 +215,13 @@ DeviceRegistryEvents
 SecurityEvent
 | where TenantId == "60c7f53e-249a-4077-b68e-55a4ae877d7c"
 //| where DeviceId == "1d0e12b505d61c7eb1f1fd7842d905c99f6ae26a"
+
+DeviceFileEvents
+//| where InitiatingProcessAccountName == "5y51-d3p7"
+//| where InitiatingProcessAccountDomain == "sys1-dept"
+//| where InitiatingProcessRemoteSessionIP == "192.168.0.110"
+//| where InitiatingProcessUniqueId == "2533274790396713"
+| where FileName contains "scorecard"
+| order by TimeGenerated
+| project TimeGenerated, ActionType, FileName, FolderPath, InitiatingProcessAccountName, InitiatingProcessRemoteSessionDeviceName, InitiatingProcessRemoteSessionIP, InitiatingProcessUniqueId
 ```
