@@ -110,6 +110,15 @@ There indeed is a successful outbound connection to `httpbinorg`. Since the time
 
 Since there are signs of data exfiltration, we first notify our SOC lead and await for futher instructions. In the meantime, we will look for a common procedure attackers do once they gain access to a system: persistence.
 
+```
+DeviceRegistryEvents
+| where DeviceName == "sys1-dept"
+| where InitiatingProcessAccountName == "5y51-d3p7"
+| order by TimeGenerated desc
+| project TimeGenerated, ActionType, RegistryKey, RegistryValueData, RegistryValueName
+```
+
+<img width="2520" height="934" alt="image" src="https://github.com/user-attachments/assets/36a0bf92-b7a4-4e4a-9e22-0200e032c747" />
 
 
 ## Queries Used
