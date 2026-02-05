@@ -156,3 +156,52 @@ DeviceNetworkEvents
 | order by TimeGenerated
 | project TimeGenerated, ActionType, InitiatingProcessCommandLine, InitiatingProcessFileName, RemoteIP, RemotePort, RemoteUrl, InitiatingProcessRemoteSessionDeviceName
 ```
+
+
+## Queries Used 2/4
+```
+DeviceFileEvents
+| where DeviceName == "sys1-dept"
+| where InitiatingProcessAccountName == "5y51-d3p7"
+| where FileName endswith ".zip"
+| order by TimeGenerated desc
+| project TimeGenerated, ActionType,FileName, FolderPath, InitiatingProcessCommandLine, InitiatingProcessRemoteSessionDeviceName
+
+DeviceFileEvents
+| where DeviceName == "sys1-dept"
+| where InitiatingProcessAccountName == "5y51-d3p7"
+| order by TimeGenerated desc
+//| project TimeGenerated, ActionType,FileName, FolderPath, InitiatingProcessCommandLine, RequestSourceIP
+
+DeviceProcessEvents
+| where DeviceName == "sys1-dept"
+| where InitiatingProcessAccountName == "5y51-d3p7"
+| order by TimeGenerated desc
+| project TimeGenerated, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine, InitiatingProcessRemoteSessionIP, InitiatingProcessRemoteSessionDeviceName
+
+DeviceFileEvents
+| where InitiatingProcessAccountName == "5y51-d3p7"
+| where InitiatingProcessAccountDomain == "sys1-dept"
+| where InitiatingProcessRemoteSessionIP == "192.168.0.110"
+//| where InitiatingProcessUniqueId == "2533274790396713"
+| order by TimeGenerated
+//| project TimeGenerated, ActionType, FileName, FolderPath, InitiatingProcessRemoteSessionDeviceName, InitiatingProcessRemoteSessionIP, InitiatingProcessUniqueId
+
+DeviceNetworkEvents
+| where DeviceName == "sys1-dept"
+| where InitiatingProcessAccountName == "5y51-d3p7"
+//| where InitiatingProcessRemoteSessionIP == "192.168.0.110"
+| where InitiatingProcessRemoteSessionDeviceName == "YE-HRPLANNER"
+| order by TimeGenerated
+//| project TimeGenerated, ActionType, InitiatingProcessCommandLine, InitiatingProcessFileName, RemoteIP, RemotePort, RemoteUrl, InitiatingProcessRemoteSessionDeviceName
+
+DeviceRegistryEvents
+| where DeviceName == "sys1-dept"
+| where InitiatingProcessAccountName == "5y51-d3p7"
+| order by TimeGenerated desc
+| project TimeGenerated, ActionType, RegistryKey, RegistryValueData, RegistryValueName
+
+SecurityEvent
+| where TenantId == "60c7f53e-249a-4077-b68e-55a4ae877d7c"
+//| where DeviceId == "1d0e12b505d61c7eb1f1fd7842d905c99f6ae26a"
+```
