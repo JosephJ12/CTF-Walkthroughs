@@ -110,6 +110,10 @@ There indeed is a successful outbound connection to `httpbinorg`. Since the time
 
 Since there are signs of data exfiltration, we first notify our SOC lead and await for futher instructions. In the meantime, we will look for a common procedure attackers do once they gain access to a system: persistence.
 
+We first check for any account creation or modification of passwords. Although this would be very unlikely since it is very noisy and this kind of activity would've been flagged already, we still do our due diligence to check. As expected, we don't find anything in the logs.
+
+Next, another common persistence method is by modifying registry keys. We look at the registry event logs for any suspicious values:
+
 ```
 DeviceRegistryEvents
 | where DeviceName == "sys1-dept"
@@ -120,6 +124,7 @@ DeviceRegistryEvents
 
 <img width="2520" height="934" alt="image" src="https://github.com/user-attachments/assets/36a0bf92-b7a4-4e4a-9e22-0200e032c747" />
 
+We discover a autorun registry key value being set to the custom powershell script run by the suspicious user. 
 
 ## Queries Used
 
