@@ -1,7 +1,10 @@
 # End of Year Suspicious Activity
 
 ## Technologies and Skills
-
+- Microsoft Sentinel
+- Kusto Query Language (KQL)
+- Microsoft Defender for Endpoint (MDE)
+- Microsoft Azure
 
 ## Background
 
