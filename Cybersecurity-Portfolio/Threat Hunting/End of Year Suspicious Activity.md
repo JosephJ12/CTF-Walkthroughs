@@ -74,11 +74,11 @@ Indeed, there was a connection made to example.com in the logs. So far in our in
 2. Creating a test zip file
 3. Testing a remote connection to a dummy URL
 
-Since the test attempt was successful, we can suspect that the user attempted to repeat the process with real data. Therefore, we will look deeper into the incident to find out whether the attacker successfully exfiltrated real, sensitive data.
+Since the test attempt to exfiltrate data was successful, we can suspect that the user attempted to repeat the process with real data. Therefore, we will look deeper into the incident to find out whether the attacker successfully exfiltrated real, sensitive data.
 
 #### 3. Sensitive Data Exfiltration Deep Dive
 
-Since the suspicious user created a test `.zip` file, we can assume that they'll do the same for the actual attempt.
+Since the suspicious user created a test `.zip` file, we can assume that they'll do the same for the actual attempt. We look in the logs for creation of zip files:
 
 ```
 DeviceFileEvents
@@ -88,6 +88,29 @@ DeviceFileEvents
 | order by TimeGenerated desc
 | project TimeGenerated, ActionType,FileName, FolderPath, InitiatingProcessCommandLine, InitiatingProcessRemoteSessionDeviceName
 ```
+
+<img width="2514" height="738" alt="image" src="https://github.com/user-attachments/assets/827e4132-cd04-4260-a99b-afb4716f10c3" />
+
+Indeed, there's another instance of a zip file being created just an hour after the other one. This time, the remote device name is `YE-HRPLANNER`. We'll repeat the threat hunting process as before and look for network events by `YE-HRPLANNER`.
+
+```
+DeviceNetworkEvents
+| where DeviceName == "sys1-dept"
+| where InitiatingProcessAccountName == "5y51-d3p7"
+| where InitiatingProcessRemoteSessionDeviceName == "YE-HRPLANNER"
+| order by TimeGenerated
+| project TimeGenerated, ActionType, InitiatingProcessCommandLine, InitiatingProcessFileName, RemoteIP, RemotePort, RemoteUrl, InitiatingProcessRemoteSessionDeviceName
+```
+
+<img width="2438" height="468" alt="image" src="https://github.com/user-attachments/assets/9dbf53e4-e570-4170-8ffa-dc98ace63fa6" />
+
+There indeed is a successful outbound connection to `httpbinorg`. Since the time of the creation of the zip file is 7:26:03 UTC and the time of the connection is 7:26:28 UTC, we can suspect that the zip file was indeed sent out. 
+
+#### 4. Checking for Persistence
+
+Since there are signs of data exfiltration, we first notify our SOC lead and await for futher instructions. In the meantime, we will look for a common procedure attackers do once they gain access to a system: persistence.
+
+
 
 ## Queries Used
 
