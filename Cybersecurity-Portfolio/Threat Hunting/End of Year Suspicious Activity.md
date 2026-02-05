@@ -124,7 +124,18 @@ DeviceRegistryEvents
 
 <img width="2520" height="934" alt="image" src="https://github.com/user-attachments/assets/36a0bf92-b7a4-4e4a-9e22-0200e032c747" />
 
-We discover a autorun registry key value being set to the custom powershell script run by the suspicious user. 
+We discover a autorun registry key value being set to the custom powershell script run by the suspicious user. We also find a scheduled task creation that runs the `PayrollSupportTool.ps1` powershell script daily.
+
+```
+DeviceEvents
+| where DeviceName == "sys1-dept"
+| where InitiatingProcessAccountName == "5y51-d3p7"
+| where ActionType == "ScheduledTaskCreated"
+| order by TimeGenerated
+```
+
+<img width="2524" height="504" alt="image" src="https://github.com/user-attachments/assets/652c46ee-9e9f-4c30-9857-4b65a4b75334" />
+
 
 ## Queries Used
 
