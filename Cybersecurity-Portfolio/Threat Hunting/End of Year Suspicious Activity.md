@@ -139,6 +139,20 @@ DeviceEvents
 
 <img width="2524" height="504" alt="image" src="https://github.com/user-attachments/assets/652c46ee-9e9f-4c30-9857-4b65a4b75334" />
 
+#### 5. Evidence of Suspicious User Covering Tracks
+
+Now that we can be certain that there's a suspicious user still within our system, we'll hunt for evidence of the user trying to cover their tracks by clearing the logs. This is a common tactic that attackers use to stealthily stay in the compromised system and one of the most simple ways for threat actors to achieve this is by using the command line utility: `wevtutil.exe`. We'll look for signs of this command being called in our logs:
+
+```
+DeviceProcessEvents
+| where InitiatingProcessRemoteSessionIP == "192.168.0.110"
+| where ProcessCommandLine contains "wevtutil"
+| project TimeGenerated, FileName, InitiatingProcessAccountName, InitiatingProcessCommandLine, ProcessCommandLine, InitiatingProcessRemoteSessionIP, InitiatingProcessRemoteSessionDeviceName
+```
+
+<img width="1503" height="260" alt="image" src="https://github.com/user-attachments/assets/8848efc1-0837-4139-9f0e-5bb57b591804" />
+
+Surprisingly, this didn't trigger any alerts so we make a note to add a detection rule to trigger an alert when a user attempts to clear logs and continue moving on with our investigation. 
 
 ## Queries Used
 
