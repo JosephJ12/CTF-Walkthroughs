@@ -232,5 +232,6 @@ DeviceFileEvents
 DeviceEvents
 | where InitiatingProcessRemoteSessionIP == "192.168.0.110"
 | where ActionType == "SensitiveFileRead"
+\\ where InitiatingProcessAccountDomain == "sys1-dept"
 | order by TimeGenerated desc
 ```
