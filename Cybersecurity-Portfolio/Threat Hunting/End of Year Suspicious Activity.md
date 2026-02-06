@@ -227,4 +227,10 @@ DeviceFileEvents
 | where FileName contains "scorecard"
 | order by TimeGenerated
 | project TimeGenerated, ActionType, FileName, FolderPath, InitiatingProcessAccountName, InitiatingProcessRemoteSessionDeviceName, InitiatingProcessRemoteSessionIP, InitiatingProcessUniqueId
+
+// Flag 13
+DeviceEvents
+| where InitiatingProcessRemoteSessionIP == "192.168.0.110"
+| where ActionType == "SensitiveFileRead"
+| order by TimeGenerated desc
 ```
