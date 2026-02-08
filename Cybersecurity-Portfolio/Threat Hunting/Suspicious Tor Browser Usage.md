@@ -86,4 +86,28 @@ DeviceNetworkEvents
 
 From the results, we discover that the user visited some suspicious websites using Tor.
 
-#### 5. 
+#### 5. Look for Signs of Covering Tracks
+One thing that attackers do is to cover their tracks. We'll look for evidence of the user trying to delete any files related to Tor or rename them to something less suspicious.
+
+```
+DeviceFileEvents
+| where DeviceName == "edr-icedamerica"
+| where FileName contains "tor"
+| where TimeGenerated >= todatetime('2026-02-02T22:36:56.0709422Z')
+| where ActionType == "FileDeleted" or ActionType == "FileRenamed"
+| order by TimeGenerated asc
+| project TimeGenerated, ActionType, FileName, FolderPath, InitiatingProcessCommandLine, InitiatingProcessFileName
+```
+
+<img width="2520" height="532" alt="image" src="https://github.com/user-attachments/assets/b254bfa5-6115-4cb2-ae26-a40a82800556" />
+
+We discover the user deleting the `tor.exe` file in the logs.
+
+## Summarizing Events
+From our investigationn, we can deduce that the suspicious user did the following actions in this order:
+
+1. Install Tor at 2026-02-02T22:36:56.0709422Z
+2. Run Tor browser at 2026-02-02T23:13:18.7202047Z
+3. Browse sites using Tor from 2026-02-02T23:15:49.3994676Z to 2026-02-02T23:16:00.1528814Z
+4. Delete the tor.exe file at 2026-02-02T23:22:05.6303706Z
+
