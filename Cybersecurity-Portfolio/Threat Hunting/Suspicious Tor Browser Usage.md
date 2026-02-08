@@ -60,4 +60,27 @@ DeviceProcessEvents
 
 We confirm usage of Tor
 
-#### 4. 
+#### 4. Outgoing Network Connections via Tor
+Our next step is to look for traces of outbound connections to known Tor ports. 
+After googling for common Tor ports, we get the following: `9150, 9050, 9051, 9030, 9001, 443`
+
+So we will look for all network events with the following criteria:
+- host = edr-icedamerica
+- time generated after Tor installer timestamp
+- remote port in list of common Tor ports
+- tor.exe or firefox.exe in the process command
+
+Our KQL query comes out like:
+
+```
+DeviceNetworkEvents
+| where DeviceName == "edr-icedamerica"
+| where TimeGenerated >= todatetime('2026-02-02T22:36:56.0709422Z')
+| where RemotePort in ('9050', '9150', '9051', '9001', '9030', '443')
+| where InitiatingProcessCommandLine contains "tor.exe" or InitiatingProcessCommandLine contains "firefox.exe"
+| order by TimeGenerated asc
+| project TimeGenerated, ActionType, InitiatingProcessCommandLine, InitiatingProcessFileName, RemoteIP, RemoteUrl, RemotePort
+```
+
+<img width="2526" height="866" alt="image" src="https://github.com/user-attachments/assets/f4f0db94-face-4783-ae69-33278cda1437" />
+
