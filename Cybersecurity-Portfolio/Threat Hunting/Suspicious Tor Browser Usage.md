@@ -44,6 +44,20 @@ DeviceFileEvents
 
 <img width="2516" height="794" alt="image" src="https://github.com/user-attachments/assets/e5f6281e-e5f7-4154-93cb-14157c73369d" />
 
-We find evidence of Tor browser usage in the logs.
+#### 3. Investigating Tor Usage
+Though from the previous query results, we can assume Tor usage, we'll confirm this by looking through the process logs
 
-#### 3. 
+```
+DeviceProcessEvents
+| where DeviceName == "edr-icedamerica"
+| where TimeGenerated >= todatetime('2026-02-02T22:36:56.0709422Z')
+| where ProcessCommandLine contains "tor.exe" or ProcessCommandLine contains "firefox.exe"
+| order by TimeGenerated asc
+| project TimeGenerated, InitiatingProcessVersionInfoFileDescription, ProcessCommandLine, InitiatingProcessCommandLine, FileName
+```
+
+<img width="2526" height="964" alt="image" src="https://github.com/user-attachments/assets/bd5d0ef1-1811-4100-a68f-4744cd453aae" />
+
+We confirm usage of Tor
+
+#### 4. 
