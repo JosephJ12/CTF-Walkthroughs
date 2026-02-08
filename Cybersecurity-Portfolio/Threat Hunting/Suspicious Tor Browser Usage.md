@@ -111,3 +111,5 @@ From our investigationn, we can deduce that the suspicious user did the followin
 3. Browse sites using Tor from 2026-02-02T23:15:49.3994676Z to 2026-02-02T23:16:00.1528814Z
 4. Delete the tor.exe file at 2026-02-02T23:22:05.6303706Z
 
+## Response to Incident
+Due to our investigation uncovering evidence of unauthorized and suspicious Tor browser installation and browsing, we have isolated the device and notified the system administrator in charge of the machine. 
