@@ -84,3 +84,6 @@ DeviceNetworkEvents
 
 <img width="2526" height="866" alt="image" src="https://github.com/user-attachments/assets/f4f0db94-face-4783-ae69-33278cda1437" />
 
+From the results, we discover that the user visited some suspicious websites using Tor.
+
+#### 5. 
