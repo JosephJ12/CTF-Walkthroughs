@@ -15,7 +15,7 @@
 
 ## Walkthrough
 
-As is common in real life Windows pentests, you will start the Fluffy box with credentials for the following account: j.fleischman / J0elTHEM4n1990!
+As is common in real life Windows pentests, you will start the Fluffy box with credentials for the following account: `j.fleischman / J0elTHEM4n1990!`
 
 1. Run nmap to get open ports first
 
@@ -130,4 +130,9 @@ Enter the password when prompted and we list the contents of the share. After tu
 
 <img width="2130" height="1054" alt="image" src="https://github.com/user-attachments/assets/98945555-d0ba-4bd3-b428-8dc782db9855" />
 
-5. 
+5. Opening the `Upgrade_Notice.pdf` file shows a list of CVEs that the machine may be vulnerable to
+
+<img width="1142" height="946" alt="image" src="https://github.com/user-attachments/assets/491ea959-3c79-4579-a75e-eb1b6bd329a0" />
+
+6. 
+
