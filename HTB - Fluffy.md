@@ -114,5 +114,20 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 97.55 seconds
 ```
 
-3. 
+3. We see that ports such as LDAP, DNS and Kerberos are open, signaling that this is a Domain Controller. Since we are given creds, we'll check what kind of access we have on SMB:
 
+`nxc smb fluffy.htb -u 'j.fleischman' -p 'J0elTHEM4n1990!' --shares`
+
+<img width="2128" height="606" alt="image" src="https://github.com/user-attachments/assets/710e5910-abf4-48eb-96f5-534a91f1d3ee" />
+
+We have READ,WRITE access to the IT share. Our next move will be to see what's on there.
+
+4. Let's connect to the IT share:
+
+`smbclient //fluffy.htb/IT -U j.fleischman`
+
+Enter the password when prompted and we list the contents of the share. After turning off `PROMPT` and turning on `RECURSE`, we proceed to download all the files in the share to our local machine.
+
+<img width="2130" height="1054" alt="image" src="https://github.com/user-attachments/assets/98945555-d0ba-4bd3-b428-8dc782db9855" />
+
+5. 
