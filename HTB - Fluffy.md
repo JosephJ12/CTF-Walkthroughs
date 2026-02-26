@@ -187,4 +187,12 @@ So our first course of action is to add our `p.agila` user to the SERVICE ACCOUN
 
 `hashcat -m 13100 winrm_svc.kerberoast_hash /usr/share/wordlist/rockyou.txt`
 
+ None of the hashes are crackeable, which means that this is not the intended way. Fortunately, there's another way to exploit GenericWrite permissions on a user via the Shadow Credentials attack.
 
+ 13. We'll perform this attack using `pywhisker`
+
+``
+
+<img width="1072" height="394" alt="image" src="https://github.com/user-attachments/assets/cd6af788-ca26-42e1-a6d8-9d7155ed4569" />
+
+14. 
