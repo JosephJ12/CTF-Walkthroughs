@@ -159,6 +159,21 @@ p.agila::FLUFFY:fa2cb766a8c2197b:AE6CEE0CEDAA5F61939E43B49E65C9A0:01010000000000
 
 We get the creds: `p.agila:prometheusx-303`
 
-9. 
+9. Now, we'll check Bloodhound to see if there's a path forward from `p.agila`. To run bloodhound, we'll do the following steps:
 
-9. 
+- Run neo4j: `sudo neo4j console`
+- Run Bloodhound: `sudo bloodhound`
+- Run the python Bloodhound connector: `sudo bloodhound-python -d fluffy.htb -u j.fleischman -p $(cat creds/j.fleischman.pass) -ns 10.129.232.88 -c all`
+
+Then, we find the shortest path from p.agila:
+
+<img width="971" height="702" alt="image" src="https://github.com/user-attachments/assets/34613446-f543-41ee-890c-64c47ddf6ed4" />
+
+10. From Bloodhound, we know that `p.agila` is part of the SERVICE ACCOUNT MANAGERS group which can add members to the SERVICE ACCOUNTS group. Once we add our compromised user to the group, we can exploit the GenericWrite permissions to do a targeted Kerberoast attack on `WINRM_SVC` and PS remote into the machine. 
+
+So our first course of action is to add our `p.agila` user to the SERVICE ACCOUNTS group. We will do so using bloodyAD:
+
+``
+
+<img width="1069" height="84" alt="image" src="https://github.com/user-attachments/assets/c3ca46c5-15ce-418f-9031-2f76341b4048" />
+
