@@ -211,8 +211,10 @@ FLUFFY.HTB = {
 }
 ```
 
-Now we can use Kerberos auth with evil-winrm:
+Now we can use Kerberos auth with evil-winrm and grab the user flag!
 
 `evil-winrm -r fluffy.htb -i dc01.fluffy.htb`
 
+<img width="488" height="175" alt="image" src="https://github.com/user-attachments/assets/7d68a762-4d60-46fd-9e25-4ed54842e7d2" />
 
+16. 
