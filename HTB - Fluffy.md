@@ -201,4 +201,18 @@ So our first course of action is to add our `p.agila` user to the SERVICE ACCOUN
 
 <img width="1064" height="289" alt="image" src="https://github.com/user-attachments/assets/c60abd17-cfbf-49f8-bb44-32d4ffcdfb34" />
 
-15. 
+15. With the TGT, we can use Kerberos authentication to Powershell remote into the machine using `evil-winrm`:
+
+One thing to note: we must use the FQDN of the Domain Controller and we must add the following to the `/etc/krb5.conf` file under the realms section:
+
+```
+FLUFFY.HTB = {
+    kdc = dc01.fluffy.htb
+}
+```
+
+Now we can use Kerberos auth with evil-winrm:
+
+`evil-winrm -r fluffy.htb -i dc01.fluffy.htb`
+
+
