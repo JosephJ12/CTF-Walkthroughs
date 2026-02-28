@@ -46,7 +46,7 @@ PORT      STATE SERVICE
 
 Get open port numbers first:
 
-`grep -E '^[0-9]+/tcp.*open' fluffy_open_ports | cut -d/ -f1 | paste -sd, > ports.txt`
+`grep -E '^[0-9]+/tcp.*open' fluffy_open_ports | cut -d/ -f1 | paste -sd, > open_ports.txt`
 
 Then run service scan for open ports:
 
