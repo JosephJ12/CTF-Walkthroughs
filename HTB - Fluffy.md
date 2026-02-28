@@ -217,4 +217,46 @@ Now we can use Kerberos auth with evil-winrm and grab the user flag!
 
 <img width="488" height="175" alt="image" src="https://github.com/user-attachments/assets/7d68a762-4d60-46fd-9e25-4ed54842e7d2" />
 
-16. 
+16. Enumerating the machine as `winrm_svc` doesn't yield any results for privesc. So we try enumerating with the other service accounts. Repeating steps 13 and 14, we get the TGT for the `ca_svc` account and use it to find vulnerable certificate templates
+
+``
+
+<img width="1106" height="943" alt="image" src="https://github.com/user-attachments/assets/50c7041a-f0be-462b-8232-bc33f880d67e" />
+
+We find out the CA is vulnerable to ESC16 exploit.
+
+17. The ESC16 vulnerability involves omitting the `szOID_NTDS_CA_SECURITY_EXT` extension for ceritificates. This extension does a strict binding between the Active Directory object SID and the certificate, which means without, certificates can be used to impersonate other accounts.
+
+To exploit this, we will change the UPN of the user `p.agila` to Administrator, request a certificate as `Administrator`, and then change back the UPN to its original value. Then, we'll use the stolen certificate to authenticate as admin.
+
+17.1. Change UPN of `p.agila`
+
+``
+
+<img width="730" height="138" alt="image" src="https://github.com/user-attachments/assets/7d0d3cd3-0f4b-4b69-a9bb-d64c110b9774" />
+
+17.2 Confirm UPN is changed
+
+``
+
+<img width="814" height="269" alt="image" src="https://github.com/user-attachments/assets/604c9a44-1427-4e46-8877-28edec29c87a" />
+
+17.3 Request certificate for `Administrator`
+
+``
+
+<img width="1004" height="189" alt="image" src="https://github.com/user-attachments/assets/1bd7caf8-f7b6-4f82-947e-ac90d91a78a2" />
+
+17.4 Change back UPN of `ca_svc` account to avoid suspicion
+
+``
+
+<img width="672" height="137" alt="image" src="https://github.com/user-attachments/assets/07a16922-8177-408e-a54f-d087f26a0451" />
+
+17.5 Authenticate with impersonating certificate
+
+``
+
+<img width="918" height="207" alt="image" src="https://github.com/user-attachments/assets/7e92434a-e252-436d-800b-811987665242" />
+
+18. 
