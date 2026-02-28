@@ -219,7 +219,7 @@ Now we can use Kerberos auth with evil-winrm and grab the user flag!
 
 16. Enumerating the machine as `winrm_svc` doesn't yield any results for privesc. So we try enumerating with the other service accounts. Repeating steps 13 and 14, we get the TGT for the `ca_svc` account and use it to find vulnerable certificate templates
 
-``
+`certipy find -k -dc-ip 10.129.10.195 -enabled -vulnerable -target dc01.fluffy.htb`
 
 <img width="1106" height="943" alt="image" src="https://github.com/user-attachments/assets/50c7041a-f0be-462b-8232-bc33f880d67e" />
 
