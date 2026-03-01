@@ -3,6 +3,9 @@
 ## Pre Requisites
 - Windows 2022 Datacenter VM
 
+## Link
+https://github.com/JoshG-IT/Infrastructure/blob/87df36fdacbf9d10eec444c879aa8c32f0ed8732/Projects/AZ-AD/README.md
+
 ## Configuration Steps
 
 1. Log into VM
