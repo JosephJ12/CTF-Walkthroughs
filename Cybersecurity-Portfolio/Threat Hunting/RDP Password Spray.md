@@ -8,11 +8,7 @@
 
 ## Background
 
-At the onset of December, routine monitoring detects irregular access patterns during year-end compensation and performance review activities. 
-
-What initially appears as legitimate administrative and departmental behavior reveals a multi-stage sequence involving unauthorized script execution, sensitive file access, data staging, persistence mechanisms, and outbound communication attempts. 
-
-We are tasked with correlating endpoint telemetry across multiple user contexts and systems to reconstruct the full access chain and determine how year-end bonus and performance data was accessed, prepared, and transmitted.
+Suspicious RDP login activity has been detected on a cloud-hosted Windows server. Multiple failed attempts were followed by a successful login, suggesting brute-force or password spraying behaviour.
 
 ## Threat Hunt Process
 
