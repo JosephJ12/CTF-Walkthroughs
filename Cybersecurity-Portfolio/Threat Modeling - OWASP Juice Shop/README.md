@@ -127,25 +127,13 @@ flowchart LR
 
 ### 1.5 Risk Register
 
-| ID | Risk | STRIDE | Likelihood | Impact | Risk Level | Mitigation |
-|---|---|---|---|---|---|---|
-| AUTH-01 | Brute-force / credential stuffing | Spoofing | High | High | Critical | Rate limiting, lockout, MFA |
-| AUTH-02 | Token forgery or weak validation | Elevation of Privilege | Medium | Critical | Critical | Signature verification, strict token validation |
-| AUTH-03 | Verbose login error responses | Information Disclosure | High | Medium | High | Generic error messages |
-| AUTH-04 | Incomplete login audit trail | Repudiation | Medium | Medium | Medium | Centralized auth logging |
-| AUTH-05 | Session hijack / token misuse | Tampering / EoP | Medium | High | High | Secure token storage and expiration |
-
-
-
-| Feature        | Risk                  | Likelihood | Impact   | Risk Level | Mitigation            |
-| -------------- | --------------------- | ---------- | -------- | ---------- | --------------------- |
-| Authentication | Brute force login     | High       | High     | Critical   | Rate limiting, MFA    |
-| Authentication | JWT tampering         | Medium     | Critical | Critical   | Signature validation  |
-| Search         | SQL Injection         | High       | Critical | Critical   | Parameterized queries |
-| Search         | Data leakage          | Medium     | High     | High       | Access control        |
-| Upload         | Malicious file upload | Medium     | Critical | Critical   | File validation       |
-| Upload         | Path traversal        | Medium     | High     | High       | Normalize paths       |
-| Upload         | Large file DoS        | High       | Medium   | High       | File size limits      |
+| Risk | STRIDE | Likelihood | Impact | Risk Level | Mitigation |
+|---|---|---|---|---|---|
+| Brute-force / credential stuffing | Spoofing | High | High | Critical | Rate limiting, lockout, MFA |
+| Token forgery or weak validation | Elevation of Privilege | Medium | Critical | Critical | Signature verification, strict token validation |
+| Verbose login error responses | Information Disclosure | High | Medium | High | Generic error messages |
+| Incomplete login audit trail | Repudiation | Medium | Medium | Medium | Centralized auth logging |
+| Session hijack / token misuse | Tampering / EoP | Medium | High | High | Secure token storage and expiration |
 
 
 ### 1.6 Gap Analysis
