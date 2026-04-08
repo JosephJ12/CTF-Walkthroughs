@@ -67,37 +67,36 @@ flowchart LR
 
 ### 1.2 Data Flow Diagram
 
-#### Flow
-1. User enters email and password in the browser
-2. Angular frontend sends login request to backend
-3. Express login handler validates credentials against user data
-4. Backend issues authentication token on success
-5. Token and auth state are returned to the client
+```mermaid
+flowchart LR
+    A[User enters credentials to login form]
+    B[Frontend sends POST login request to backend via API]
+    C[Backend queries database and validates credentials]
+    D[Upon successful validation, backend returns auth token to frontend]
+    E[Frontend stores auth token and uses it for later requests]
 
-#### Security-Critical Points
-- Credentials cross from untrusted user space into the application
-- User lookup and password validation happen server-side
-- Token generation and validation are high-trust functions
+    A --> B --> C --> D --> E
+```
 
 ### 1.3 Trust Boundary Diagram
 
 ```mermaid
 flowchart LR
-    subgraph TB1["TB1: Untrusted User Space"]
+    subgraph TB1["TB1: Untrusted User Boundary"]
         U[User Browser]
     end
 
-    subgraph TB2["TB2: Frontend Application Boundary"]
+    subgraph TB2["TB2: Frontend Trust Boundary"]
         FE[Angular Frontend]
     end
 
-    subgraph TB3["TB3: Backend Trust Zone"]
+    subgraph TB3["TB3: Backend Trust Boundary"]
         APP[Express Backend]
         JWT[JWT Logic]
     end
 
-    subgraph TB4["TB4: Data Storage Boundary"]
-        DB[(SQLite Users)]
+    subgraph TB4["TB4: Database Trust Boundary"]
+        DB[(SQLite DB)]
     end
 
     U --> FE
@@ -112,8 +111,8 @@ flowchart LR
 |------|--------|------|
 | Spoofing | Brute force login | High |
 | Tampering | Modify login request | Medium |
-| Repudiation | No login logs | Medium |
-| Info Disclosure | Error leaks | High |
+| Repudiation | No login audit logs | Medium |
+| Info Disclosure | Nongeneric error messages | High |
 | DoS | Login flooding | Medium |
 | EoP | JWT manipulation | Critical |
 
@@ -121,10 +120,10 @@ flowchart LR
 
 | Risk | STRIDE | Likelihood | Impact | Risk Level | Mitigation |
 |---|---|---|---|---|---|
-| Brute-force / credential stuffing | Spoofing | High | High | Critical | Rate limiting, lockout, MFA |
+| Brute-force / credential stuffing | Spoofing | High | High | Critical | Rate limiting, account lockout policy, MFA |
 | Token forgery or weak validation | Elevation of Privilege | Medium | Critical | Critical | Signature verification, strict token validation |
 | Verbose login error responses | Information Disclosure | High | Medium | High | Generic error messages |
-| Incomplete login audit trail | Repudiation | Medium | Medium | Medium | Centralized auth logging |
+| No login audit logs | Repudiation | Medium | Medium | Medium | Implement auth logging |
 | Session hijack / token misuse | Tampering / EoP | Medium | High | High | Secure token storage and expiration |
 
 
@@ -139,10 +138,10 @@ flowchart LR
 
 ### 1.7 Compliance Mapping
 
-| Risk ID | Risk | NIST SP 800-53 | ISO 27001 |
-|---|---|---|---|
-| AUTH-01 | Brute-force / credential stuffing | AC-7, IA-2 | A.9 |
-| AUTH-02 | Token forgery or weak validation | IA-5, SC-23 | A.10, A.9 |
-| AUTH-03 | Verbose login error responses | SI-11 | A.14 |
-| AUTH-04 | Incomplete login audit trail | AU-2, AU-12 | A.12.4 |
-| AUTH-05 | Session hijack / token misuse | IA-5, AC-6 | A.9, A.10 |
+| Risk | NIST SP 800-53 | ISO 27001 |
+|---|---|---|
+| Brute-force / credential stuffing | AC-7, IA-2 | A.9 |
+| Token forgery or weak validation | IA-5, SC-23 | A.10, A.9 |
+| Verbose login error responses | SI-11 | A.14 |
+| Incomplete login audit trail | AU-2, AU-12 | A.12.4 |
+| Session hijack / token misuse | IA-5, AC-6 | A.9, A.10 |
