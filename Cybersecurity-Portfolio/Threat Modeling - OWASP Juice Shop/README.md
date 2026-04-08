@@ -130,47 +130,12 @@ flowchart LR
 
 ### 1.6 Gap Analysis
 
-#### Step 1: Expected Controls
-For an authentication feature, the expected controls are:
+| Expected Control | Status | Gap | Impact | Recommended Remediation |
+|---|---|---|---|---|
+| Brute force login protection | Not evident | Rate limiting on login attempts does not seem to be present within the scope. | Increases the likelihood of user impersonation, which may lead to complete account compromise and sensitive information disclosure. | Lockout policy on failed login attempts and enforcing strong password policy upon account creation. | 
+| Logging login activity | Not evident | Auditing login attempts does not seem evident within the scope. | Increases likelihood of repudiation without audit logs. | Securely store logs on web server log files. | 
+| Generic error messages upon failed login | Requires validation | Generic error messages should be given for all failed login cases to prevent attackers from enumerating valid users from them. | Increases the likelihood of user enumeration, which may be later used for further attacks. | Implement generic error messages for all login errors. | 
 
-- Server-side credential validation
-- Strong token signing and verification
-- Rate limiting / brute-force protection
-- Secure session or token handling
-- Generic authentication failure responses
-- Audit logging for login attempts and suspicious activity
-- Authorization dependency on validated identity
-
-#### Step 2: Observed / Inferred Controls from Reviewed Scope
-- Login route and authentication flow are clearly present
-- Token-based authentication logic is part of the backend design
-- Centralized auth-related middleware is present in route composition
-- Some rate limiting is visible elsewhere in the application, but full login-specific brute-force control coverage should be validated separately
-
-#### Step 3: Gap Classification
-
-| Control | Status | Gap |
-|---|---|---|
-| Server-side credential validation | Present | No major gap at architectural level |
-| Token issuance | Present | Token lifecycle hardening depth should be validated |
-| Token validation consistency | Partial | Full coverage across all auth-dependent routes should be verified |
-| Login brute-force protection | Needs validation | Login-specific throttling or lockout is not fully established from this feature view alone |
-| Generic auth failure responses | Needs validation | Error-message handling depth should be confirmed in implementation and UI |
-| Audit logging for login events | Partial | Logging expectations exist, but completeness and retention are not established from reviewed scope |
-| Session/token revocation controls | Not evident | Revocation, rotation, or session invalidation behavior is not clear from this feature slice |
-
-#### Step 4: Security Impact of the Gaps
-- If brute-force protections are weak, spoofing risk increases
-- If token validation is inconsistent, elevation-of-privilege risk increases
-- If auth errors are too descriptive, information disclosure risk increases
-- If audit logging is incomplete, repudiation handling weakens
-
-#### Step 5: Recommended Improvements
-- Add or verify login-specific rate limiting and account lockout thresholds
-- Standardize token validation across all auth-dependent routes
-- Ensure authentication failure messages are generic
-- Improve login telemetry and suspicious activity logging
-- Define token expiration, renewal, and revocation strategy clearly
 
 ### 1.7 Compliance Mapping
 
