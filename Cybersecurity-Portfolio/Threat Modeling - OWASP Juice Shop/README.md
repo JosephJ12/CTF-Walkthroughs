@@ -54,7 +54,7 @@ flowchart LR
     API[/POST /rest/user/login/]
     APP[Express Backend]
     DB[(SQLite DB Users Table)]
-    JWT[JWT Token Handling]
+    JWT[JWT Auth]
 
     U --> FE
     FE --> API
@@ -92,7 +92,7 @@ flowchart LR
 
     subgraph TB3["TB3: Backend Trust Boundary"]
         APP[Express Backend]
-        JWT[JWT Logic]
+        JWT[JWT Auth]
     end
 
     subgraph TB4["TB4: Database Trust Boundary"]
