@@ -135,6 +135,19 @@ flowchart LR
 | AUTH-04 | Incomplete login audit trail | Repudiation | Medium | Medium | Medium | Centralized auth logging |
 | AUTH-05 | Session hijack / token misuse | Tampering / EoP | Medium | High | High | Secure token storage and expiration |
 
+
+
+| Feature        | Risk                  | Likelihood | Impact   | Risk Level | Mitigation            |
+| -------------- | --------------------- | ---------- | -------- | ---------- | --------------------- |
+| Authentication | Brute force login     | High       | High     | Critical   | Rate limiting, MFA    |
+| Authentication | JWT tampering         | Medium     | Critical | Critical   | Signature validation  |
+| Search         | SQL Injection         | High       | Critical | Critical   | Parameterized queries |
+| Search         | Data leakage          | Medium     | High     | High       | Access control        |
+| Upload         | Malicious file upload | Medium     | Critical | Critical   | File validation       |
+| Upload         | Path traversal        | Medium     | High     | High       | Normalize paths       |
+| Upload         | Large file DoS        | High       | Medium   | High       | File size limits      |
+
+
 ### 1.6 Gap Analysis
 
 #### Step 1: Expected Controls
