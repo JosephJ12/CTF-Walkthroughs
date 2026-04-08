@@ -53,7 +53,7 @@ flowchart LR
     FE[Angular Frontend]
     API[/POST /rest/user/login/]
     APP[Express Backend]
-    DB[(SQLite Users)]
+    DB[(SQLite DB Users Table)]
     JWT[JWT Token Handling]
 
     U --> FE
@@ -96,7 +96,7 @@ flowchart LR
     end
 
     subgraph TB4["TB4: Database Trust Boundary"]
-        DB[(SQLite DB)]
+        DB[(SQLite DB Users Table)]
     end
 
     U --> FE
