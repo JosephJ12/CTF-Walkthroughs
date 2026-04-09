@@ -1,4 +1,4 @@
-# Threat Modeling / Risk Assessment of OWASP Juice Shop
+# Threat Modeling of OWASP Juice Shop
 
 ## Summary
 The purpose of this project is to do a simulated threat modeling of the popular, intentionally vulnerable web app OWASP Juice Shop. We will focus on assessing 2 core features of the application:
