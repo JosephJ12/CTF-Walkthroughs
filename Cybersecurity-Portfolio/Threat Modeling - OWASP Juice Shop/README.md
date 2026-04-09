@@ -60,7 +60,7 @@ flowchart LR
     FE --> API
     API --> BE
     BE --> DB
-    DB --> APP
+    DB --> BE
     BE --> JWT
     JWT --> FE
 ```
