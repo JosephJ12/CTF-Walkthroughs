@@ -189,5 +189,16 @@ flowchart LR
 ### 2.2 Data Flow Diagram
 
 ```mermaid
+flowchart LR
+    A[User inputs search data]
+    B[Frontend sends GET request via API with the search criteria to backend]
+    C[Backend queries Products table with unfiltered user input]
+    D[SQLite DB processes the search query and returns query results back to backend]
+    E[Backend converts DB data into JSON format and sends back to frontend]
+    F[Frontend parses and renders JSON search results to user]
 
+    A --> B --> C --> D --> E --> F
 ```
+
+### 2.3 Trust Boundary Diagram
+
