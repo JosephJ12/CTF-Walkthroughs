@@ -112,7 +112,7 @@ flowchart LR
 | Spoofing | Brute force login | High |
 | Tampering | JWT token forgery | Critical |
 | Repudiation | Incomplete login audit trail | Medium |
-| Info Disclosure | Nongeneric error messages | High |
+| Info Disclosure | Verbose login error responses | High |
 | DoS | Login request flooding | Medium |
 | EoP | Token hijacking | Critical |
 
