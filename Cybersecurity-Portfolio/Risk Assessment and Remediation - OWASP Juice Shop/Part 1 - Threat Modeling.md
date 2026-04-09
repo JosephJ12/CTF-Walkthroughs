@@ -143,7 +143,9 @@ flowchart LR
 | AUTH-04 | Verbose login error responses | SI-11 | A.14 |
 | AUTH-05 | SQL Injection | SI-10, SI-15 | A.8.25, A.8.26 |
 
-=========
+
+--------------
+
 
 ## 2. Product Search Threat Model
 
@@ -242,11 +244,11 @@ flowchart LR
 
 | Risk ID | Risk | Expected Control | Status | Gap | Impact | Recommended Remediation |
 |---|---|---|---|---|---|---|
-| SEARCH-01 |
-| SEARCH-02 |
-| SEARCH-03 |
-| SEARCH-04 |
-| SEARCH-05 |
+| SEARCH-01 | SQL Injection - Product Data Exposure | Input sanitization and parameterized queries | Not evident | No evidence of input sanitization or parameterized query usage found in code base for scope |
+| SEARCH-02 | SQL Injection - User Data Enumeration | Input sanitization and parameterized queries | Not evident | No evidence of input sanitization or parameterized query usage found in code base for scope |
+| SEARCH-03 | Unauthenticated users can search products | Allow only authenticated users to search or log all user activity | Not evident | Not evident in scope | 
+| SEARCH-04 | Inadequate user activity logging | Implement adequate logging, especially for sensitive activity | Not evident | No evidence of logging of user search activities was found in scope | 
+| SEARCH-05 | Product search query flooding | Implement WAF or rate limiting. Blacklist DoS IPs | Not evident | Expected controls not evident in scope | A malicious actor may flood the application with search requests. This may lead to slower performance of the web application and database, which in severe cases, may cause shutdown of the application | Implementing a WAF may help blacklist DoSing IP addresses and limiting excessive traffic |
 
 ### 2.6 Compliance Mapping
 
