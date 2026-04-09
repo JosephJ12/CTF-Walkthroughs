@@ -202,3 +202,30 @@ flowchart LR
 
 ### 2.3 Trust Boundary Diagram
 
+
+### 2.4 STRIDE Analysis
+
+| Threat | Example | Risk |
+|------|--------|------|
+| Spoofing | SQL Injection | Critical |
+| Tampering | SQL Injection | Critical |
+| Repudiation | N/A | N/A |
+| Info Disclosure | SQL Injection | Critical |
+| DoS | Search request flooding | Medium |
+| EoP | SQL Injection | Critical |
+
+### 2.5 Risk Register
+
+
+### 2.6 Gap Analysis
+
+
+### 2.7 Compliance Mapping
+
+| Risk ID | Risk | NIST SP 800-53 | ISO 27001 |
+|---|---|---|---|
+| SEARCH-01 | Unsafe query behavior from search input | SI-10 | A.14.2 |
+| SEARCH-02 | Sensitive or hidden product data exposed | AC-3, AC-6 | A.8, A.9 |
+| SEARCH-03 | Expensive search patterns degrade availability | SC-5 | A.17 |
+| SEARCH-04 | Search abuse not well attributable | AU-2 | A.12.4 |
+| SEARCH-05 | Filter bypass reveals unintended catalog state | AC-3 | A.9 |
