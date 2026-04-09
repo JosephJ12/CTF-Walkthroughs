@@ -110,21 +110,21 @@ flowchart LR
 | Threat | Example | Risk |
 |------|--------|------|
 | Spoofing | Brute force login | High |
-| Tampering | Modify login request | Medium |
-| Repudiation | No login audit logs | Medium |
+| Tampering | JWT token forgery | Critical |
+| Repudiation | Incomplete login audit trail | Medium |
 | Info Disclosure | Nongeneric error messages | High |
-| DoS | Login flooding | Medium |
-| EoP | JWT manipulation | Critical |
+| DoS | Login request flooding | Medium |
+| EoP | Token hijacking | Critical |
 
 ### 1.5 Risk Register
 
 | Risk | STRIDE | Likelihood | Impact | Risk Level | Mitigation |
 |---|---|---|---|---|---|
-| Brute-force / credential stuffing | Spoofing | High | High | Critical | Rate limiting, account lockout policy, MFA |
-| Token forgery or weak validation | Elevation of Privilege | Medium | Critical | Critical | Signature verification, strict token validation |
-| Verbose login error responses | Information Disclosure | High | Medium | High | Generic error messages |
+| Brute force login | Spoofing | High | High | Critical | Rate limiting, account lockout policy, MFA |
+| JWT Token forgery | Tampering | Medium | Critical | Critical | Signature verification, strict token validation |
 | No login audit logs | Repudiation | Medium | Medium | Medium | Implement auth logging |
-| Session hijack / token misuse | Tampering / EoP | Medium | High | High | Secure token storage and expiration |
+| Verbose login error responses | Information Disclosure | High | Medium | High | Generic error messages |
+| Token Hijacking | Elevation of Privilege / Spoofing | Medium | High | High | Secure token storage and expiration |
 
 
 ### 1.6 Gap Analysis
@@ -132,8 +132,10 @@ flowchart LR
 | Expected Control | Status | Gap | Impact | Recommended Remediation |
 |---|---|---|---|---|
 | Brute force login protection | Not evident | Rate limiting on login attempts does not seem to be present within the scope. | Increases the likelihood of user impersonation, which may lead to complete account compromise and sensitive information disclosure. | Lockout policy on failed login attempts and enforcing strong password policy upon account creation. | 
+| Token signing | Present within scope | Auth tokens should be signed to prevent tampering or impersonation. | Absence of token signing may allow attackers to craft or modify their own token to elevate privileges or impersonate another user. | Implement token signing and validation. |
 | Logging login activity | Not evident | Auditing login attempts does not seem evident within the scope. | Increases likelihood of repudiation without audit logs. | Securely store logs on web server log files. | 
 | Generic error messages upon failed login | Requires validation | Generic error messages should be given for all failed login cases to prevent attackers from enumerating valid users from them. | Increases the likelihood of user enumeration, which may be later used for further attacks. | Implement generic error messages for all login errors. | 
+| HttpOnly and Token Expiration Implementation | Not evident | Setting the HttpOnly flag and proper token expiration time does not seem present in scope. | Increases risk of token hijacking, leading to possible user impersonation and even elevated privileges. | Set the HttpOnly flag for JWT auth token cookie and set token expiration time. |
 
 
 ### 1.7 Compliance Mapping
@@ -141,7 +143,7 @@ flowchart LR
 | Risk | NIST SP 800-53 | ISO 27001 |
 |---|---|---|
 | Brute-force / credential stuffing | AC-7, IA-2 | A.9 |
-| Token forgery or weak validation | IA-5, SC-23 | A.10, A.9 |
-| Verbose login error responses | SI-11 | A.14 |
+| JWT Token forgery | IA-5, SC-23 | A.10, A.9 |
 | Incomplete login audit trail | AU-2, AU-12 | A.12.4 |
-| Session hijack / token misuse | IA-5, AC-6 | A.9, A.10 |
+| Verbose login error responses | SI-11 | A.14 |
+| Token Hijacking | IA-5, AC-6 | A.9, A.10 |
