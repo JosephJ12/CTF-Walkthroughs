@@ -61,7 +61,10 @@ flowchart LR
     BE --> DB
     DB --> BE
     BE --> JWT
-    JWT --> FE
+    JWT --> BE
+    BE --> API
+    API --> FE
+    FE --> U
 ```
 
 ### 1.2 Data Flow Diagram
@@ -90,7 +93,7 @@ flowchart LR
     end
 
     subgraph TB3["TB3: Backend Trust Boundary"]
-        APP[Express Backend]
+        BE[Express Backend]
         JWT[JWT Auth]
     end
 
@@ -99,9 +102,15 @@ flowchart LR
     end
 
     U --> FE
-    FE --> APP
-    APP --> JWT
-    APP --> DB
+    FE --> API
+    API --> BE
+    BE --> DB
+    DB --> BE
+    BE --> JWT
+    JWT --> BE
+    BE --> API
+    API --> FE
+    FE --> U
 ```
 
 ### 1.4 Risk Register
