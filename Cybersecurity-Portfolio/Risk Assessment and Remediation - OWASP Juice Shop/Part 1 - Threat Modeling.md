@@ -236,8 +236,8 @@ flowchart LR
 |---|---|---|---|---|---|
 | SEARCH-01 | SQL Injection - Product Data Exposure | Information Disclosure | High | Medium | Implement WAF, sanitize input, and implement parameterized queries. |
 | SEARCH-02 | SQL Injection - User Data Enumeration | Information Disclosure, Spoofing, Escalation of Privileges | High | Critical | Implement WAF, sanitize input, and implement parameterized queries. | 
-| SEARCH-03 | Unauthenticated users can search products | Repudiation | High | Low | Allow only authenticated users to search products or log all search queries. |
-| SEARCH-04 | Product search query flooding | DoS | High | High | Block suspicious IP and limit search query rates. |
+| SEARCH-03 | Unauthenticated users can search products | Repudiation | High | Low |  Allow only authenticated users to search or set user tracking cookie. |
+| SEARCH-04 | Expensive or excessive search queries | DoS | High | High | Block suspicious IP and limit search query rates. |
 
 ### 2.5 Gap Analysis
 
@@ -245,15 +245,15 @@ flowchart LR
 |---|---|---|---|---|---|---|
 | SEARCH-01 | SQL Injection - Product Data Exposure | Input sanitization and parameterized queries | Not evident | No evidence of input sanitization or parameterized query usage found in code base for scope | A malicious actor can read and possibly modify unauthorized product data in database | Sanitize user search input and query database using parameterized queries |
 | SEARCH-02 | SQL Injection - User Data Enumeration | Input sanitization and parameterized queries | Not evident | No evidence of input sanitization or parameterized query usage found in code base for scope | A malicious actor can read data from Users table and possibly even retrieve their PII and credentials | Sanitize user search input and query database using parameterized queries |
-| SEARCH-03 | Unauthenticated users can search products | Allow only authenticated users to search or log all user activity | Not evident | Not evident in scope | Increases likelihood of repudiation and anonymous malicious activity | Hide search feature for authenticated users only or audit all user activity in a secure location |
-| SEARCH-04 | Product search query flooding | Implement WAF or rate limiting. Blacklist DoS IPs | Not evident | Expected controls not evident in scope | A malicious actor may flood the application with search requests. This may lead to slower performance of the web application and database, which in severe cases, may cause shutdown of the application | Implementing a WAF may help blacklist DoSing IP addresses and limiting excessive traffic |
+| SEARCH-03 | Unauthenticated users can search products | Allow only authenticated users to search or set user tracking cookie | Not evident | Not evident in scope | Increases likelihood of repudiation and anonymous activity that can not be tracked | Hide search feature for authenticated users only or audit all user activity in a secure location |
+| SEARCH-04 | Expensive or excessive search queries | Implement WAF or rate limiting. Blacklist DoS IPs | Not evident | Expected controls not evident in scope | A malicious actor may flood the application with search requests. This may lead to slower performance of the web application and database, which in severe cases, may cause shutdown of the application | Implementing a WAF may help blacklist DoSing IP addresses and limiting excessive traffic |
 
 ### 2.6 Compliance Mapping
 
 | Risk ID | Risk | NIST SP 800-53 | ISO 27001 |
 |---|---|---|---|
-| SEARCH-01 | Unsafe query behavior from search input | SI-10 | A.14.2 |
-| SEARCH-02 | Sensitive or hidden product data exposed | AC-3, AC-6 | A.8, A.9 |
-| SEARCH-03 | Expensive search patterns degrade availability | SC-5 | A.17 |
-| SEARCH-04 | Search abuse not well attributable | AU-2 | A.12.4 |
-| SEARCH-05 | Filter bypass reveals unintended catalog state | AC-3 | A.9 |
+| SEARCH-01 | SQL Injection - Product Data Exposure | SI-10, SI-15 | A.8.25, A.8.26 |
+| SEARCH-02 | SQL Injection - User Data Enumeration | SI-10, SI-15 | A.8.25, A.8.26 |
+| SEARCH-03 | Unauthenticated users can search products | SC-5 | A.8.15, A.8.16, A.8.24 |
+| SEARCH-04 | Expensive or excessive search queries | AU-10 | A.8.14, A.8.20 |
+
