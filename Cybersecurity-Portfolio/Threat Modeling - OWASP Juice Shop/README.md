@@ -20,7 +20,7 @@ Let's get started!
 
 ## Table of Contents
 * [Login Authentication](#auth)
-* [Inventory Search](#search)
+* [Product Search](#search)
 * [Profile Image Uplaod](#upload)
 
 
@@ -172,13 +172,11 @@ Assess the product search and catalog discovery feature for risks related to use
 flowchart LR
     U[User Browser]
     FE[Angular Search Page]
-    API[GET /rest/products/search/]
     BE["Express searchProducts() Function"]
     DB[SQLite Products Table]
 
     U --> FE
-    FE --> API
-    API --> BE
+    FE --> BE
     BE --> DB
     DB --> FE
 ```
@@ -188,7 +186,7 @@ flowchart LR
 ```mermaid
 flowchart LR
     A[User inputs search data]
-    B[Frontend sends GET request via API with the search criteria to backend]
+    B[Frontend sends search criteria to backend]
     C[Backend queries Products table with unfiltered user input]
     D[SQLite DB processes the search query and returns query results back to backend]
     E[Backend converts DB data into JSON format and sends back to frontend]
@@ -199,6 +197,38 @@ flowchart LR
 
 ### 2.3 Trust Boundary Diagram
 
+```mermaid
+flowchart LR
+    subgraph TB1["TB1: Unauthenticated User Boundary"]
+        UU[Unauthenticated User Browser]
+    end
+
+    subgraph TB2["TB2: Authenticated User Boundary"]
+        AU[Authenticated User Browser]
+    end
+
+    subgraph TB3["TB3: Frontend Trust Boundary"]
+        FE[Angular Frontend]
+    end
+
+    subgraph TB4["TB5: Backend Trust Boundary"]
+        BE[Express Backend]
+    end
+
+    subgraph TB5["TB5: Database Trust Boundary"]
+        DB[(SQLite DB Users Table)]
+    end
+
+    UU --> FE
+    AU --> FE
+    FE --> BE
+    BE --> DB
+    DB --> BE
+    BE --> FE
+    FE --> UU
+    FE --> AU
+    
+```
 
 ### 2.4 Risk Register
 
