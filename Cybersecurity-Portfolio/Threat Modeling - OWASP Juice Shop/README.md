@@ -4,7 +4,7 @@
 The purpose of this project is to do a simulated threat modeling of the popular, intentionally vulnerable web app OWASP Juice Shop. We will focus on assessing 3 features of the application:
 
 1. The login authentication flow
-2. The inventory search feature
+2. The product search feature
 3. The profile image upload feature
 
 For each feature, we will do the following:
@@ -36,7 +36,7 @@ Assess the authentication feature for security risks related to credential submi
 - Token issuance and return to client
 - Authentication-related trust boundaries
 
-### Included
+### Process
 - Architecture overview
 - Data flow diagram
 - Trust boundary diagram
@@ -50,18 +50,18 @@ Assess the authentication feature for security risks related to credential submi
 ```mermaid
 flowchart LR
     U[User Browser]
-    FE[Angular Frontend]
-    API[/POST /rest/user/login/]
-    APP[Express Backend]
-    DB[(SQLite DB Users Table)]
+    FE[Angular Login Page]
+    API[POST /rest/user/login/]
+    BE[Express Login() Function]
+    DB[(SQLite Users Table)]
     JWT[JWT Auth]
 
     U --> FE
     FE --> API
-    API --> APP
-    APP --> DB
+    API --> BE
+    BE --> DB
     DB --> APP
-    APP --> JWT
+    BE --> JWT
     JWT --> FE
 ```
 
@@ -147,3 +147,47 @@ flowchart LR
 | Incomplete login audit trail | AU-2, AU-12 | A.12.4 |
 | Verbose login error responses | SI-11 | A.14 |
 | Token Hijacking | IA-5, AC-6 | A.9, A.10 |
+
+=========
+
+## 2. Product Search Threat Model
+
+### Objective
+Assess the product search and catalog discovery feature for risks related to user-controlled input, data retrieval, query handling, and result output.
+
+### Scope
+- Search term input submission
+- Backend search processing and input handling
+- Product lookup and result rendering
+
+### Process
+- Architecture overview
+- Data flow diagram
+- Trust boundary diagram
+- STRIDE analysis
+- Gap analysis
+- Risk register
+- NIST / ISO mapping
+
+### 2.1 Architecture Overview
+
+```mermaid
+flowchat LR
+    U[User Browser]
+    FE[Angular Search Page]
+    API[GET /rest/products/search/]
+    BE[Express searchProducts() Function]
+    DB[SQLite Products Table]
+
+    U --> FE
+    FE --> API
+    API --> BE
+    BE --> DB
+    DB --> FE
+```
+
+### 2.2 Data Flow Diagram
+
+```mermaid
+
+```
