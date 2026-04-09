@@ -1,3 +1,3 @@
-# Security Testing and Vulnerability Remediation -- OWASP Juice Shop
+# Security Testing + Vulnerability Remediation -- OWASP Juice Shop
 
 ##
