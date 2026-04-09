@@ -52,7 +52,7 @@ flowchart LR
     U[User Browser]
     FE[Angular Login Page]
     API[POST /rest/user/login/]
-    BE[Express Login() Function]
+    BE["Express Login() Function"]
     DB[SQLite Users Table]
     JWT[JWT Auth]
 
@@ -176,7 +176,7 @@ flowchart LR
     U[User Browser]
     FE[Angular Search Page]
     API[GET /rest/products/search/]
-    BE[Express searchProducts() Function]
+    BE["Express searchProducts() Function"]
     DB[SQLite Products Table]
 
     U --> FE
