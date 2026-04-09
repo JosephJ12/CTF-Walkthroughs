@@ -53,7 +53,7 @@ flowchart LR
     FE[Angular Login Page]
     API[POST /rest/user/login/]
     BE[Express Login() Function]
-    DB[(SQLite Users Table)]
+    DB[SQLite Users Table]
     JWT[JWT Auth]
 
     U --> FE
@@ -172,7 +172,7 @@ Assess the product search and catalog discovery feature for risks related to use
 ### 2.1 Architecture Overview
 
 ```mermaid
-flowchat LR
+flowchart LR
     U[User Browser]
     FE[Angular Search Page]
     API[GET /rest/products/search/]
