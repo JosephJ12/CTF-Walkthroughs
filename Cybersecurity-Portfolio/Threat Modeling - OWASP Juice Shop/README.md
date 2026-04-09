@@ -12,10 +12,9 @@ For each feature, we will do the following:
 1. Create a System Architecture Overview
 2. Outline a Data Flow Diagram
 3. Create a Trust Boundary Diagram
-4. Analyze threats following the STRIDE framework
-5. Outline a risk register
-6. Conduct a gap analysis
-7. Map risks to ISO 27001 and NIST SP 800-53 controls
+4. Outline a risk register and analyze using STRIDE model
+5. Conduct a gap analysis
+6. Map risks to ISO 27001 and NIST SP 800-53 controls
 
 Let's get started!
 
@@ -105,29 +104,18 @@ flowchart LR
     APP --> DB
 ```
 
-### 1.4 STRIDE Analysis
+### 1.4 Risk Register
 
-| Threat | Example | Risk |
-|------|--------|------|
-| Spoofing | Brute force login | High |
-| Tampering | JWT token forgery | Critical |
-| Repudiation | Incomplete login audit trail | High |
-| Info Disclosure | Verbose login error responses | Medium |
-| DoS | Login request flooding | Medium |
-| EoP | Token hijacking | Critical |
-
-### 1.5 Risk Register
-
-| Risk | STRIDE | Likelihood | Impact | Risk Level | Mitigation |
-|---|---|---|---|---|---|
-| Brute force login | Spoofing | High | High | Critical | Rate limiting, account lockout policy, MFA |
-| JWT Token forgery | Tampering | Medium | Critical | Critical | Signature verification, strict token validation |
-| No login audit logs | Repudiation | Medium | Medium | Medium | Implement auth logging |
-| Verbose login error responses | Information Disclosure | High | Medium | High | Generic error messages |
-| Token Hijacking | Elevation of Privilege / Spoofing | Medium | High | High | Secure token storage and expiration |
+| Risk | STRIDE | Likelihood | Risk | Mitigation |
+|---|---|---|---|---|
+| Brute force login | Spoofing | High | High | Rate limiting, account lockout policy, MFA |
+| JWT Token forgery | Tampering | Medium | Critical | Signature verification, strict token validation |
+| No login audit logs | Repudiation | Medium | Medium | Implement auth logging |
+| Verbose login error responses | Information Disclosure | High | Medium | Generic error messages |
+| SQL Injection | Elevation of Privilege / Spoofing | High | Critical | WAF, parameterized queries, input sanitization |
 
 
-### 1.6 Gap Analysis
+### 1.5 Gap Analysis
 
 | Expected Control | Status | Gap | Impact | Recommended Remediation |
 |---|---|---|---|---|
@@ -135,10 +123,10 @@ flowchart LR
 | Token signing | Present within scope | Auth tokens should be signed to prevent tampering or impersonation. | Absence of token signing may allow attackers to craft or modify their own token to elevate privileges or impersonate another user. | Implement token signing and validation. |
 | Logging login activity | Not evident | Auditing login attempts does not seem evident within the scope. | Increases likelihood of repudiation without audit logs. | Securely store logs on web server log files. | 
 | Generic error messages upon failed login | Requires validation | Generic error messages should be given for all failed login cases to prevent attackers from enumerating valid users from them. | Increases the likelihood of user enumeration, which may be later used for further attacks. | Implement generic error messages for all login errors. | 
-| HttpOnly and Token Expiration Implementation | Not evident | Setting the HttpOnly flag and proper token expiration time does not seem present in scope. | Increases risk of token hijacking, leading to possible user impersonation and even elevated privileges. | Set the HttpOnly flag for JWT auth token cookie and set token expiration time. |
+| Backend uses parameterized queries to query database | Not evident | the `login()` function does not utilize parameterized queries | SQL Injection may lead to the disclosure of sensitive information or in severe cases, bypassing authentication or remote code execution. | Parameterized queries should be implemented when querying the database. Also doing input santization on user input is highly recommended. |
 
 
-### 1.7 Compliance Mapping
+### 1.6 Compliance Mapping
 
 | Risk | NIST SP 800-53 | ISO 27001 |
 |---|---|---|
@@ -146,7 +134,7 @@ flowchart LR
 | JWT Token forgery | IA-5, SC-23 | A.10, A.9 |
 | Incomplete login audit trail | AU-2, AU-12 | A.12.4 |
 | Verbose login error responses | SI-11 | A.14 |
-| Token Hijacking | IA-5, AC-6 | A.9, A.10 |
+| SQL Injection | SI-10, SI-15 | A.8.25, A.8.26 |
 
 =========
 
@@ -203,24 +191,13 @@ flowchart LR
 ### 2.3 Trust Boundary Diagram
 
 
-### 2.4 STRIDE Analysis
-
-| Threat | Example | Risk |
-|------|--------|------|
-| Spoofing | SQL Injection | Critical |
-| Tampering | SQL Injection | Critical |
-| Repudiation | N/A | N/A |
-| Info Disclosure | SQL Injection | Critical |
-| DoS | Search request flooding | Medium |
-| EoP | SQL Injection | Critical |
-
-### 2.5 Risk Register
+### 2.4 Risk Register
 
 
-### 2.6 Gap Analysis
+### 2.5 Gap Analysis
 
 
-### 2.7 Compliance Mapping
+### 2.6 Compliance Mapping
 
 | Risk ID | Risk | NIST SP 800-53 | ISO 27001 |
 |---|---|---|---|
