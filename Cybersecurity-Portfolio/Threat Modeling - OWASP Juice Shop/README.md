@@ -111,8 +111,8 @@ flowchart LR
 |------|--------|------|
 | Spoofing | Brute force login | High |
 | Tampering | JWT token forgery | Critical |
-| Repudiation | Incomplete login audit trail | Medium |
-| Info Disclosure | Verbose login error responses | High |
+| Repudiation | Incomplete login audit trail | High |
+| Info Disclosure | Verbose login error responses | Medium |
 | DoS | Login request flooding | Medium |
 | EoP | Token hijacking | Critical |
 
