@@ -237,18 +237,16 @@ flowchart LR
 | SEARCH-01 | SQL Injection - Product Data Exposure | Information Disclosure | High | Medium | Implement WAF, sanitize input, and implement parameterized queries. |
 | SEARCH-02 | SQL Injection - User Data Enumeration | Information Disclosure, Spoofing, Escalation of Privileges | High | Critical | Implement WAF, sanitize input, and implement parameterized queries. | 
 | SEARCH-03 | Unauthenticated users can search products | Repudiation | High | Low | Allow only authenticated users to search products or log all search queries. |
-| SEARCH-04 | Inadequate user activity logging | Repudiation | Medium | Low | Implement logging for all user activity, particularly regarding sensitive information or malicious behavior. |
-| SEARCH-05 | Product search query flooding | DoS | High | High | Block suspicious IP and limit search query rates. |
+| SEARCH-04 | Product search query flooding | DoS | High | High | Block suspicious IP and limit search query rates. |
 
 ### 2.5 Gap Analysis
 
 | Risk ID | Risk | Expected Control | Status | Gap | Impact | Recommended Remediation |
 |---|---|---|---|---|---|---|
-| SEARCH-01 | SQL Injection - Product Data Exposure | Input sanitization and parameterized queries | Not evident | No evidence of input sanitization or parameterized query usage found in code base for scope |
-| SEARCH-02 | SQL Injection - User Data Enumeration | Input sanitization and parameterized queries | Not evident | No evidence of input sanitization or parameterized query usage found in code base for scope |
-| SEARCH-03 | Unauthenticated users can search products | Allow only authenticated users to search or log all user activity | Not evident | Not evident in scope | 
-| SEARCH-04 | Inadequate user activity logging | Implement adequate logging, especially for sensitive activity | Not evident | No evidence of logging of user search activities was found in scope | 
-| SEARCH-05 | Product search query flooding | Implement WAF or rate limiting. Blacklist DoS IPs | Not evident | Expected controls not evident in scope | A malicious actor may flood the application with search requests. This may lead to slower performance of the web application and database, which in severe cases, may cause shutdown of the application | Implementing a WAF may help blacklist DoSing IP addresses and limiting excessive traffic |
+| SEARCH-01 | SQL Injection - Product Data Exposure | Input sanitization and parameterized queries | Not evident | No evidence of input sanitization or parameterized query usage found in code base for scope | A malicious actor can read and possibly modify unauthorized product data in database | Sanitize user search input and query database using parameterized queries |
+| SEARCH-02 | SQL Injection - User Data Enumeration | Input sanitization and parameterized queries | Not evident | No evidence of input sanitization or parameterized query usage found in code base for scope | A malicious actor can read data from Users table and possibly even retrieve their PII and credentials | Sanitize user search input and query database using parameterized queries |
+| SEARCH-03 | Unauthenticated users can search products | Allow only authenticated users to search or log all user activity | Not evident | Not evident in scope | Increases likelihood of repudiation and anonymous malicious activity | Hide search feature for authenticated users only or audit all user activity in a secure location |
+| SEARCH-04 | Product search query flooding | Implement WAF or rate limiting. Blacklist DoS IPs | Not evident | Expected controls not evident in scope | A malicious actor may flood the application with search requests. This may lead to slower performance of the web application and database, which in severe cases, may cause shutdown of the application | Implementing a WAF may help blacklist DoSing IP addresses and limiting excessive traffic |
 
 ### 2.6 Compliance Mapping
 
