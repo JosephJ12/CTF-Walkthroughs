@@ -4,6 +4,13 @@
 
 Now that we have outlined and assessed the risks for the login authentication flow and product search feature, we will verify the identified risks via Dynamic Application Security Testing (DAST). After confirming the risk is present through manual exploitation, we will modify the code base to remediate the vulnerability and confirm the fix by retesting the feature.
 
+```
+Test Date: 4/9/2026
+Tested By: Joseph Jung
+Node.js version: 22.22.1
+Juice Shop version: 19.2.1
+```
+
 ## 1. Login Authentication Testing
 
 To recap from part 1, these are the risks that we will verify:
@@ -30,7 +37,37 @@ Also, we will skip testing AUTH-03 since this is a test application running on d
 
 ### Validating AUTH-01: Brute Force Login
 
+We will test the application against brute force attacks. A successful brute force attack can be looked at from 2 perspectives: the application side and user side. Misconfigurations from the application side include weak password requirements, not enforcing MFA, and no lockout policy whereas oversights from the user include choosing to reuse passwords or an easy to guess password. 
+
+Since the user side is not in scope, we will focus on only the application misconfigurations for the purposes of this test.
+
+Tools Required:
+- Burp Suite (for request capture)
+  - Download link: https://portswigger.net/burp/documentation/desktop/getting-started/download-and-install
+- Ffuf (for automating brute force attack)
+  - Installation guide: https://github.com/ffuf/ffuf
+- Seclists: 10k most common (password list)
+  - Github Repo: https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt
+
+1. Go to the `/#/login` endpoint.
+
 <img width="1179" height="760" alt="image" src="https://github.com/user-attachments/assets/f8f47560-b17f-4a53-b379-49e16420e839" />
+
+2. Turn on Burp Suite, making sure that it is capturing the application traffic.
+
+<img width="1594" height="892" alt="image" src="https://github.com/user-attachments/assets/ceec2fa1-2fad-4e0a-9e7b-78b81ecfef07" />
+
+3. Capture a login request by entering `test@test.com` as the username and `test123` as the password and clicking login. This will give us a POST request to the `/rest/user/login` endpoint and the parameters for us to brute force.
+
+<img width="1093" height="700" alt="image" src="https://github.com/user-attachments/assets/c1fbd63a-b023-4b8c-9b6c-9e2aeef6760c" />
+
+4. Open a terminal and use ffuf to conduct brute force attack on the Juice Shop login using the following Bash command:
+
+``
+
+<img width="1265" height="495" alt="image" src="https://github.com/user-attachments/assets/5c32f484-e2d7-4050-a830-d6ecf311b288" />
+
+We confirm that the application is 
 
 
 ### Validating AUTH-02: JWT Token Forgery
