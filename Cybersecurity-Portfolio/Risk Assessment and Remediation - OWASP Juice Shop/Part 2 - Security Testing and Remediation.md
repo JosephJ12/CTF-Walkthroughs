@@ -63,11 +63,15 @@ These are the steps we will take to test for AUTH-04:
 
 <img width="446" height="645" alt="image" src="https://github.com/user-attachments/assets/22833a23-9c38-4724-86d0-1fcc39368990" />
 
-5. We confirm the error response is generic for case 2. Therefore, we move on to the last case. Enter `juice@juice.shop` as the username and `test123` for the password and press Log in.
+5. We confirm the error response is generic for case 2. Therefore, we move on to the last case. 
+
+<img width="455" height="649" alt="image" src="https://github.com/user-attachments/assets/514ea738-7108-4c7e-95a6-7753c821d831" />
+
+6. Enter `juice@juice.shop` as the username and `test123` for the password and press Log in.
 
 <img width="448" height="648" alt="image" src="https://github.com/user-attachments/assets/7bc8c501-5ad4-4636-8fef-139c3f808407" />
 
-6. Checking the error response, it is the same as the rest. Therefore, we have confirmed that risk AUTH-04 is not present in the scope.
+7. Checking the error response, it is the same as the rest. Therefore, we have confirmed that risk AUTH-04 is not present in the scope.
 
 <img width="454" height="660" alt="image" src="https://github.com/user-attachments/assets/80544991-dc1b-40b7-87f5-fb75dc4ef376" />
 
