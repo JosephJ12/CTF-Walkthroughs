@@ -16,9 +16,28 @@ To recap from part 1, these are the risks that we will verify:
 | AUTH-04 | Verbose login error responses | Information Disclosure | High | Medium | Generic error messages |
 | AUTH-05 | SQL Injection | Elevation of Privilege / Spoofing | High | Critical | WAF, parameterized queries, input sanitization |
 
-## Scope 
+### Scope 
+
+The following will be our scope for this assessment:
+- Login submission
+- Backend credential validation
+- Token issuance and return to client
+- Authentication-related trust boundaries
+
+Since the scope does not include account registration, we will create a test account with the following credentials to retrieve a valid JWT auth token to test AUTH02, `test@test.com:test123`
+
+Also, we will skip testing AUTH-03 since this is a test application running on debug mode hosted on a Kali Linux VM. We will assume AUTH-03 was validated and properly remediated for our purposes.
+
+### AUTH-01: Brute Force Login
+
+<img width="1179" height="760" alt="image" src="https://github.com/user-attachments/assets/f8f47560-b17f-4a53-b379-49e16420e839" />
 
 
+### AUTH-02: JWT Token Forgery
 
-##
+
+### AUTH-04: Verbose Login Error Responses
+
+
+### AUTH-05: SQL Injection
 
