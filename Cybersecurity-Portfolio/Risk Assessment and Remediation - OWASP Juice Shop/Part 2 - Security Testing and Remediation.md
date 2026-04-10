@@ -75,5 +75,7 @@ These are the steps we will take to test for AUTH-04:
 
 <img width="454" height="660" alt="image" src="https://github.com/user-attachments/assets/80544991-dc1b-40b7-87f5-fb75dc4ef376" />
 
+Conclusion: Risk AUTH-04 is not present within the scope.
+
 ### Validating AUTH-05: SQL Injection
 
