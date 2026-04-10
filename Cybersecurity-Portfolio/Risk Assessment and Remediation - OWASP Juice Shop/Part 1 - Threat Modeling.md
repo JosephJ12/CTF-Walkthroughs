@@ -118,7 +118,7 @@ flowchart LR
 | AUTH-01 | Brute force login | Spoofing | High | High | Rate limiting, account lockout policy, MFA |
 | AUTH-02 | JWT Token forgery | Tampering | Medium | Critical | Signature verification, strict token validation |
 | AUTH-03 | No login audit logs | Repudiation | Medium | Medium | Implement auth logging |
-| AUTH-04 | Verbose login error responses | Information Disclosure | High | Medium | Generic error messages |
+| AUTH-04 | Verbose login error responses | Information Disclosure | Medium | Medium | Generic error messages |
 | AUTH-05 | SQL Injection | Elevation of Privilege / Spoofing | High | Critical | WAF, parameterized queries, input sanitization |
 
 
