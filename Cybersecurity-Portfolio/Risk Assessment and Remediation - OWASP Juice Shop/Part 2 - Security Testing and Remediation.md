@@ -67,8 +67,7 @@ Tools Required:
 
 <img width="1265" height="495" alt="image" src="https://github.com/user-attachments/assets/5c32f484-e2d7-4050-a830-d6ecf311b288" />
 
-We confirm that the application is 
-
+We confirm that the application is vulnerable to brute force attacks and requires remediation.
 
 ### Validating AUTH-02: JWT Token Forgery
 
