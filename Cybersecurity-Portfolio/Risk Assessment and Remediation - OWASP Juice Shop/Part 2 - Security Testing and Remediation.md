@@ -41,6 +41,8 @@ We will test the application against brute force attacks. A successful brute for
 
 Since the user side is not in scope, we will focus on only the application misconfigurations for the purposes of this test.
 
+NOTE: Our valid credentials are: `test@test.com:test123`
+
 Tools Required:
 - Burp Suite (for request capture)
   - Download link: https://portswigger.net/burp/documentation/desktop/getting-started/download-and-install
@@ -67,7 +69,7 @@ Tools Required:
 
 <img width="1265" height="495" alt="image" src="https://github.com/user-attachments/assets/5c32f484-e2d7-4050-a830-d6ecf311b288" />
 
-We confirm that the application is vulnerable to brute force attacks and requires remediation.
+Conclusion: We confirm that the application is vulnerable to brute force attacks and requires remediation.
 
 ### Validating AUTH-02: JWT Token Forgery
 
@@ -114,4 +116,39 @@ These are the steps we will take to test for AUTH-04:
 Conclusion: Risk AUTH-04 is not present within the scope and does not require remediation.
 
 ### Validating AUTH-05: SQL Injection
+
+We will test the login form for risk AUTH-05L SQL Injection. We will go about testing in 2 ways: manual and automated. The manual way of testing will be the tester directly inputting malicious payloads to test for dangerous behavior. For the automated testing, we will use the popular open-source tool, `SQL Map`.
+
+NOTE: Our valid credentials are: `test@test.com:test123`
+
+Tools Required:
+- SQL Map (for automated testing)
+  - Github Link: https://github.com/sqlmapproject/sqlmap
+
+We will start off with the manual testing first and then automated testing.
+
+1. Go to the login page on the `/#/login` endpoint.
+
+<img width="997" height="828" alt="image" src="https://github.com/user-attachments/assets/a1482148-1c17-4b41-bfa7-28f30d51de62" />
+
+2. First, we will see if we can login with only a valid email and not a valid password. We will enter `test@test.com' --` in the username field and any random password. In this case, we'll enter `asd` as our password and click Log in.
+
+<img width="452" height="630" alt="image" src="https://github.com/user-attachments/assets/d349da90-e50e-46c4-8bea-24fde88702d6" />
+
+3. We do indeed successfully login as the `test@test.com` user.
+
+<img width="1484" height="642" alt="image" src="https://github.com/user-attachments/assets/ef3ddf8a-fd35-47c0-9fce-12605041feea" />
+
+4. Lets Log Out and go back to the login page from step 1. This time, we'll attempt to bypass authentication by neither passing in a valid email or password. Let's enter `' or 1==1 --` as the email and `asd` as the password and attempt to log in.
+
+<img width="445" height="541" alt="image" src="https://github.com/user-attachments/assets/7dc3f7f6-f32f-466a-87ae-48acecfac6bb" />
+
+5. We're logged in again and this time, we log into the admin account.
+
+<img width="1484" height="646" alt="image" src="https://github.com/user-attachments/assets/dcfbc7e8-79f2-45c0-a329-22207d33b247" />
+
+6. Since we've confirmed that risk AUTH-05 exists in scope via manual testing, we'll test further with  automated testing. Open a Bash terminal and type the following command:
+
+``
+
 
