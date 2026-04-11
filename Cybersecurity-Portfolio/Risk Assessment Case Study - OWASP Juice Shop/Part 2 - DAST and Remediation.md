@@ -180,5 +180,18 @@ Conclusion: Risk AUTH-05 is present and validated via manual and automated testi
 
 ### RISK REMEDIATION
 
+Now, we'll remediate the 2 vulnerabilities we've validated and retest to make sure the vulnerability is fixed. To do this, we'll make direct modifications to the code base on our local machine. There are 2 risks that must be remediated: AUTH-01 and AUTH-05. 
 
+Here is an appendix with links and references about the vulnerability and recommended remediations.
+
+Risk Appendix
+|--|--|--|--|
+|
+
+
+#### AUTH-01: Brute Force Login
+
+
+
+#### AUTH-05: SQL Injection
 
