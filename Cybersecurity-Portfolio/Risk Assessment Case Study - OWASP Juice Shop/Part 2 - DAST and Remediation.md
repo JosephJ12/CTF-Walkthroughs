@@ -37,7 +37,7 @@ Since the scope does not include account registration, we will create a test acc
 
 ### Security Testing
 
-#### Validating AUTH-01: Brute Force Login
+#### AUTH-01: Brute Force Login
 
 We will test the application against brute force attacks. A successful brute force attack can be looked at from 2 perspectives: the application side and user side. Misconfigurations from the application side include weak password requirements, not enforcing MFA, and no lockout policy whereas oversights from the user include choosing to reuse passwords or an easy to guess password. 
 
@@ -73,10 +73,10 @@ Tools Required:
 
 Conclusion: We confirm that the application is vulnerable to brute force attacks and requires remediation.
 
-#### Validating AUTH-02: JWT Token Forgery
+#### AUTH-02: JWT Token Forgery
 
 
-#### Validating AUTH-04: Verbose Login Error Responses
+#### AUTH-04: Verbose Login Error Responses
 
 NOTE: Our valid credentials are: `test@test.com:test123`
 
@@ -117,13 +117,15 @@ These are the steps we will take to test for AUTH-04:
 
 Conclusion: Risk AUTH-04 is not present within the scope and does not require remediation.
 
-#### Validating AUTH-05: SQL Injection
+#### AUTH-05: SQL Injection
 
 We will test the login form for risk AUTH-05L SQL Injection. We will go about testing in 2 ways: manual and automated. The manual way of testing will be the tester directly inputting malicious payloads to test for dangerous behavior. For the automated testing, we will use the popular open-source tool, `SQL Map`.
 
 NOTE: Our valid credentials are: `test@test.com:test123`
 
 Tools Required:
+- Burp Suite (for request capture)
+  - Download link: https://portswigger.net/burp/documentation/desktop/getting-started/download-and-install
 - SQL Map (for automated testing)
   - Github Link: https://github.com/sqlmapproject/sqlmap
 
@@ -149,7 +151,9 @@ We will start off with the manual testing first and then automated testing.
 
 <img width="1484" height="646" alt="image" src="https://github.com/user-attachments/assets/dcfbc7e8-79f2-45c0-a329-22207d33b247" />
 
-6. Since we've confirmed that risk AUTH-05 exists in scope via manual testing, we'll test further with  automated testing. Open a Bash terminal and type the following command:
+6. Since we've confirmed that risk AUTH-05 exists in scope via manual testing, we'll test further with  automated testing using SQL Map. We'll first capture a login request on BurpSuite by logging in with the credentials `test@test.com:test123`.
+
+
 
 ``
 
