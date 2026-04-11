@@ -7,7 +7,7 @@
 The purpose of this project is to do a full risk assessment of the OWASP Juice Shop web application. The project will consist of 3 parts to touch on all stages and parts of a risk assessment:
 
 1. Threat Modeling of the Application (Identifying risk)
-2. Security Testing and Remediation (Conducting DAST)
+2. Security Testing and Remediation (Conducting DAST and remediation)
 3. Implementing Automated Testing to CI/CD Pipeline (Automating SAST/Secure Code Review)
 
 
