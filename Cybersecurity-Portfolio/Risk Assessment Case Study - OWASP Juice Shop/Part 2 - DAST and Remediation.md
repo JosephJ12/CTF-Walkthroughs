@@ -1,6 +1,6 @@
 # Dynamic Application Security Testing (DAST) + Remediation
 
-## Introduction
+## INTRODUCTION
 
 Now that we have outlined and assessed the risks for the login authentication flow and product search feature, we will verify the identified risks via Dynamic Application Security Testing (DAST). After confirming the risk is present through actual exploitation, we will modify the code base to remediate the vulnerability and confirm the fix by retesting the feature.
 
@@ -25,7 +25,7 @@ To recap from part 1, these are the risks that we will verify:
 
 Of these, we will test and remediate 3: AUTH-01, AUTH-04, and AUTH-05.
 
-### Scope 
+### SCOPE 
 
 The following will be our scope for this assessment:
 - Login submission
@@ -35,7 +35,9 @@ The following will be our scope for this assessment:
 
 Since the scope does not include account registration, we will create a test account with the following credentials, `test@test.com:test123`
 
-### Security Testing
+### SECURITY TESTING
+
+-------------
 
 #### AUTH-01: Brute Force Login
 
@@ -73,8 +75,7 @@ Tools Required:
 
 Conclusion: We confirm that the application is vulnerable to brute force attacks and requires remediation.
 
-#### AUTH-02: JWT Token Forgery
-
+-----------
 
 #### AUTH-04: Verbose Login Error Responses
 
@@ -116,6 +117,8 @@ These are the steps we will take to test for AUTH-04:
 <img width="454" height="660" alt="image" src="https://github.com/user-attachments/assets/80544991-dc1b-40b7-87f5-fb75dc4ef376" />
 
 Conclusion: Risk AUTH-04 is not present within the scope and does not require remediation.
+
+-----------
 
 #### AUTH-05: SQL Injection
 
@@ -173,6 +176,9 @@ We're able to get a list of all the tables and confirm the login form is vulnera
 
 Conclusion: Risk AUTH-05 is present and validated via manual and automated testing.
 
+-------------
+
+### RISK REMEDIATION
 
 
 
