@@ -169,7 +169,7 @@ We will start off with the manual testing first and then automated testing.
 
 We're able to get a list of all the tables and confirm the login form is vulnerable to automated SQL Injection attacks.
 
-
+<img width="1002" height="1176" alt="image" src="https://github.com/user-attachments/assets/c6f6abf0-54fa-47d0-967e-95424f081465" />
 
 Conclusion: Risk AUTH-05 is present and validated via manual and automated testing.
 
