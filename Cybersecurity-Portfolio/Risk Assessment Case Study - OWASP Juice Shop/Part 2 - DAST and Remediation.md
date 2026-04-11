@@ -185,8 +185,10 @@ Now, we'll remediate the 2 vulnerabilities we've validated and retest to make su
 Here is an appendix with links and references about the vulnerability and recommended remediations.
 
 Risk Appendix
-|--|--|--|--|
-|
+| Risk ID | Risk | OWASP Top 10 | CWE Category | MITRE ATT&CK | NIST SP 800-53 Control | Recommended Remediation |
+|--|--|--|--|--|--|--|
+| AUTH-01 | Brute Force Login | A07:2021 – Identification and Authentication Failures | CWE-307 – Improper Restriction of Excessive Authentication Attempts, CWE-521 – Weak Password Requirements | T1110 – Brute Force | AC-7 – Unsuccessful Login Attempts | https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html#protect-against-automated-attacks |
+| AUTH-05 | SQL Injection | A03:2021 – Injection | CWE-89 – Improper Neutralization of Special Elements used in an SQL Command | T1190 – Exploit Public-Facing Application | SI-10 – Information Input Validation | https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html |
 
 
 #### AUTH-01: Brute Force Login
