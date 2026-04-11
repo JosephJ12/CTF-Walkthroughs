@@ -153,8 +153,20 @@ We will start off with the manual testing first and then automated testing.
 
 6. Since we've confirmed that risk AUTH-05 exists in scope via manual testing, we'll test further with  automated testing using SQL Map. We'll first capture a login request on BurpSuite by logging in with the credentials `test@test.com:test123`.
 
+<img width="629" height="933" alt="image" src="https://github.com/user-attachments/assets/67ebd3e1-b112-4066-b970-86f37e000af3" />
 
+7. Right-click on the Request and click on the `Copy to File` option:
+
+<img width="622" height="623" alt="image" src="https://github.com/user-attachments/assets/9f92c49e-075c-4205-8241-7c213d78c6ec" />
+
+8. Navigate to the folder where you want to place the file and type `req.txt` in the File Name: and click on `Save`.
+
+<img width="945" height="737" alt="image" src="https://github.com/user-attachments/assets/da8cf59f-c0fa-4c0f-8575-a1b2f7178cb4" />
+
+9. Open a new Bash terminal and run the following command:
 
 ``
+
+
 
 
