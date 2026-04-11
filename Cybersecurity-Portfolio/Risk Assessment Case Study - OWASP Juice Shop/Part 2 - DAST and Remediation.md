@@ -1,4 +1,4 @@
-# Dynamic Application Security Testing (DAST) + Remediation -- OWASP Juice Shop
+# Dynamic Application Security Testing (DAST) + Remediation
 
 ## Introduction
 
@@ -35,7 +35,9 @@ Since the scope does not include account registration, we will create a test acc
 
 Also, we will skip testing AUTH-03 since this is a test application running on debug mode hosted on a Kali Linux VM. We will assume AUTH-03 was validated and properly remediated for our purposes.
 
-### Validating AUTH-01: Brute Force Login
+### Security Testing
+
+#### Validating AUTH-01: Brute Force Login
 
 We will test the application against brute force attacks. A successful brute force attack can be looked at from 2 perspectives: the application side and user side. Misconfigurations from the application side include weak password requirements, not enforcing MFA, and no lockout policy whereas oversights from the user include choosing to reuse passwords or an easy to guess password. 
 
@@ -71,10 +73,10 @@ Tools Required:
 
 Conclusion: We confirm that the application is vulnerable to brute force attacks and requires remediation.
 
-### Validating AUTH-02: JWT Token Forgery
+#### Validating AUTH-02: JWT Token Forgery
 
 
-### Validating AUTH-04: Verbose Login Error Responses
+#### Validating AUTH-04: Verbose Login Error Responses
 
 NOTE: Our valid credentials are: `test@test.com:test123`
 
@@ -115,7 +117,7 @@ These are the steps we will take to test for AUTH-04:
 
 Conclusion: Risk AUTH-04 is not present within the scope and does not require remediation.
 
-### Validating AUTH-05: SQL Injection
+#### Validating AUTH-05: SQL Injection
 
 We will test the login form for risk AUTH-05L SQL Injection. We will go about testing in 2 ways: manual and automated. The manual way of testing will be the tester directly inputting malicious payloads to test for dangerous behavior. For the automated testing, we will use the popular open-source tool, `SQL Map`.
 
