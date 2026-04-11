@@ -165,7 +165,13 @@ We will start off with the manual testing first and then automated testing.
 
 9. Open a new Bash terminal and run the following command:
 
-``
+`sqlmap -r ~/risk_assessment/req.txt --batch --level=4 --risk=2 --ignore-code=401 --tables`
+
+We're able to get a list of all the tables and confirm the login form is vulnerable to automated SQL Injection attacks.
+
+
+
+Conclusion: Risk AUTH-05 is present and validated via manual and automated testing.
 
 
 
