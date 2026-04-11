@@ -197,3 +197,7 @@ Risk Appendix
 
 #### AUTH-05: SQL Injection
 
+We will implement 2 mitigations to the code base. The first is refactoring the SQL query the backend uses to validate credentials to use parameterized queries. The other will be sanitizing user input using a whitelist filter. Let's get started!
+
+##### Parameterized Query Refactoring
+
