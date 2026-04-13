@@ -208,7 +208,29 @@ We will implement 2 mitigations to the code base. The first is refactoring the S
 2. In the screenshot above, the vulnerable code is on line 55. Let's comment out line 55 and add the following piece of code:
 
 ```
-
+// ORIGINAL SQLI VULNERABLE CODE
+        //models.sequelize.query(`SELECT * FROM Users WHERE email = '${req.body.email || ''}' AND password = '${security.hash(req.body.password || '')}' AND deletedAt IS NULL`, { model: user_1.UserModel, plain: true }) // vuln-code-snippet vuln-line loginAdminChallenge loginBenderChallenge loginJimChallenge
+        
+        // CHANGE TO PARAMETERIZED QUERY
+        const email = req.body.email || '';
+        const passwordHash = security.hash(req.body.password || '');
+        
+        models.sequelize.query(
+            `
+            SELECT * 
+            FROM Users 
+            WHERE email = $email 
+            AND password = $password 
+            AND deletedAt IS NULL
+            `,
+            {
+            bind: {
+                email: email,
+                password: passwordHash,
+            },
+            model: user_1.UserModel,
+            plain: true,
+            }
 ```
 
 It should now look something like this:
