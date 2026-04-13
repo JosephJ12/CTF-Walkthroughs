@@ -266,6 +266,10 @@ It should now look something like this:
 
 `sqlmap -r [PATH_TO_REQUEST_FILE]/req.txt --batch --level=4 --risk=2 --ignore-code=401 --tables --flush-session`
 
+11. SQL Map was unsuccessful in finding a SQL Injection vulnerability! 
 
+<img width="1326" height="567" alt="image" src="https://github.com/user-attachments/assets/7fd6eae8-8836-4c2e-822e-e1134e528bdc" />
+
+Conclusion: Successfully implemented parameterized query to mitigate against SQL Injection attacks in scope.
 
 ##### How Do Parameterized Queries Work?
