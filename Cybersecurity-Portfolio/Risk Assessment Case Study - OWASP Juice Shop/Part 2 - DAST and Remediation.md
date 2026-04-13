@@ -168,7 +168,7 @@ We will start off with the manual testing first and then automated testing.
 
 9. Open a new Bash terminal and run the following command:
 
-`sqlmap -r ~/risk_assessment/req.txt --batch --level=4 --risk=2 --ignore-code=401 --tables`
+`sqlmap -r [PATH_TO_REQUEST_FILE]/req.txt --batch --level=4 --risk=2 --ignore-code=401 --tables`
 
 We're able to get a list of all the tables and confirm the login form is vulnerable to automated SQL Injection attacks.
 
@@ -190,6 +190,7 @@ Risk Appendix
 | AUTH-01 | Brute Force Login | A07:2021 – Identification and Authentication Failures | CWE-307 – Improper Restriction of Excessive Authentication Attempts, CWE-521 – Weak Password Requirements | T1110 – Brute Force | AC-7 – Unsuccessful Login Attempts | https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html#protect-against-automated-attacks |
 | AUTH-05 | SQL Injection | A03:2021 – Injection | CWE-89 – Improper Neutralization of Special Elements used in an SQL Command | T1190 – Exploit Public-Facing Application | SI-10 – Information Input Validation | https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html |
 
+For all code editing tasks, we will use Virtual Studio Code, or VS Code: https://code.visualstudio.com/download
 
 #### AUTH-01: Brute Force Login
 
@@ -237,3 +238,34 @@ It should now look something like this:
 
 <img width="1916" height="503" alt="image" src="https://github.com/user-attachments/assets/600be0ee-a138-4a1f-b886-294052eb04c7" />
 
+3. The key change is to take out the user input, `email` and `password` from the query and use binding placeholders instead. This will greatly mitigate SQL Injection attacks. We restart the app by running `npm start` on the root folder of the app.
+
+4. We must recreate our test user `test@test.com:test123`
+
+5. Let's first test to see if valid credentials work. Enter `test@test.com:test123` into the login form.
+
+<img width="440" height="624" alt="image" src="https://github.com/user-attachments/assets/b76681a8-df77-4968-913e-cc011b73112a" />
+
+6. We confirm this successfully logs us in as intended.
+
+<img width="1486" height="557" alt="image" src="https://github.com/user-attachments/assets/729a1179-2850-493d-8c35-438fe33af414" />
+
+7. After logging out, we'll try the first payload from our DAST. Enter `test@test.com' --` as our email and `asd` as the password.
+
+<img width="441" height="614" alt="image" src="https://github.com/user-attachments/assets/15a0b81d-7c32-4919-aa6f-e6b7e1d92611" />
+
+8. This time, we get a login error message.
+
+<img width="454" height="652" alt="image" src="https://github.com/user-attachments/assets/70e3f1f9-2001-458d-88a3-7e70dc4523d6" />
+
+9. Great! Now let's try the other payload as well. Enter `' OR 1==1 --` as the email and `asd` as the password.
+
+<img width="459" height="658" alt="image" src="https://github.com/user-attachments/assets/94c61597-b1b1-4073-987c-402e2942d2b1" />
+
+10. This one fails as well! Now finally, we'll test using SQL Map. Open a terminal and run the following command:
+
+`sqlmap -r [PATH_TO_REQUEST_FILE]/req.txt --batch --level=4 --risk=2 --ignore-code=401 --tables --flush-session`
+
+
+
+##### How Do Parameterized Queries Work?
