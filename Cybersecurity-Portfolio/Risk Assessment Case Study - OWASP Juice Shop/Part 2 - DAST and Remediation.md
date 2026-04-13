@@ -201,3 +201,17 @@ We will implement 2 mitigations to the code base. The first is refactoring the S
 
 ##### Parameterized Query Refactoring
 
+1. To make changes to the local code base, first we'll navigate to the folder where it is stored and open the file `build/routes/login.js` using a code editor. For this demo, I'll be using Visual Studio Code.
+
+<img width="1901" height="331" alt="image" src="https://github.com/user-attachments/assets/d8fd0c87-d466-4a5a-8ff9-a17fc346c510" />
+
+2. In the screenshot above, the vulnerable code is on line 55. Let's comment out line 55 and add the following piece of code:
+
+```
+
+```
+
+It should now look something like this:
+
+<img width="1916" height="503" alt="image" src="https://github.com/user-attachments/assets/600be0ee-a138-4a1f-b886-294052eb04c7" />
+
