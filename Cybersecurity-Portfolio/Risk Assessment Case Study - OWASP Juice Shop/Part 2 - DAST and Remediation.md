@@ -238,7 +238,12 @@ It should now look something like this:
 
 <img width="1823" height="560" alt="image" src="https://github.com/user-attachments/assets/5ea2bbbc-d6ea-4c7d-8382-3b086a6341a5" />
 
-3. The key change is to take out the user input, `email` and `password` from the query and use binding placeholders instead. This will greatly mitigate SQL Injection attacks. We restart the app by running `npm start` on the root folder of the app.
+3. The key change is to take out the user input, `email` and `password` from the query and use binding placeholders instead. This will greatly mitigate SQL Injection attacks. We restart the app by running the following 2 commands:
+
+```
+npm run build:server
+npm start
+```
 
 4. We must recreate our test user `test@test.com:test123`
 
