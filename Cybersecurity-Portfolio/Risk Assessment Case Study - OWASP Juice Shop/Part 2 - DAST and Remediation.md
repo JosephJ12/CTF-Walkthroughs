@@ -13,7 +13,7 @@ Juice Shop version: 19.2.1
 
 ## 1. Login Authentication Testing
 
-To recap from part 1, these are the risks that we will verify:
+  To recap from part 1, these are the risks that we will verify:
 
 | Risk ID | Risk | STRIDE | Likelihood | Impact | Mitigation |
 |---|---|---|---|---|---|
@@ -41,7 +41,7 @@ Since the scope does not include account registration, we will create a test acc
 
 #### AUTH-01: Brute Force Login
 
-We will test the application against brute force attacks. A successful brute force attack can be looked at from 2 perspectives: the application side and user side. Misconfigurations from the application side include weak password requirements, not enforcing MFA, and no lockout policy whereas oversights from the user include choosing to reuse passwords or an easy to guess password. 
+  We will test the application against brute force attacks. A successful brute force attack can be looked at from 2 perspectives: the application side and user side. Misconfigurations from the application side include weak password requirements, not enforcing MFA, and no lockout policy whereas oversights from the user include choosing to reuse passwords or an easy to guess password. 
 
 Since the user side is not in scope, we will focus on only the application misconfigurations for the purposes of this test.
 
@@ -122,7 +122,7 @@ Conclusion: Risk AUTH-04 is not present within the scope and does not require re
 
 #### AUTH-05: SQL Injection
 
-We will test the login form for risk AUTH-05 SQL Injection. We will go about testing in 2 ways: manual and automated. The manual way of testing will be the tester directly inputting malicious payloads to test for dangerous behavior. For the automated testing, we will use the popular open-source tool, `SQL Map`.
+  We will test the login form for risk AUTH-05 SQL Injection. We will go about testing in 2 ways: manual and automated. The manual way of testing will be the tester directly inputting malicious payloads to test for dangerous behavior. For the automated testing, we will use the popular open-source tool, `SQL Map`.
 
 NOTE: Our valid credentials are: `test@test.com:test123`
 
@@ -180,7 +180,7 @@ Conclusion: Risk AUTH-05 is present and validated via manual and automated testi
 
 ### RISK REMEDIATION
 
-Now, we'll remediate the 2 vulnerabilities we've validated and retest to make sure the vulnerability is fixed. To do this, we'll make direct modifications to the code base on our local machine. There are 2 risks that must be remediated: AUTH-01 and AUTH-05. 
+  Now, we'll remediate the 2 vulnerabilities we've validated and retest to make sure the vulnerability is fixed. To do this, we'll make direct modifications to the code base on our local machine. There are 2 risks that must be remediated: AUTH-01 and AUTH-05. 
 
 Here is an appendix with links and references about the vulnerability and recommended remediations.
 
@@ -198,7 +198,7 @@ For all code editing tasks, we will use Virtual Studio Code, or VS Code: https:/
 
 #### AUTH-05: SQL Injection
 
-We will implement 2 mitigations to the code base. The first is refactoring the SQL query the backend uses to validate credentials to use parameterized queries. The other will be sanitizing user input using a whitelist filter. Let's get started!
+  We will implement 2 mitigations to the code base. The first is refactoring the SQL query the backend uses to validate credentials to use parameterized queries. The other will be sanitizing user input using a whitelist filter. Let's get started!
 
 ##### Parameterized Query Refactoring
 
@@ -274,7 +274,7 @@ Conclusion: Successfully implemented parameterized query to mitigate against SQL
 
 ##### How Do Parameterized Queries Work?
 
-So why do parameterized queries defend against SQL Injection? To answer this, we first need to understand how SQL Injection attacks work. Let's take our query above:
+  So why do parameterized queries defend against SQL Injection? To answer this, we first need to understand how SQL Injection attacks work. Let's take our query above:
 
 `SELECT * FROM Users WHERE email = '$(user_email)' AND password = '$(user_password)' AND deletedAt IS NULL`
 
