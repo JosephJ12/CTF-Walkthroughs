@@ -204,9 +204,9 @@ For all code editing tasks, we will use Virtual Studio Code, or VS Code: https:/
 
 1. To make changes to the local code base, first we'll navigate to the folder where it is stored and open the file `routes/login.ts` using a code editor. For this demo, I'll be using Visual Studio Code.
 
-<img width="1901" height="331" alt="image" src="https://github.com/user-attachments/assets/d8fd0c87-d466-4a5a-8ff9-a17fc346c510" />
+<img width="1806" height="274" alt="image" src="https://github.com/user-attachments/assets/0e39942c-d46d-4a68-a113-b29129e89139" />
 
-2. In the screenshot above, the vulnerable code is on line 55. Let's comment out line 34 and add the following piece of code:
+2. In the screenshot above, the vulnerable code is on line 34. Let's comment out line 34 and add the following piece of code:
 
 ```
 // ORIGINAL SQLI VULNERABLE CODE
@@ -236,7 +236,7 @@ For all code editing tasks, we will use Virtual Studio Code, or VS Code: https:/
 
 It should now look something like this:
 
-<img width="1916" height="503" alt="image" src="https://github.com/user-attachments/assets/600be0ee-a138-4a1f-b886-294052eb04c7" />
+<img width="1823" height="560" alt="image" src="https://github.com/user-attachments/assets/5ea2bbbc-d6ea-4c7d-8382-3b086a6341a5" />
 
 3. The key change is to take out the user input, `email` and `password` from the query and use binding placeholders instead. This will greatly mitigate SQL Injection attacks. We restart the app by running `npm start` on the root folder of the app.
 
