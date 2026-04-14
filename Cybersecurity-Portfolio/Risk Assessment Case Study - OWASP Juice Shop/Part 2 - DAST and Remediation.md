@@ -202,36 +202,36 @@ For all code editing tasks, we will use Virtual Studio Code, or VS Code: https:/
 
 ##### Parameterized Query Refactoring
 
-1. To make changes to the local code base, first we'll navigate to the folder where it is stored and open the file `build/routes/login.js` using a code editor. For this demo, I'll be using Visual Studio Code.
+1. To make changes to the local code base, first we'll navigate to the folder where it is stored and open the file `routes/login.ts` using a code editor. For this demo, I'll be using Visual Studio Code.
 
 <img width="1901" height="331" alt="image" src="https://github.com/user-attachments/assets/d8fd0c87-d466-4a5a-8ff9-a17fc346c510" />
 
-2. In the screenshot above, the vulnerable code is on line 55. Let's comment out line 55 and add the following piece of code:
+2. In the screenshot above, the vulnerable code is on line 55. Let's comment out line 34 and add the following piece of code:
 
 ```
 // ORIGINAL SQLI VULNERABLE CODE
-        //models.sequelize.query(`SELECT * FROM Users WHERE email = '${req.body.email || ''}' AND password = '${security.hash(req.body.password || '')}' AND deletedAt IS NULL`, { model: user_1.UserModel, plain: true }) // vuln-code-snippet vuln-line loginAdminChallenge loginBenderChallenge loginJimChallenge
+    //models.sequelize.query(`SELECT * FROM Users WHERE email = '${req.body.email || ''}' AND password = '${security.hash(req.body.password || '')}' AND deletedAt IS NULL`, { model: UserModel, plain: true }) // vuln-code-snippet vuln-line loginAdminChallenge loginBenderChallenge loginJimChallenge
         
-        // CHANGE TO PARAMETERIZED QUERY
-        const email = req.body.email || '';
-        const passwordHash = security.hash(req.body.password || '');
-        
-        models.sequelize.query(
-            `
-            SELECT * 
-            FROM Users 
-            WHERE email = $email 
-            AND password = $password 
-            AND deletedAt IS NULL
-            `,
-            {
-            bind: {
-                email: email,
-                password: passwordHash,
-            },
-            model: user_1.UserModel,
-            plain: true,
-            }
+    // CHANGE TO PARAMETERIZED QUERY
+    const email = req.body.email || '';
+    const passwordHash = security.hash(req.body.password || '');
+    
+    models.sequelize.query(
+      `
+      SELECT * 
+      FROM Users 
+      WHERE email = $email 
+      AND password = $password 
+      AND deletedAt IS NULL
+      `,
+      {
+        bind: {
+            email: email,
+            password: passwordHash,
+        },
+        model: UserModel,
+        plain: true,
+      })
 ```
 
 It should now look something like this:
