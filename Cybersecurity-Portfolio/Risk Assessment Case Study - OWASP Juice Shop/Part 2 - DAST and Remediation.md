@@ -35,7 +35,7 @@ The following will be our scope for this assessment:
 
 Since the scope does not include account registration, we will create a test account with the following credentials, `test@test.com:test123`
 
-### SECURITY TESTING
+### DYNAMIC SECURITY TESTING
 
 -------------
 
@@ -122,7 +122,7 @@ Conclusion: Risk AUTH-04 is not present within the scope and does not require re
 
 #### AUTH-05: SQL Injection
 
-We will test the login form for risk AUTH-05L SQL Injection. We will go about testing in 2 ways: manual and automated. The manual way of testing will be the tester directly inputting malicious payloads to test for dangerous behavior. For the automated testing, we will use the popular open-source tool, `SQL Map`.
+We will test the login form for risk AUTH-05 SQL Injection. We will go about testing in 2 ways: manual and automated. The manual way of testing will be the tester directly inputting malicious payloads to test for dangerous behavior. For the automated testing, we will use the popular open-source tool, `SQL Map`.
 
 NOTE: Our valid credentials are: `test@test.com:test123`
 
@@ -273,3 +273,23 @@ It should now look something like this:
 Conclusion: Successfully implemented parameterized query to mitigate against SQL Injection attacks in scope.
 
 ##### How Do Parameterized Queries Work?
+
+So why do parameterized queries defend against SQL Injection? To answer this, we first need to understand how SQL Injection attacks work. Let's take our query above:
+
+`SELECT * FROM Users WHERE email = '$(user_email)' AND password = '$(user_password)' AND deletedAt IS NULL`
+
+If we input our payload `test@test.com' --`, then the query will become:
+
+`SELECT * FROM Users WHERE email = 'test@test.com' --' AND password = '$(user_password)' AND deletedAt IS NULL`
+
+The trailing single quote `'` will finish off the email WHERE condition and the `--` will comment out the rest of the query, turning it into:
+
+`SELECT * FROM Users WHERE email = 'test@test.com' --`
+
+Since we created a user with this email, it will automatically get this user without checking the password and log us in.
+
+Now here's where parameterized queries come in. By using placeholders, every user input will not be treated as part of the SQL query but as data plugged in surrounded by double quotes. Therefore, the same payload of `test@test.com' --` will look like this in a parameterized query:
+
+`SELECT * FROM Users WHERE email = '"test@test.com' --"' AND password = '"asd"' AND deletedAt IS NULL` 
+
+Everything in the double quotes will be escaped and will not be treated as part of the SQL query. Therefore, attackers can not modify the SQL query for other purposes.
