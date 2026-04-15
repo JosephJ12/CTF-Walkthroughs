@@ -194,7 +194,7 @@ For all code editing tasks, we will use Virtual Studio Code, or VS Code: https:/
 
 #### AUTH-01: Brute Force Login
 
-  For production applications, we recommend implementing a defense in depth approach to defend against brute force attacks, adding multiple security controls. Controls such as rate limiting, account lockout policy, and enforcing strong passwords upon account creation would add layers of security needed to successfully mitigate against brute force attacks. 
+  For production applications, we recommend implementing a defense in depth approach to defend against brute force attacks, adding multiple security controls. Controls such as rate limiting, suspicious IP blocking, and enforcing strong passwords upon account creation would add layers of security needed to successfully mitigate against brute force attacks. 
 
 For the purposes of this case study, we will focus on implementing one: rate limiting. To test whether our code works on limiting the rate of login requests sent, we'll first test for the baseline rate without the control.
 
@@ -208,7 +208,7 @@ For the purposes of this case study, we will focus on implementing one: rate lim
 
 <img width="594" height="119" alt="image" src="https://github.com/user-attachments/assets/72122846-5a6a-48a0-868f-10c5313be6c0" />
 
-3. Above line 593, we'll add the following code snippet:
+3. Above line 593, we'll add the following code snippet and save the file:
 
 ```
   const loginRateLimiter = rateLimit({
@@ -227,7 +227,16 @@ For the purposes of this case study, we will focus on implementing one: rate lim
 
 <img width="643" height="367" alt="image" src="https://github.com/user-attachments/assets/daf9a52d-e789-4034-bd48-a6c9a5e58675" />
 
-4. 
+The above code will lockout the 
+
+4. Now let's rebuild the app and restart it by running the following commands on another terminal session:
+
+```
+npm run build:server
+npm start
+```
+
+5. Now we'll rerun the brute force script and check the rate.
 
 #### AUTH-05: SQL Injection
 
