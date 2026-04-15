@@ -194,7 +194,7 @@ For all code editing tasks, we will use Virtual Studio Code, or VS Code: https:/
 
 #### AUTH-01: Brute Force Login
 
-  For production applications, we recommend implementing a defense in depth approach to defend against brute force attacks, adding multiple security controls. Controls such as rate limiting, suspicious IP blocking, and enforcing strong passwords upon account creation would add layers of security needed to successfully mitigate against brute force attacks. 
+  For production applications, we recommend implementing a defense in depth approach to defend against brute force attacks, adding multiple security controls. Controls such as rate limiting, MFA, suspicious IP blocking, and enforcing strong passwords upon account creation would add layers of security needed to successfully mitigate against brute force attacks. 
 
 For the purposes of this case study, we will focus on implementing one: rate limiting. To test whether our code works on limiting the rate of login requests sent, we'll first test for the baseline rate without the control.
 
