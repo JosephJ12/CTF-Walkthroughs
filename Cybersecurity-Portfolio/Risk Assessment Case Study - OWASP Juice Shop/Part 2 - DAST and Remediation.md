@@ -194,6 +194,26 @@ For all code editing tasks, we will use Virtual Studio Code, or VS Code: https:/
 
 #### AUTH-01: Brute Force Login
 
+  For production applications, we recommend implementing a defense in depth approach to defend against brute force attacks, adding multiple security controls. Controls such as rate limiting, account lockout policy, and enforcing strong passwords upon account creation would add layers of security needed to successfully mitigate against brute force attacks. 
+
+For the purposes of this case study, we will focus on implementing one: rate limiting. To test whether our code works on limiting the rate of login requests sent, we'll first test for the baseline rate without the control.
+
+1. Open a terminal and run the following command:
+
+`ffuf -w /usr/share/wordlists/seclists/Passwords/Common-Credentials/10k-most-common.txt -X POST -d '{"email":"test@test.com","password":"FUZZ"}' -u http://localhost:3000/rest/user/login -H "Content-Type: application/json" -fc 401`
+
+<img width="1257" height="452" alt="image" src="https://github.com/user-attachments/assets/032f92be-f6ed-4cd4-8717-f12ee167f2a7" />
+
+2. We find the baseline is around 32-34 requests per second. Now let's locate the code that configures the login flow. We'll look at line 594 on the `/server.ts` file in the app root directory.
+
+<img width="594" height="119" alt="image" src="https://github.com/user-attachments/assets/72122846-5a6a-48a0-868f-10c5313be6c0" />
+
+3. Above line 593, we'll add the following code snippet:
+
+```
+
+```
+
 
 
 #### AUTH-05: SQL Injection
