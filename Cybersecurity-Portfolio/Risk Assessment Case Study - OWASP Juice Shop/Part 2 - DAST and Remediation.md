@@ -211,7 +211,18 @@ For the purposes of this case study, we will focus on implementing one: rate lim
 3. Above line 593, we'll add the following code snippet:
 
 ```
-
+  const loginRateLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 10,
+    standardHeaders: true,
+    legacyHeaders: false,
+    skipSuccessfulRequests: true,
+    validate: false,
+    message: {
+      status: 'error',
+      message: 'Too many login attempts. Please try again later.'
+    }
+  })
 ```
 
 
