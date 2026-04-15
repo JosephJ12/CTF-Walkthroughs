@@ -225,7 +225,9 @@ For the purposes of this case study, we will focus on implementing one: rate lim
   })
 ```
 
+<img width="643" height="367" alt="image" src="https://github.com/user-attachments/assets/daf9a52d-e789-4034-bd48-a6c9a5e58675" />
 
+4. 
 
 #### AUTH-05: SQL Injection
 
