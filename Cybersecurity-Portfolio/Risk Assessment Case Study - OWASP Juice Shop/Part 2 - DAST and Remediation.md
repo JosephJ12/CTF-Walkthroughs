@@ -333,3 +333,7 @@ Now here's where parameterized queries come in. By using placeholders, every use
 `SELECT * FROM Users WHERE email = '"test@test.com' --"' AND password = '"asd"' AND deletedAt IS NULL` 
 
 Everything in the double quotes will be escaped and will not be treated as part of the SQL query. Therefore, attackers can not modify the SQL query for other purposes.
+
+## Post Gap Analysis
+
+
