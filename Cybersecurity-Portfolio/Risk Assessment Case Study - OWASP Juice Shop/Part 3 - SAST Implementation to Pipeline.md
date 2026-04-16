@@ -11,7 +11,7 @@ We will do this by implementing the popular open source SAST tool, `Semgrep` and
 | SEARCH-03 | Unauthenticated users can search products | Repudiation | High | Low |  Allow only authenticated users to search or set user tracking cookie. |
 | SEARCH-04 | Expensive or excessive search queries | DoS | High | High | Block suspicious IP and limit search query rates. |
 
-### Scope
+## Scope
 - Search term input submission
 - Backend search processing and input handling
 - Product lookup and result rendering
