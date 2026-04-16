@@ -274,9 +274,18 @@ done
 
 8. We confirm the IP + account rate limiter is working since the application returns the error code `429: Too Many Requests` on the 6th try. Now, we'll test the IP rate limiter. First, we'll open the `test_login.sh` on a text editor and edit the email portion to a different email:
 
-```
+<img width="1140" height="107" alt="image" src="https://github.com/user-attachments/assets/3f2c01d4-a32d-4f26-81c0-ebb41613c83f" />
 
-```
+9. Save the file and rerun the script.
+
+`./test_login.sh`
+
+<img width="1081" height="1220" alt="image" src="https://github.com/user-attachments/assets/8e088590-d47d-4c6a-917b-b71e7483bd29" />
+
+10. This time, we get the 429 error stating that there were too many login attempts from this IP address on the 11th and 12th requests. We validate that our rate limiting is active and working as intended!
+
+We have successfully mitigated risk `AUTH-01: Brute Force Login`.
+
 
 ## AUTH-05: SQL Injection
 
