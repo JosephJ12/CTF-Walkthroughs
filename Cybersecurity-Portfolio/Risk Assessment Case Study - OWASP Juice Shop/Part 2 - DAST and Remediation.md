@@ -189,47 +189,61 @@ For all code editing tasks, we will use Virtual Studio Code, or VS Code: https:/
 
   For production applications, we recommend implementing a defense in depth approach to defend against brute force attacks, adding multiple security controls. Controls such as rate limiting, MFA, suspicious IP blocking, and enforcing strong passwords upon account creation would add layers of security needed to successfully mitigate against brute force attacks. 
 
-For the purposes of this case study, we will focus on implementing one: rate limiting. To test whether our code works on limiting the rate of login requests sent, we'll first test for the baseline rate without the control.
+For the purposes of this case study, we will focus on implementing one: rate limiting. We will set 2 conditions for rate limiting.
+- First, each IP will be allowed 10 failed login attempts every 15 minutes.
+- Second, each IP will be allowed 5 failed login attempts for 1 account every 15 minutes.
 
-1. Open a terminal and run the following command:
+The reason for 2 separate rate limiters is that the first helps mitigate password spray attacks, where a single password is tried for multiple accounts. The second rate limiter helps defend against traditional brute force attacks- multiple password guesses for a single user.
 
-`ffuf -w /usr/share/wordlists/seclists/Passwords/Common-Credentials/10k-most-common.txt -X POST -d '{"email":"test@test.com","password":"FUZZ"}' -u http://localhost:3000/rest/user/login -H "Content-Type: application/json" -fc 401`
+1. Open the `server.ts` file in the app root folder on VS Code. Then, we'll locate the piece of code that configures the login API endpoint on line 594.
 
-<img width="1257" height="452" alt="image" src="https://github.com/user-attachments/assets/032f92be-f6ed-4cd4-8717-f12ee167f2a7" />
-
-2. We find the baseline is around 32-34 requests per second. Now let's locate the code that configures the login flow. We'll look at line 594 on the `/server.ts` file in the app root directory.
-
-<img width="594" height="119" alt="image" src="https://github.com/user-attachments/assets/72122846-5a6a-48a0-868f-10c5313be6c0" />
-
-3. Above line 593, we'll add the following code snippet and save the file:
+2. Next, we'll add this code snippet on line 592:
 
 ```
-  const loginRateLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000,
-    max: 10,
+  // standardize email format for account login attempt tracking
+  function normalizeLoginIdentifier (value: unknown): string {
+    if (typeof value !== 'string') return 'unknown'
+    const normalized = value.trim().toLowerCase()
+    return normalized.length > 0 ? normalized : 'unknown'
+  }
+  
+  // lockout for 15 minutes after 10 failed login attempts from 1 IP
+  const loginIpRateLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 10, // total login attempts per IP in window
     standardHeaders: true,
     legacyHeaders: false,
     skipSuccessfulRequests: true,
-    validate: false,
     message: {
       status: 'error',
-      message: 'Too many login attempts. Please try again later.'
+      message: 'Too many login attempts from this IP address. Please try again later.\n'
+    }
+  })
+  
+  // lockout for 15 minutes after 5 failed login attempts from 1 IP for the same account
+  const loginAccountIpRateLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 5, // attempts per email+IP pair in window
+    standardHeaders: true,
+    legacyHeaders: false,
+    skipSuccessfulRequests: true,
+    keyGenerator: (req) => {
+      const email = normalizeLoginIdentifier(req.body?.email)
+      const ip = req.ip || 'unknown'
+      return `${email}:${ip}`
+    },
+    message: {
+      status: 'error',
+      message: 'Too many login attempts for this account. Please try again later.\n'
     }
   })
 ```
 
-<img width="643" height="367" alt="image" src="https://github.com/user-attachments/assets/daf9a52d-e789-4034-bd48-a6c9a5e58675" />
+3. We'll also modify line 594 to the following:
 
-The above code will lockout the 
+`app.post('/rest/user/login', loginIpRateLimiter, loginAccountIpRateLimiter, login())`
 
-4. Now let's rebuild the app and restart it by running the following commands on another terminal session:
 
-```
-npm run build:server
-npm start
-```
-
-5. Now we'll rerun the brute force script and check the rate.
 
 ## AUTH-05: SQL Injection
 
