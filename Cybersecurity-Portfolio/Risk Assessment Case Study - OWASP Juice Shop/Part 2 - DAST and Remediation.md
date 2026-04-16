@@ -1,8 +1,8 @@
 # Dynamic Application Security Testing (DAST) + Remediation
 
-## INTRODUCTION
+# INTRODUCTION
 
-Now that we have outlined and assessed the risks for the login authentication flow and product search feature, we will verify the identified risks via Dynamic Application Security Testing (DAST). After confirming the risk is present through actual exploitation, we will modify the code base to remediate the vulnerability and confirm the fix by retesting the feature.
+Now that we have outlined and assessed the risks for the login authentication flow, we will verify the identified risks via Dynamic Application Security Testing (DAST). After confirming the risk is present through actual exploitation, we will modify the code base to remediate the vulnerability and confirm the fix by retesting the feature. We will do DAST only for the authentication flow, and save the product search feature for the SAST part of the project.
 
 ```
 Test Date: 4/9/2026
@@ -11,7 +11,7 @@ Node.js version: 22.22.1
 Juice Shop version: 19.2.1
 ```
 
-## 1. Login Authentication Testing
+# 1. Login Authentication Testing
 
   To recap from part 1, these are the risks that we will verify:
 
@@ -25,7 +25,7 @@ Juice Shop version: 19.2.1
 
 Of these, we will test and remediate 3: AUTH-01, AUTH-04, and AUTH-05.
 
-### SCOPE 
+## SCOPE 
 
 The following will be our scope for this assessment:
 - Login submission
@@ -35,11 +35,11 @@ The following will be our scope for this assessment:
 
 Since the scope does not include account registration, we will create a test account with the following credentials, `test@test.com:test123`
 
-### DYNAMIC SECURITY TESTING
+# DYNAMIC SECURITY TESTING
 
 -------------
 
-#### AUTH-01: Brute Force Login
+## AUTH-01: Brute Force Login
 
   We will test the application against brute force attacks. A successful brute force attack can be looked at from 2 perspectives: the application side and user side. Misconfigurations from the application side include weak password requirements, not enforcing MFA, and no lockout policy whereas oversights from the user include choosing to reuse passwords or an easy to guess password. 
 
@@ -77,7 +77,7 @@ Conclusion: We confirm that the application is vulnerable to brute force attacks
 
 -----------
 
-#### AUTH-04: Verbose Login Error Responses
+## AUTH-04: Verbose Login Error Responses
 
 NOTE: Our valid credentials are: `test@test.com:test123`
 
@@ -120,7 +120,7 @@ Conclusion: Risk AUTH-04 is not present within the scope and does not require re
 
 -----------
 
-#### AUTH-05: SQL Injection
+## AUTH-05: SQL Injection
 
   We will test the login form for risk AUTH-05 SQL Injection. We will go about testing in 2 ways: manual and automated. The manual way of testing will be the tester directly inputting malicious payloads to test for dangerous behavior. For the automated testing, we will use the popular open-source tool, `SQL Map`.
 
@@ -178,7 +178,7 @@ Conclusion: Risk AUTH-05 is present and validated via manual and automated testi
 
 -------------
 
-### RISK REMEDIATION
+# RISK REMEDIATION
 
   Now, we'll remediate the 2 vulnerabilities we've validated and retest to make sure the vulnerability is fixed. To do this, we'll make direct modifications to the code base on our local machine. There are 2 risks that must be remediated: AUTH-01 and AUTH-05. 
 
@@ -192,7 +192,7 @@ Risk Appendix
 
 For all code editing tasks, we will use Virtual Studio Code, or VS Code: https://code.visualstudio.com/download
 
-#### AUTH-01: Brute Force Login
+## AUTH-01: Brute Force Login
 
   For production applications, we recommend implementing a defense in depth approach to defend against brute force attacks, adding multiple security controls. Controls such as rate limiting, MFA, suspicious IP blocking, and enforcing strong passwords upon account creation would add layers of security needed to successfully mitigate against brute force attacks. 
 
@@ -238,11 +238,11 @@ npm start
 
 5. Now we'll rerun the brute force script and check the rate.
 
-#### AUTH-05: SQL Injection
+## AUTH-05: SQL Injection
 
   We will implement 2 mitigations to the code base. The first is refactoring the SQL query the backend uses to validate credentials to use parameterized queries. The other will be sanitizing user input using a whitelist filter. Let's get started!
 
-##### Parameterized Query Refactoring
+## Parameterized Query Refactoring
 
 1. To make changes to the local code base, first we'll navigate to the folder where it is stored and open the file `routes/login.ts` using a code editor. For this demo, I'll be using Visual Studio Code.
 
@@ -319,7 +319,7 @@ npm start
 
 Conclusion: Successfully implemented parameterized query to mitigate against SQL Injection attacks in scope.
 
-##### How Do Parameterized Queries Work?
+## How Do Parameterized Queries Work?
 
   So why do parameterized queries defend against SQL Injection? To answer this, we first need to understand how SQL Injection attacks work. Let's take our query above:
 
