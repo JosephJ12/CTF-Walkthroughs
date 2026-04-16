@@ -1,7 +1,5 @@
 # Dynamic Application Security Testing (DAST) + Remediation
 
-# INTRODUCTION
-
 Now that we have outlined and assessed the risks for the login authentication flow, we will verify the identified risks via Dynamic Application Security Testing (DAST). After confirming the risk is present through actual exploitation, we will modify the code base to remediate the vulnerability and confirm the fix by retesting the feature. We will do DAST only for the authentication flow, and save the product search feature for the SAST part of the project.
 
 ```
