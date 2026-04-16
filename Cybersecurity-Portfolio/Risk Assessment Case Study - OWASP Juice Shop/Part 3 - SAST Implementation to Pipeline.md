@@ -4,6 +4,11 @@ So far, we've done a complete threat modeling and risk assessment for the login 
 
 We will do this by implementing the popular open source SAST tool, `Semgrep` and incorporate it into the CI/CD workflow. This will automate secure code reviews and encourage secure coding practices. Before we do that, let's refresh on our testing scope and risks assessed.
 
+## Scope
+- Search term input submission
+- Backend search processing and input handling
+- Product lookup and result rendering
+
 ## Risk Register
 
 | Risk ID | Risk | STRIDE | Likelihood | Impact | Mitigation |
