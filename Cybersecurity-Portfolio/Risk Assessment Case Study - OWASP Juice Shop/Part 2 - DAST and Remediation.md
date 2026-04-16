@@ -37,8 +37,6 @@ Since the scope does not include account registration, we will create a test acc
 
 # DYNAMIC SECURITY TESTING
 
--------------
-
 ## AUTH-01: Brute Force Login
 
   We will test the application against brute force attacks. A successful brute force attack can be looked at from 2 perspectives: the application side and user side. Misconfigurations from the application side include weak password requirements, not enforcing MFA, and no lockout policy whereas oversights from the user include choosing to reuse passwords or an easy to guess password. 
@@ -75,7 +73,6 @@ Tools Required:
 
 Conclusion: We confirm that the application is vulnerable to brute force attacks and requires remediation.
 
------------
 
 ## AUTH-04: Verbose Login Error Responses
 
@@ -118,7 +115,6 @@ These are the steps we will take to test for AUTH-04:
 
 Conclusion: Risk AUTH-04 is not present within the scope and does not require remediation.
 
------------
 
 ## AUTH-05: SQL Injection
 
@@ -176,7 +172,6 @@ We're able to get a list of all the tables and confirm the login form is vulnera
 
 Conclusion: Risk AUTH-05 is present and validated via manual and automated testing.
 
--------------
 
 # RISK REMEDIATION
 
