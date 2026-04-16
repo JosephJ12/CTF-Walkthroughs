@@ -334,6 +334,12 @@ Now here's where parameterized queries come in. By using placeholders, every use
 
 Everything in the double quotes will be escaped and will not be treated as part of the SQL query. Therefore, attackers can not modify the SQL query for other purposes.
 
-## Post Gap Analysis
+## Post DAST Gap Analysis
 
+Let's update the gap analysis chart after DAST and remediation. 
 
+| Risk ID | Risk | Expected Control | Status | Gap | Impact | Recommended Remediation |
+|---|---|---|---|---|---|---|
+| AUTH-01 | Brute force login | Brute force login protection | Patched and verified | Rate limiting on login attempts does not seem to be present within the scope. | Increases the likelihood of user impersonation, which may lead to complete account compromise and sensitive information disclosure. | Lockout policy on failed login attempts and enforcing strong password policy upon account creation. | 
+| AUTH-04 | Verbose login error responses | Generic error messages upon failed login | Validated in scope | Generic error messages are given for all failed login cases to prevent attackers from enumerating further information from them. | Increases the likelihood of user enumeration, which may be later used for further attacks. | Confirmed implementation of generic error messages for all login errors in scope. | 
+| AUTH-05 | SQL Injection | Backend uses parameterized queries to query database | Patched and retested. | The `login()` function now utilizes parameterized queries when verifying login credentials in scope. | SQL Injection may lead to the disclosure of sensitive information or in severe cases, bypassing authentication or remote code execution. | Parameterized queries are implemented when querying the database and have been tested against SQL Injection attacks. |
