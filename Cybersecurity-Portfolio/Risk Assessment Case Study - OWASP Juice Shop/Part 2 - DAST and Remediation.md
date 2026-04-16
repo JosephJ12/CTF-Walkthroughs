@@ -272,7 +272,11 @@ done
 
 `./test_login.sh`
 
-8. 
+8. We confirm the IP + account rate limiter is working since the application returns the error code `429: Too Many Requests` on the 6th try. Now, we'll test the IP rate limiter. First, we'll open the `test_login.sh` on a text editor and edit the email portion to a different email:
+
+```
+
+```
 
 ## AUTH-05: SQL Injection
 
