@@ -243,7 +243,22 @@ The reason for 2 separate rate limiters is that the first helps mitigate passwor
 
 `app.post('/rest/user/login', loginIpRateLimiter, loginAccountIpRateLimiter, login())`
 
+The `server.ts` file should now look like the screenshot below.
 
+<img width="852" height="841" alt="image" src="https://github.com/user-attachments/assets/9e2a2eb9-d65c-44ae-9900-24c77096a07e" />
+
+4. Save the file and run these 2 commands in the app root directory.
+
+```
+npm run build:server
+npm start
+```
+
+5. While the app is building, we'll create a custom test Bash script to verify the control is in place and working. Create a new file and add this bash script:
+
+```
+
+```
 
 ## AUTH-05: SQL Injection
 
