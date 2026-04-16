@@ -9,9 +9,9 @@ Node.js version: 22.22.1
 Juice Shop version: 19.2.1
 ```
 
-# 1. Login Authentication Testing
+# Login Authentication Testing
 
-  To recap from part 1, these are the risks that we will verify:
+  To recap from part 1, these are the risks that we have identified:
 
 | Risk ID | Risk | STRIDE | Likelihood | Impact | Mitigation |
 |---|---|---|---|---|---|
