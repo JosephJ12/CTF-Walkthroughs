@@ -257,8 +257,22 @@ npm start
 5. While the app is building, we'll create a custom test Bash script to verify the control is in place and working. Create a new file and add this bash script:
 
 ```
+#!/bin/bash
 
+for i in {1..6}; do
+  curl -i -X POST http://localhost:3000/rest/user/login -H "Content-Type: application/json" -d '{"email":"test@test.com,","password":"asd"}'
+done
 ```
+
+6. Save the file as `test_login.sh` and give the file execute permissions by running this command:
+
+`chmod u+x test_login.sh`
+
+7. Run the script:
+
+`./test_login.sh`
+
+8. 
 
 ## AUTH-05: SQL Injection
 
